@@ -1,0 +1,16 @@
+mixin video-block(options = {})
+  - const items = options.video;
+  - const tag = options.tag || "h2";
+  - const title = options.title;
+  - const isTitleHidden = options.isTitleHidden;
+    .video-block
+      .container
+        if (title)
+          if (isTitleHidden)
+            #{tag}.visually-hidden&attributes(attributes)!= title
+          else
+            .page-title
+                #{tag}&attributes(attributes)!= title
+        +grid().grid--mobile-one-column
+          each item in items
+            +video-card(item)

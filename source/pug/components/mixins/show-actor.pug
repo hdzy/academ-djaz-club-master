@@ -1,0 +1,15 @@
+mixin show-actor(options={})
+  - const name = options.name || "";
+  - const link = options.link || false;
+  - const description = options.description || "";
+  - const photo = options.photo || "";
+
+  .show-actor&attributes(attributes)
+    .show-actor__img
+      - const {path, image, format, width, height, altText} = photo;
+        +picture(path, image, format, width, height, altText)
+    .show-actor__content
+      p.title.title--h3.title--no-text-transform.show-actor__title!= name
+      p.show-actor__description!= description
+      p.show-actor__links
+        +btn({text: "Подробнее", href: link}).show-actor__btn(aria-label="Ссылка на страницу исполнителя.")

@@ -1,0 +1,285 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+  padding: 15px 20px;
+
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 110%;
+  word-break: break-word;
+
+  color: $color-dark-magenta;
+  font-family: $ff-montserrat;
+
+  background-color: $color-default-white;
+
+  border: 1px solid $color-dark-magenta;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition: opacity $trans-default, color $trans-default, background-color $trans-default, border $trans-default;
+
+  @include vp-767 {
+    padding: 6px 7px;
+
+    font-size: 8px;
+  }
+
+  @include hover-focus {
+    opacity: 0.8;
+  }
+
+  &:active {
+    color: $color-palatinate-purple;
+    border: 1px solid $color-palatinate-purple;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+
+    pointer-events: none;
+  }
+
+  &--magenta {
+    border: none;
+    color: $color-default-white;
+    background-color: $color-dark-magenta;
+
+    &:active {
+      border: none;
+      color: $color-default-white;
+      background-color: $color-palatinate-purple;
+    }
+  }
+
+  &--magenta-middle {
+    padding: 15px 21px;
+
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 110%;
+
+    background-color: $color-dark-magenta;
+    color: $color-default-white;
+
+    border: none;
+
+    &:active {
+      color: $color-default-white;
+      background-color: $color-palatinate-purple;
+
+      border: none;
+    }
+  }
+
+  &--slider-before,
+  &--slider-next {
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      transform: translateZ(0);
+    }
+
+    @include focus {
+      background-color: $color-dark-magenta;
+      color: $color-default-white;
+      border: none;
+      outline: none;
+    }
+
+    &:active {
+      background-color: $color-dark-magenta;
+      color: $color-default-white;
+      border: none;
+    }
+  }
+
+  &.btn--slider-before:disabled,
+  &.btn--slider-next:disabled {
+    background-color: $color-dark-magenta;
+    opacity: 0.5;
+    cursor: none;
+    pointer-events: none;
+    color: $color-default-white;
+  }
+
+  &--social {
+    justify-content: flex-start;
+    text-align: left;
+
+    padding: 17px 19px 17px 27px;
+
+    background-color: $color-default-white;
+    color: $color-night-rider;
+
+    border: 1px solid $color-pink-swan;
+
+    .icon-wrapper {
+      min-width: 26px;
+      min-height: 26px;
+      max-width: 26px;
+      max-height: 26px;
+
+      margin-right: 16px;
+
+      color: $color-dark-magenta;
+      transition: color $trans-default;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .text {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 130%;
+
+      @include vp-767 {
+        font-size: 16px;
+      }
+    }
+
+    &:active {
+      color: $color-palatinate-purple;
+      border: 1px solid $color-palatinate-purple;
+
+      .icon-wrapper {
+        color: $color-palatinate-purple;
+      }
+    }
+  }
+
+  &--white-middle {
+    padding: 30px 36px;
+    text-align: start;
+
+    background-color: $color-default-white;
+    color: $color-default-black;
+
+    border: 1px solid $color-pink-swan;
+
+    @include vp-767 {
+      padding: 17px 19px;
+    }
+
+    @include vp-374 {
+      padding: 15px 17px;
+    }
+
+    .icon-wrapper {
+      min-width: 35px;
+      min-height: 35px;
+      max-width: 35px;
+      max-height: 35px;
+
+      margin-right: 16px;
+
+      color: $color-dark-magenta;
+      transition: color $trans-default;
+
+      @include vp-767 {
+        min-width: 25px;
+        min-height: 25px;
+        max-width: 25px;
+        max-height: 25px;
+      }
+
+      @include vp-374 {
+        margin-right: 10px;
+      }
+
+      svg {
+        width: 100%;
+        height: 100%;
+
+        transform: translateZ(0);
+      }
+    }
+
+    .text {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 110%;
+      font-style: italic;
+
+      @include vp-767 {
+        font-size: 16px;
+      }
+
+      @include vp-374 {
+        font-size: 13px;
+      }
+    }
+
+    &:active {
+      color: $color-palatinate-purple;
+      border: 1px solid $color-palatinate-purple;
+
+      .icon-wrapper {
+        color: $color-palatinate-purple;
+      }
+    }
+  }
+
+  &--prev {
+    padding: 0;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+
+    color: $color-default-white;
+    background-color: transparent;
+
+    border: none;
+
+    &:active {
+      border: none;
+      color: $color-default-white;
+    }
+
+    .icon-wrapper {
+      display: flex;
+      align-items: center;
+
+      margin-right: 10px;
+    }
+  }
+
+  &--search {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    color: $color-zambezi;
+    background-color: $color-transparent;
+    border: 0;
+
+    @include hover-focus {
+      color: $color-dark-magenta;
+      opacity: 1;
+    }
+
+    &:active {
+      color: $color-dark-magenta;
+      border: 0;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      margin: auto;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+@mixin brand-card-behavior() {
+  &.behavior {
+    @include hover-focus {
+      opacity: 0.8;
+      color: $color-dark-magenta;
+      outline: none;
+    }
+
+    &:focus-visible {
+      color: $color-dark-magenta;
+      box-shadow: 0 0 0 2px $color-dark-magenta;
+      outline: none;
+    }
+
+    &:active {
+      box-shadow: 0 0 0 2px $color-palatinate-purple;
+      outline: none;
+    }
+  }
+}
+
+.brand-card {
+  height: 90px;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: inherit;
+  box-shadow: 0 0 0 1px $color-pink-swan;
+  transition: opacity $trans-default, box-shadow $trans-default;
+
+  @include brand-card-behavior;
+
+  picture {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    max-height: 100%;
+    object-fit: contain;
+    user-select: none;
+  }
+
+  @include vp-1023 {
+    height: 76px;
+  }
+
+  @include vp-767 {
+    height: 58px;
+    padding: 16px 20px;
+  }
+}

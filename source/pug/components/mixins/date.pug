@@ -1,0 +1,5 @@
+mixin date(options = {})
+  .date&attributes(attributes)
+    .date__icon-wrapper
+      +icon("icon-calendar", 35, 35)(viewBox="0 0 35 35")
+    time.date__time(datetime = options.datetime)!= options.text

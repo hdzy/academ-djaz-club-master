@@ -1,0 +1,72 @@
+.info-card {
+  padding: 20px 28px 26px;
+
+  border: 1px solid $color-pink-swan;
+
+  @include vp-1023 {
+    padding: 25px;
+
+    font-size: 16px;
+  }
+
+  @include vp-767 {
+    padding: 16px 18px;
+
+    font-size: 14px;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    transition: opacity $trans-default, box-shadow $trans-default;
+
+    &[href^="tel:"] {
+      white-space: nowrap;
+    }
+
+    @include hover-focus {
+      opacity: 0.8;
+      box-shadow: 0 1px 0 0 currentColor;
+    }
+
+    &:active {
+      opacity: 0.8;
+      box-shadow: 0 1px 0 0 currentColor;
+    }
+  }
+
+  address {
+    font-style: normal;
+  }
+
+  &__title {
+    @include vp-1023 {
+      font-size: 20px;
+    }
+
+    @include vp-767 {
+      font-size: 18px;
+      line-height: 110%;
+    }
+  }
+
+  // здесь использую класс и вложенность, чтобы повысить специфичность селектора
+  .info-card__title {
+    margin-bottom: 10px;
+
+    @include vp-767 {
+      margin-bottom: 9px;
+    }
+  }
+
+  &__heading-title {
+    margin-bottom: 10px;
+
+    @include vp-767 {
+      font-size: 24px;
+    }
+  }
+}

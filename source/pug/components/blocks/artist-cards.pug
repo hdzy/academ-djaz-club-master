@@ -1,0 +1,36 @@
+mixin artist-cards(cards = [])
+  -
+    const pagination = [
+      {
+        link: {href: "#"},
+        icon: {name: "icon-arrow-left"},
+        label: "Предыдущая страница",
+        isPrev: true,
+        isDisabled: true
+      },
+      {
+        link: {text: "1", href: "#"},
+        label: "Страница 1",
+        isCurrent: true
+      },
+      {
+        link: {text: "2", href: "#"},
+        label: "Страница 2"
+      },
+      {
+        link: {href: "#"},
+        icon: {name: "icon-arrow-right"},
+        label: "Следующая страница"
+      }
+    ]
+
+  .artist-cards&attributes(attributes)
+    .container
+      .page-title
+        h1.title Артисты
+        p Приобрести билеты можно как на&nbsp;нашем сайте в&nbsp;разделе #[+link({href: "playbill.html", text: "Афиша"})], так и&nbsp;у&nbsp;партнеров клуба
+      +grid()
+        each card in cards
+          +show-actor(card)
+      .artist-cards__pagination
+        +pagination(pagination)

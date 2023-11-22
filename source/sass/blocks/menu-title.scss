@@ -1,0 +1,56 @@
+.menu-title {
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+
+  @include vp-1023 {
+    width: fit-content;
+  }
+
+  .title {
+    max-width: 89%;
+    width: 100%;
+
+    line-height: 110%;
+    padding: 0;
+
+    &:last-child {
+      max-width: 100%;
+    }
+
+    @include vp-1023 {
+      font-size: 20px;
+    }
+
+    @include vp-767 {
+      font-size: 18px;
+      line-height: 18px;
+    }
+  }
+
+  &__description {
+    min-width: fit-content;
+
+    font-size: 24px;
+    line-height: 110%;
+    font-style: italic;
+    font-weight: 600;
+    color: $color-navy-blue;
+
+    padding-left: 7px;
+    margin: 0;
+
+    @include vp-1023 {
+      font-size: 18px;
+    }
+
+    @include vp-767 {
+      font-size: 14px;
+      line-height: 15px;
+
+      padding-left: 4px;
+    }
+  }
+}

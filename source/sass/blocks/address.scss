@@ -1,0 +1,23 @@
+.address {
+  .page-title {
+    &:not(:last-child) {
+      @include vp-767 {
+        margin-bottom: 6px;
+      }
+    }
+  }
+
+  .banner {
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+
+  .banner-wrapper {
+    margin-top: 63px;
+
+    @include vp-767 {
+      margin-top: 26px;
+    }
+  }
+}

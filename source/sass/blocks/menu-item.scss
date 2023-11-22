@@ -1,0 +1,96 @@
+.menu-item {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  &__wrapper {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      margin: 0 0 3px;
+
+      @include vp-1023 {
+        margin: 0 0 4px;
+      }
+    }
+  }
+
+  .title {
+    padding-right: 25px;
+    margin: 0;
+
+    @include vp-1023 {
+      font-size: 18px;
+      padding-right: 18px;
+    }
+
+    @include vp-767 {
+      font-size: 14px;
+      padding-right: 12px;
+    }
+  }
+
+  &__price {
+    min-width: 123px;
+    max-width: 32%;
+
+    flex-shrink: 0;
+
+    margin-left: 25px;
+
+    @include vp-1023 {
+      min-width: 90px;
+
+      margin-left: 18px;
+    }
+
+    @include vp-767 {
+      min-width: 68px;
+
+      margin-left: 12px;
+    }
+  }
+
+  &__description {
+    width: 84%;
+
+    font-size: 16px;
+    line-height: 150%;
+    font-style: italic;
+
+    margin: 0;
+
+    @include vp-1023 {
+      font-size: 14px;
+    }
+
+    @include vp-767 {
+      width: 78%;
+
+      font-size: 12px;
+      line-height: 140%;
+    }
+
+    &:not(:last-child) {
+      margin: 0 0 3px;
+    }
+
+    &--pink {
+      font-size: 14px;
+      font-weight: 600;
+      color: $color-dark-magenta;
+
+      @include vp-1023 {
+        font-size: 12px;
+      }
+
+      @include vp-767 {
+        font-size: 10px;
+      }
+    }
+  }
+}

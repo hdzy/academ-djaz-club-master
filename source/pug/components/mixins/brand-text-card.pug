@@ -1,0 +1,20 @@
+mixin brand-text-card(options = {})
+  - const text = options.text;
+  - const path = options.path;
+  - const image = options.image;
+  - const format = options.format;
+  - const width = options.width;
+  - const height = options.height;
+  - const altText = options.altText;
+  - const link = options.link
+
+  if (link)
+    a.brand-text-card.behavior(href=link, target="_blank", rel="nofollow noopener")
+      p.title.title--h3.title--no-text-transform!= text
+      .brand-text-card__picture
+        +picture(path, image, format, width, height, altText)
+  else
+    .brand-text-card
+      p.title.title--h3.title--no-text-transform!= text
+      .brand-text-card__picture
+        +picture(path, image, format, width, height, altText)

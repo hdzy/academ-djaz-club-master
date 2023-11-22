@@ -1,0 +1,8 @@
+.contacts-socials {
+  .grid {
+    @include vp-767 {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  }
+}

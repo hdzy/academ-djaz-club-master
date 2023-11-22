@@ -1,0 +1,85 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Образец страницы артиста - Академ Джаз Клуб"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "artist.html"
+  - const breadcrumbs = [{text: "Главная", href: "index.html"}, {text: "Артисты", href: "artists.html"}, {text: "Alex Abra", href: "artist.html"}];
+  -
+    const cards = [
+      {
+        cardTitle: "Трибьют Фрэнку Синатре (вокал, джаз)",
+        description: "Хиты великого Синатры в&nbsp;безупречном исполнении.",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-1"
+      },
+      {
+        cardTitle: "Даниил Крамер и&nbsp;братья Бриль (джаз)",
+        description: "Джаз-стандарты на&nbsp;большой высоте!",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-2"
+      },
+      {
+        cardTitle: "Константин Никольский (вокал, гитара, рок)",
+        description: "&laquo;Мой друг&nbsp;- художник и&nbsp;поэт&raquo; и&nbsp;другие любимые песни!",
+        dateText: "24 мар, пт 20:30",
+        dateTime: "2023-03-24 20:30",
+        image: "music-performer-3"
+      }
+    ]
+  -
+    const dates = [
+      {
+        text: "30 мар, чт 20:30",
+        datetime: "2023-03-30 20:30",
+        href: "#",
+      },
+      {
+        text: "20 апр, чт 20:30",
+        datetime: "2023-04-23 20:30",
+        href: "#",
+      },
+      {
+        text: "4 мая, чт 20:30",
+        datetime: "2023-05-04 20:30",
+        href: "#",
+      },
+        {
+        text: "11 мая, чт 20:30",
+        datetime: "2023-05-11 20:30",
+        href: "#",
+      },
+    ]
+  -
+    const sources = [
+      {source: "ZpHODUEgrUc"},
+      {source: "LUs2xG-XoMs"},
+    ]
+
+
+block main
+  main
+    +page-content()
+      +breadcrumbs(breadcrumbs)
+      +page-section().page-section--padding-bottom-null
+        +artist-information()
+      +page-section().page-section--padding-bottom-null
+        +dates-block({title: 'Ближайшие концерты', dates: dates})
+      +page-section().page-section--padding-bottom-null
+        +artist-description()
+      +page-section()
+        +video-block({video: sources, title: "Видео", isTitleHidden: true})
+      +page-section().page-section--bg-gray
+        +show-cards-section({
+          text: 'Скоро на сцене'
+        }, cards)
+
+block modals
+  +modal("modal--search")(data-modal="search")
+    +modal-search()

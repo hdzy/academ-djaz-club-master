@@ -1,0 +1,9 @@
+mixin map(options={})
+  - const zoom = options.zoom || "16";
+  - const center = options.center || "";
+  - const pin = options.pin.coordinates || "";
+  - const balloonHeader = options.pin.header || "";
+  - const balloonBody = options.pin.body || "";
+  - const balloonFooter = options.pin.footer || "";
+
+  .map(data-map, data-zoom=zoom, data-center=center, data-pin=pin, data-balloon-header=balloonHeader, data-balloon-body=balloonBody, data-balloon-footer=balloonFooter)&attributes(attributes)

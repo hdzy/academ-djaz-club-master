@@ -1,0 +1,10 @@
+mixin address(title, hasBanner)
+  .address
+    .container
+      .page-title.page-title--no-margin-bottom
+        h2.title!= title
+        p Нас легко найти, до&nbsp;нас просто добраться! Наш адрес: #[a(href="#", class="link") Проспект Мира 26/1 (вход в&nbsp;ресторан "Огород")]
+      if (hasBanner)
+        .banner-wrapper
+          +banner({name: "icon-star", width: 46, height: 46})
+            p Места за&nbsp;столиками бронируйте заранее по&nbsp;телефону #[a(href="tel:+74955324723", class="link") +7 (495) 532-47-23], WhatsApp/Viber #[a(href="tel:+79262589920", class="link") +7 (926) 258-99-20]

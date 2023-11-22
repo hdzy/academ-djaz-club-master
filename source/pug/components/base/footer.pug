@@ -1,0 +1,49 @@
+mixin footer(footerMods)
+  footer.footer(class=footerMods)
+    .container
+      .footer__legal
+        +logo({name: "logo", width: "161", height: "72", isFooter: true}).logo--white
+        p.footer__copyright &copy;&nbsp;Перепубликация материалов запрещается. Права на&nbsp;авторство юридически защищены
+        p.footer__copyright 2015 — 2023 AcademJazzClub.ru
+      .footer__info
+        .footer__info-card
+          p.footer__title Адрес
+          address
+            p.footer__text г. Москва, проспект Мира, 26/1
+            +link({text: "Посмотреть на карте", href: "#"}).footer__link.footer__link--no-opacity(aria-label="Открыть карту.")
+        .footer__info-card
+          p.footer__title Режим работы
+          p.footer__text Ежедневно
+          p.footer__text 18:00 - 23:00
+        .footer__info-card
+          p.footer__title Телефон
+          +link({text: "+7 (495) 532-47-23", href: "tel:+74955324723"}).footer__link(aria-label="Позвонить.")
+
+        .footer__info-card
+          p.footer__title Наши аккаунты
+          +socials([
+                {
+                  link: {href: "#"},
+                  icon: {name: "icon-vk"},
+                  label: "ВКонтакте.",
+                },
+                {
+                  link: {href: "#"},
+                  icon: {name: "icon-telegram"},
+                  label: "Телеграм.",
+                },
+                {
+                  link: {href: "#"},
+                  icon: {name: "icon-dzen"},
+                  label: "Дзен.",
+                },
+              ])
+      .footer__subscribe
+        .footer__info-card
+          p.footer__title Подписаться на анонсы
+          +form([
+              {input: {type: "email", placeholder: "Введите ваш email"}},
+              {checkbox: {label: "Я даю согласие на обработку моих персональных данных"}}
+            ])
+        +link({text: "Пользовательское соглашение", href: "#"}).footer__link(aria-label="Перейти на страницу пользовательского соглашения.")
+        +link({text: "Политика конфиденциальности", href: "#"}).footer__link(aria-label="Перейти на страницу политики конфиденциальности.")

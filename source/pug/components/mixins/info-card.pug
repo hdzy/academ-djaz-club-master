@@ -1,0 +1,6 @@
+mixin info-card(title, headingTitle)
+  .info-card&attributes(attributes)
+    if (headingTitle)
+      h2.title.title--h3.info-card__heading-title!= headingTitle
+    p.title.title--h3.title--no-text-transform.title--pink.info-card__title!= title
+    block

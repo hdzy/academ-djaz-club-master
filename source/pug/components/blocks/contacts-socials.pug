@@ -1,0 +1,13 @@
+mixin contacts-socials(socials)
+  .contacts-socials&attributes(attributes)
+    .container
+      .page-title.page-title--closer
+        h2.title Мы в&nbsp;соцсетях
+        p
+          | Дорогие друзья! Приглашаем вас подписаться на&nbsp;наши страницы в&nbsp;Яндекс Дзен, Телеграм и&nbsp;ВКонтакте.
+          | Анонсы концертов, интересные факты, атмосфера с&nbsp;концертов&nbsp;&ndash; всё это вы&nbsp;сможете найти в&nbsp;нашем Telegram-канале
+          | и&nbsp;сообществе VK. Присоединяйтесь!
+      +grid()
+        each item in socials
+          - const {link, icon, text} = item
+            +btn-with-icon({href: link, text, isExternal: true, iconId: icon, widthIcon: 26, heightIcon: 26}).btn--social

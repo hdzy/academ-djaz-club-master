@@ -1,0 +1,15 @@
+mixin menu-item(data = {})
+  - const title = data.title;
+  - const price = data.price;
+  - const description = data.description || false;
+  - const descriptionPink = data.descriptionPink || false;
+
+  .menu-item&attributes(attributes)
+    .menu-item__wrapper
+      h3.title.title--h3.title--no-text-transform!= title
+      .menu-item__price
+        +price(price).price--bold
+    if (description)
+      p.menu-item__description!= description
+    if (descriptionPink)
+      p.menu-item__description.menu-item__description--pink!= descriptionPink

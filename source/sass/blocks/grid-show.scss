@@ -1,0 +1,64 @@
+.grid-show {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, auto);
+  grid-auto-flow: row;
+
+  border: 1px solid $color-pink-swan;
+
+  @include vp-1279 {
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    justify-content: center;
+    align-content: center;
+
+    padding: 0;
+
+    border: none;
+
+    .show-info {
+      outline: 1px solid $color-pink-swan;
+    }
+  }
+
+  .show-info:not(:nth-child(4n)):not(:last-child)::before {
+    position: absolute;
+    top: 30%;
+    right: 0;
+    content: "";
+
+    width: 1px;
+    height: 40%;
+
+    background-color: $color-pink-swan;
+
+    @include vp-1279 {
+      display: none;
+    }
+  }
+
+  &--dates {
+    gap: 40px;
+    justify-content: start;
+    grid-template-columns: repeat(4, 1fr);
+
+    padding: 0;
+    border: none;
+
+    @include vp-1023 {
+      justify-content: center;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+
+      padding: 0;
+    }
+
+    .btn {
+      @include vp-1023 {
+        border: none;
+        box-shadow: 0 0 0 1px $color-pink-swan;
+      }
+    }
+  }
+}

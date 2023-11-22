@@ -1,0 +1,8 @@
+mixin search-form(data = {})
+  - const {inputId, inputName, inputValue, inputPlaceholder} = data
+
+  .search-form(data-search-form, data-form-validate, data-callback="search")&attributes(attributes)
+    form(method="get", action="https://echo.htmlacademy.ru", role="search", aria-label="Найти на сайте", novalidate)
+      +custom-input({inputType: "search", inputId, inputName, inputValue, inputPlaceholder, inputRequired: true})(data-search-form="input", data-validate-type="text", data-required)
+      button.search-form__button(type="submit", aria-label="Отправить запрос", data-search-form="button")
+        +icon("icon-search", 17, 17)

@@ -1,0 +1,9 @@
+mixin partners-block(partners)
+  .partners-block
+    .container
+      .page-title
+        h1.title Партнеры
+        p Информационные и&nbsp;деловые партнеры Академ Джаз Клуба
+      .brand-grid
+        each item in partners
+          +brand-text-card(item)

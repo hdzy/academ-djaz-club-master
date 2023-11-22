@@ -1,0 +1,39 @@
+.intro-banner {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  background-color: $color-lavender;
+
+  &__wrapper {
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      display: block;
+      padding-bottom: calc(401px / 1280px * 100%);
+
+      @include vp-767 {
+        padding-bottom: calc(211px / 343px * 100%);
+      }
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      user-select: none;
+    }
+  }
+
+  &--video > .intro-banner__wrapper {
+    position: static;
+
+    &::before {
+      display: none;
+    }
+  }
+}

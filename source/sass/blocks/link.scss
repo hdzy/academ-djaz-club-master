@@ -1,0 +1,21 @@
+.link {
+  display: inline-flex;
+  padding: 0;
+  font-family: $ff-montserrat;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: inherit;
+  background-color: $color-transparent;
+  border: 0;
+  transition: color $trans-default, opacity $trans-default;
+  cursor: pointer;
+
+  @include hover-focus {
+    opacity: 0.8;
+  }
+
+  &--semi-bold {
+    font-weight: 600;
+  }
+}

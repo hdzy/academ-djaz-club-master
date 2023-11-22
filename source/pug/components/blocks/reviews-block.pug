@@ -1,0 +1,7 @@
+mixin reviews-block(title, description)
+  .reviews-block&attributes(attributes)
+    .container
+      .page-title.page-title--no-margin-bottom
+        h1.title!= title
+        p!= description
+      +btn({text: "Оставить отзыв", href: "#", isExternal: true}).btn--magenta-middle

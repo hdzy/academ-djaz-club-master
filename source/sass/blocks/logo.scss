@@ -1,0 +1,38 @@
+.logo {
+  display: flex;
+  width: 161px;
+  height: 72px;
+  color: $color-dark-magenta;
+  background-color: $color-transparent;
+
+  @include vp-767 {
+    width: 105px;
+    height: 47px;
+  }
+
+  &--white {
+    color: $color-default-white;
+    background-color: $color-night-rider;
+
+    @include vp-767 {
+      display: none;
+    }
+  }
+
+  &__wrapper {
+    color: inherit;
+
+    &:not(span) {
+      transition: opacity $trans-default;
+
+      @include hover-focus {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}

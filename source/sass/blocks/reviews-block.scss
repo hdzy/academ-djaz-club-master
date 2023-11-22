@@ -1,0 +1,10 @@
+.reviews-block {
+  .btn.btn--magenta-middle {
+    margin: 39px 10px 0 0;
+
+    @include vp-767 {
+      width: 100%;
+      margin: 18px 0 0;
+    }
+  }
+}

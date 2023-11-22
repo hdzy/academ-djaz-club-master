@@ -1,0 +1,35 @@
+.contacts-block {
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    &:not(:last-of-type) {
+      margin-bottom: 90px;
+    }
+
+    @include vp-1023 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      &:not(:last-of-type) {
+        margin-bottom: 66px;
+      }
+    }
+
+    @include vp-767 {
+      grid-template-columns: 1fr;
+      gap: 12px;
+
+      &:not(:last-of-type) {
+        margin-bottom: 44px;
+      }
+    }
+  }
+
+  .info-card {
+    flex-grow: 1;
+  }
+}

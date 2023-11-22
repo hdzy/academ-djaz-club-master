@@ -1,0 +1,19 @@
+mixin show-card(options={})
+  - const name = options.name || "";
+  - const linkToShowPage = options.linkToShowPage || false;
+  - const linkToPurchase = options.linkToPurchase || false;
+  - const description = options.description || "";
+  - const photo = options.photo || "";
+  - const date = options.date || "";
+
+  .show-card&attributes(attributes)
+    .show-card__img
+      - const {path, image, format, width, height, altText} = photo;
+        +picture(path, image, format, width, height, altText)
+    .show-card__content
+      +date(date).show-card__date
+      p.title.title--h3.title--no-text-transform.show-card__title!= name
+      p.show-card__description!= description
+      p.show-card__links
+        +btn({text: "Подробнее", href: linkToShowPage}).show-card__btn(aria-label="Перейти на страницу события.")
+        +btn({text: "Купить билет", href: linkToPurchase}).btn--magenta.show-card__btn(aria-label="Перейти к покупке билетов.")

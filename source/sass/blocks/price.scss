@@ -1,0 +1,19 @@
+.price {
+  font-size: 24px;
+  line-height: 130%;
+  color: inherit;
+
+  margin: 0;
+
+  @include vp-1023 {
+    font-size: 18px;
+  }
+
+  @include vp-767 {
+    font-size: 14px;
+  }
+
+  &--bold {
+    font-weight: 700;
+  }
+}

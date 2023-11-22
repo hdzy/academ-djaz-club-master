@@ -1,0 +1,107 @@
+.custom-input {
+  position: relative;
+  display: flex;
+
+  label {
+    display: flex;
+    align-items: center;
+
+    @include vp-1023 {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    input {
+      flex-grow: 1;
+      min-width: 188px;
+      min-height: 38px;
+      padding: 12px 14px 11px;
+      background-color: $color-transparent;
+      border: 1px solid $color-pink-swan;
+      border-right: none;
+      outline: none;
+      font-family: $ff-montserrat;
+      font-size: 10px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: $color-default-white;
+      transition: border 0.3s ease;
+
+      &::placeholder {
+        color: $color-default-white;
+        opacity: 0.8;
+      }
+
+      &:hover {
+        border-color: $color-zambezi;
+      }
+
+      &:focus {
+        border-color: $color-zambezi;
+      }
+    }
+  }
+
+  &__label {
+    @include vp-1023 {
+      margin: 0 0 18px 0;
+    }
+  }
+
+  &__error {
+    position: absolute;
+    right: 0;
+    bottom: 35px;
+
+    color: $color-radical-red;
+
+    opacity: 0;
+
+    transition: opacity 0.3s ease;
+
+    @include vp-1023 {
+      bottom: 20px;
+    }
+  }
+
+  &.is-invalid {
+    input {
+      border-color: $color-radical-red;
+
+      &:focus,
+      &:hover {
+        border-color: $color-radical-red;
+      }
+    }
+  }
+
+  &.is-valid {
+    input {
+      border: 1px solid #22b259;
+
+      &:focus,
+      &:hover {
+        border: 1px solid rgba(#22b259, 0.5);
+      }
+    }
+  }
+
+  .input-message {
+    position: absolute;
+    right: 0;
+    bottom: -5px;
+
+    &.is-invalid {
+      color: $color-radical-red;
+    }
+
+    &.is-valid {
+      color: #15ab07;
+    }
+  }
+
+  input[type="email"]:-webkit-autofill {
+    box-shadow: inset 0 0 0 1000px $color-night-rider;
+    -webkit-text-fill-color: $color-default-white;
+  }
+}

@@ -1,0 +1,23 @@
+.page-section {
+  padding: 90px 0 100px;
+
+  @include vp-1023 {
+    padding: 66px 0;
+  }
+
+  @include vp-767 {
+    padding: 44px 0;
+  }
+
+  &--padding-top-null {
+    padding-top: 0;
+  }
+
+  &--padding-bottom-null {
+    padding-bottom: 0;
+  }
+
+  &--bg-gray {
+    background-color: $color-white-smoke;
+  }
+}

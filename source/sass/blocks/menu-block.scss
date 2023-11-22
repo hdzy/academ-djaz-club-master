@@ -1,0 +1,9 @@
+.menu-block {
+  .page-title {
+    >:last-child {
+      @include vp-767 {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}

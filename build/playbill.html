@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Афиша - Академ Джаз Клуб</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Академ Джаз Клуб — с живой музыкой на проспекте Мира">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest" crossorigin="use-credentials">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preload" href="fonts/montserrat-light.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="fonts/montserrat-regular.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="fonts/montserrat-medium.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="fonts/montserrat-bold.woff2" as="font" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.min.css">
+    <script src="./js/server.js" defer></script>
+    <script src="js/server-main.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header header--sticky" data-header="sticky" data-scroll-lock-fill-gap>
+        <div class="container">
+          <div class="header__button header__button--search">
+            <button class="header__toggle header__toggle--search" type="button" aria-pressed="false" aria-label="Переключатель отображения поиска" data-open-modal="search">
+              <svg width="20" height="20" aria-hidden="true">
+                <use xlink:href="img/sprite.svg#icon-search"></use>
+              </svg>
+            </button>
+          </div>
+          <div class="logo header__logo"><a class="logo__wrapper" href="index.html" aria-label="Перейти на Главную">
+              <svg width="161" height="72" aria-hidden="true">
+                <use xlink:href="img/sprite.svg#logo"></use>
+              </svg></a>
+          </div>
+          <div class="header__nav" data-nav>
+            <div class="header__button header__button--burger">
+              <button class="header__toggle header__toggle--burger" type="button" aria-pressed="false" aria-label="Переключатель отображения меню" data-burger></button>
+            </div>
+            <div class="header__nav-wrapper" data-nav-wrapper data-fix-transition data-close-menu>
+              <div class="header__nav-content">
+                <nav class="nav" data-nav-accordion>
+                  <ul class="nav__list" data-accordion="parent" data-single>
+                    <li class="nav__item"><span class="nav__link nav__link--current">Афиша</span>
+                    </li>
+                    <li class="nav__item" data-accordion="element">
+                      <button class="link nav__link nav__link--with-icon" type="button" data-accordion="button">Информация
+                        <svg width="8" height="5" aria-hidden="true">
+                          <use xlink:href="img/sprite.svg#icon-menu-arrow"></use>
+                        </svg>
+                      </button>
+                      <div class="nav__content" data-accordion="content">
+                        <div class="nav__content-wrapper" data-accordion="wrapper">
+                          <ul class="nav__sublist">
+                            <li class="nav__subitem">
+                              <a class="link nav__link nav__link--sublink" href="about.html" tabindex="-1">О нас
+                              </a>
+                            </li>
+                            <li class="nav__subitem">
+                              <a class="link nav__link nav__link--sublink" href="menu.html" tabindex="-1">Меню ресторана
+                              </a>
+                            </li>
+                            <li class="nav__subitem">
+                              <a class="link nav__link nav__link--sublink" href="gifts.html" tabindex="-1">Подарочные сертификаты
+                              </a>
+                            </li>
+                            <li class="nav__subitem">
+                              <a class="link nav__link nav__link--sublink" href="tickets.html" tabindex="-1">Билеты (покупка / возврат)
+                              </a>
+                            </li>
+                            <li class="nav__subitem">
+                              <a class="link nav__link nav__link--sublink" href="artists.html" tabindex="-1">Артисты
+                              </a>
+                            </li>
+                            <li class="nav__subitem">
+                              <a class="link nav__link nav__link--sublink" href="partners.html" tabindex="-1">Партнеры
+                              </a>
+                            </li>
+                            <li class="nav__subitem">
+                              <a class="link nav__link nav__link--sublink" href="photos.html" tabindex="-1">Фотоотчеты
+                              </a>
+                            </li>
+                            <li class="nav__subitem">
+                              <a class="link nav__link nav__link--sublink" href="archive.html" tabindex="-1">Архив концертов
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="nav__item">
+                      <a class="link nav__link" href="reviews.html">Отзывы
+                      </a>
+                    </li>
+                    <li class="nav__item">
+                      <a class="link nav__link" href="contacts.html">Контакты
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <ul class="header__contacts">
+            <li class="header__contact">
+              <a class="link header__phone" href="tel:74955324723">+7 (495) 532-47-23
+              </a>
+            </li>
+          </ul>
+          <div class="search-form header__search" data-search-form data-form-validate data-callback="search" data-da="[data-modal-search], 1279, first">
+            <form method="get" action="https://echo.htmlacademy.ru" role="search" aria-label="Найти на сайте" novalidate>
+              <div class="custom-input" data-search-form="input" data-validate-type="text" data-required>
+                <label>
+                  <input type="search" id="h-search" name="header-search" placeholder="Я ищу..." required>
+                </label>
+              </div>
+              <button class="search-form__button" type="submit" aria-label="Отправить запрос" data-search-form="button">
+                <svg width="17" height="17" aria-hidden="true">
+                  <use xlink:href="img/sprite.svg#icon-search"></use>
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="page-content">
+          <div class="breadcrumbs">
+            <div class="container">
+              <div class="breadcrumbs__prev">
+                <a class="btn btn--prev" href="index.html" aria-label="Вернуться на предыдущую страницу"><span class="icon-wrapper">
+                    <svg width="15" height="7" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#icon-arrow-left"></use>
+                    </svg></span><span class="text">Назад</span>
+                </a>
+              </div>
+              <ol class="breadcrumbs__list">
+                <li class="breadcrumbs__item">
+                  <a class="link breadcrumbs__round" href="index.html">Главная
+                  </a>
+                </li>
+                <li class="breadcrumbs__item"><span class="breadcrumbs__round link">Афиша</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+          <section class="page-section">
+            <div class="show-cards-section">
+              <div class="container">
+                <div class="page-title">
+                  <h1 class="title">Афиша</h1>
+                </div>
+                <div class="grid">
+                  <div class="show-card">
+                    <div class="show-card__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/music-performer-1.webp, img/content/music-performer-1@2x.webp 2x"><img src="img/content/music-performer-1.jpg" srcset="img/content/music-performer-1@2x.jpg 2x" width="400" height="264" alt="Фотография исполнителя">
+                      </picture>
+                    </div>
+                    <div class="show-card__content">
+                      <div class="date show-card__date">
+                        <div class="date__icon-wrapper">
+                          <svg width="35" height="35" aria-hidden="true" viewBox="0 0 35 35">
+                            <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                          </svg>
+                        </div>
+                        <time class="date__time" datetime="2023-03-23 20:30">23 мар, чт 20:30</time>
+                      </div>
+                      <p class="title title--h3 title--no-text-transform show-card__title">Трибьют Фрэнку Синатре (вокал, джаз)</p>
+                      <p class="show-card__description">Хиты великого Синатры в&nbsp;безупречном исполнении.</p>
+                      <p class="show-card__links">
+                        <a class="btn show-card__btn" href="#" aria-label="Перейти на страницу события.">Подробнее
+                        </a>
+                        <a class="btn btn--magenta show-card__btn" href="#" aria-label="Перейти к покупке билетов.">Купить билет
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="show-card">
+                    <div class="show-card__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/music-performer-2.webp, img/content/music-performer-2@2x.webp 2x"><img src="img/content/music-performer-2.jpg" srcset="img/content/music-performer-2@2x.jpg 2x" width="400" height="264" alt="Фотография исполнителя">
+                      </picture>
+                    </div>
+                    <div class="show-card__content">
+                      <div class="date show-card__date">
+                        <div class="date__icon-wrapper">
+                          <svg width="35" height="35" aria-hidden="true" viewBox="0 0 35 35">
+                            <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                          </svg>
+                        </div>
+                        <time class="date__time" datetime="2023-03-23 20:30">23 мар, чт 20:30</time>
+                      </div>
+                      <p class="title title--h3 title--no-text-transform show-card__title">Даниил Крамер и&nbsp;братья Бриль (джаз)</p>
+                      <p class="show-card__description">Джаз-стандарты на&nbsp;большой высоте!</p>
+                      <p class="show-card__links">
+                        <a class="btn show-card__btn" href="#" aria-label="Перейти на страницу события.">Подробнее
+                        </a>
+                        <a class="btn btn--magenta show-card__btn" href="#" aria-label="Перейти к покупке билетов.">Купить билет
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="show-card">
+                    <div class="show-card__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/music-performer-3.webp, img/content/music-performer-3@2x.webp 2x"><img src="img/content/music-performer-3.jpg" srcset="img/content/music-performer-3@2x.jpg 2x" width="400" height="264" alt="Фотография исполнителя">
+                      </picture>
+                    </div>
+                    <div class="show-card__content">
+                      <div class="date show-card__date">
+                        <div class="date__icon-wrapper">
+                          <svg width="35" height="35" aria-hidden="true" viewBox="0 0 35 35">
+                            <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                          </svg>
+                        </div>
+                        <time class="date__time" datetime="2023-03-24 20:30">24 мар, пт 20:30</time>
+                      </div>
+                      <p class="title title--h3 title--no-text-transform show-card__title">Константин Никольский (вокал, гитара, рок)</p>
+                      <p class="show-card__description">&laquo;Мой друг&nbsp;- художник и&nbsp;поэт&raquo; и&nbsp;другие любимые песни!</p>
+                      <p class="show-card__links">
+                        <a class="btn show-card__btn" href="#" aria-label="Перейти на страницу события.">Подробнее
+                        </a>
+                        <a class="btn btn--magenta show-card__btn" href="#" aria-label="Перейти к покупке билетов.">Купить билет
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="show-card">
+                    <div class="show-card__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/music-performer-4.webp, img/content/music-performer-4@2x.webp 2x"><img src="img/content/music-performer-4.jpg" srcset="img/content/music-performer-4@2x.jpg 2x" width="400" height="264" alt="Фотография исполнителя">
+                      </picture>
+                    </div>
+                    <div class="show-card__content">
+                      <div class="date show-card__date">
+                        <div class="date__icon-wrapper">
+                          <svg width="35" height="35" aria-hidden="true" viewBox="0 0 35 35">
+                            <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                          </svg>
+                        </div>
+                        <time class="date__time" datetime="2023-03-24 20:30">24 мар, пт 20:30</time>
+                      </div>
+                      <p class="title title--h3 title--no-text-transform show-card__title">Валерий Киселев и&nbsp;Ансамбль классического джаза</p>
+                      <p class="show-card__description">In&nbsp;the Mood of&nbsp;Swing. Хиты 1930&#8209;х годов в&nbsp;оригинальной аранжировке маэстро.</p>
+                      <p class="show-card__links">
+                        <a class="btn show-card__btn" href="#" aria-label="Перейти на страницу события.">Подробнее
+                        </a>
+                        <a class="btn btn--magenta show-card__btn" href="#" aria-label="Перейти к покупке билетов.">Купить билет
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="show-card">
+                    <div class="show-card__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/music-performer-5.webp, img/content/music-performer-5@2x.webp 2x"><img src="img/content/music-performer-5.jpg" srcset="img/content/music-performer-5@2x.jpg 2x" width="400" height="264" alt="Фотография исполнителя">
+                      </picture>
+                    </div>
+                    <div class="show-card__content">
+                      <div class="date show-card__date">
+                        <div class="date__icon-wrapper">
+                          <svg width="35" height="35" aria-hidden="true" viewBox="0 0 35 35">
+                            <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                          </svg>
+                        </div>
+                        <time class="date__time" datetime="2023-03-25 20:30">25 мар, сб 20:30</time>
+                      </div>
+                      <p class="title title--h3 title--no-text-transform show-card__title">Линда (вокал, поп, рок)</p>
+                      <p class="show-card__description">Завораживающая этника, магический имидж, энергия через край!</p>
+                      <p class="show-card__links">
+                        <a class="btn show-card__btn" href="#" aria-label="Перейти на страницу события.">Подробнее
+                        </a>
+                        <a class="btn btn--magenta show-card__btn" href="#" aria-label="Перейти к покупке билетов.">Купить билет
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="show-card">
+                    <div class="show-card__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/music-performer-6.webp, img/content/music-performer-6@2x.webp 2x"><img src="img/content/music-performer-6.jpg" srcset="img/content/music-performer-6@2x.jpg 2x" width="400" height="264" alt="Фотография исполнителя">
+                      </picture>
+                    </div>
+                    <div class="show-card__content">
+                      <div class="date show-card__date">
+                        <div class="date__icon-wrapper">
+                          <svg width="35" height="35" aria-hidden="true" viewBox="0 0 35 35">
+                            <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                          </svg>
+                        </div>
+                        <time class="date__time" datetime="2023-03-25 20:30">25 мар, сб 20:30</time>
+                      </div>
+                      <p class="title title--h3 title--no-text-transform show-card__title">Сергей Манукян (вокал, джаз)</p>
+                      <p class="show-card__description">Легенда российского джаза на&nbsp;сцене Старого Арбата.</p>
+                      <p class="show-card__links">
+                        <a class="btn show-card__btn" href="#" aria-label="Перейти на страницу события.">Подробнее
+                        </a>
+                        <a class="btn btn--magenta show-card__btn" href="#" aria-label="Перейти к покупке билетов.">Купить билет
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="show-card">
+                    <div class="show-card__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/music-performer-2.webp, img/content/music-performer-2@2x.webp 2x"><img src="img/content/music-performer-2.jpg" srcset="img/content/music-performer-2@2x.jpg 2x" width="400" height="264" alt="Фотография исполнителя">
+                      </picture>
+                    </div>
+                    <div class="show-card__content">
+                      <div class="date show-card__date">
+                        <div class="date__icon-wrapper">
+                          <svg width="35" height="35" aria-hidden="true" viewBox="0 0 35 35">
+                            <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                          </svg>
+                        </div>
+                        <time class="date__time" datetime="2023-03-26 19:30">26 мар, вс 19:30</time>
+                      </div>
+                      <p class="title title--h3 title--no-text-transform show-card__title">&laquo;Классика и&nbsp;джаз&raquo; Даниил Крамер, братья Бриль</p>
+                      <p class="show-card__description">Яркие образы, безупречный вокал.</p>
+                      <p class="show-card__links">
+                        <a class="btn show-card__btn" href="#" aria-label="Перейти на страницу события.">Подробнее
+                        </a>
+                        <a class="btn btn--magenta show-card__btn" href="#" aria-label="Перейти к покупке билетов.">Купить билет
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="show-card">
+                    <div class="show-card__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/music-performer-7.webp, img/content/music-performer-7@2x.webp 2x"><img src="img/content/music-performer-7.jpg" srcset="img/content/music-performer-7@2x.jpg 2x" width="400" height="264" alt="Фотография исполнителя">
+                      </picture>
+                    </div>
+                    <div class="show-card__content">
+                      <div class="date show-card__date">
+                        <div class="date__icon-wrapper">
+                          <svg width="35" height="35" aria-hidden="true" viewBox="0 0 35 35">
+                            <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                          </svg>
+                        </div>
+                        <time class="date__time" datetime="2023-03-26 19:30">26 мар, вс 19:30</time>
+                      </div>
+                      <p class="title title--h3 title--no-text-transform show-card__title">Ретро-группа &laquo;Мамина пластинка&raquo;</p>
+                      <p class="show-card__description">Душевные песни Аиды Ведищевой, Валерия Ободзинского, Вадима Мулермана и&nbsp;других.</p>
+                      <p class="show-card__links">
+                        <a class="btn show-card__btn" href="#" aria-label="Перейти на страницу события.">Подробнее
+                        </a>
+                        <a class="btn btn--magenta show-card__btn" href="#" aria-label="Перейти к покупке билетов.">Купить билет
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="show-card">
+                    <div class="show-card__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/music-performer-8.webp, img/content/music-performer-8@2x.webp 2x"><img src="img/content/music-performer-8.jpg" srcset="img/content/music-performer-8@2x.jpg 2x" width="400" height="264" alt="Фотография исполнителя">
+                      </picture>
+                    </div>
+                    <div class="show-card__content">
+                      <div class="date show-card__date">
+                        <div class="date__icon-wrapper">
+                          <svg width="35" height="35" aria-hidden="true" viewBox="0 0 35 35">
+                            <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                          </svg>
+                        </div>
+                        <time class="date__time" datetime="2023-03-29 20:30">29 мар, ср 20:30</time>
+                      </div>
+                      <p class="title title--h3 title--no-text-transform show-card__title">Гия Дзагнидзе и&nbsp;Modern Blues Band (блюз)</p>
+                      <p class="show-card__description">Энергичный блюз в&nbsp;лучших традициях исполнения!</p>
+                      <p class="show-card__links">
+                        <a class="btn show-card__btn" href="#" aria-label="Перейти на страницу события.">Подробнее
+                        </a>
+                        <a class="btn btn--magenta show-card__btn" href="#" aria-label="Перейти к покупке билетов.">Купить билет
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="show-card">
+                    <div class="show-card__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/music-performer-1.webp, img/content/music-performer-1@2x.webp 2x"><img src="img/content/music-performer-1.jpg" srcset="img/content/music-performer-1@2x.jpg 2x" width="400" height="264" alt="Фотография исполнителя">
+                      </picture>
+                    </div>
+                    <div class="show-card__content">
+                      <div class="date show-card__date">
+                        <div class="date__icon-wrapper">
+                          <svg width="35" height="35" aria-hidden="true" viewBox="0 0 35 35">
+                            <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                          </svg>
+                        </div>
+                        <time class="date__time" datetime="2023-03-23 20:30">23 мар, чт 20:30</time>
+                      </div>
+                      <p class="title title--h3 title--no-text-transform show-card__title">Трибьют Фрэнку Синатре (вокал, джаз)</p>
+                      <p class="show-card__description">Хиты великого Синатры в&nbsp;безупречном исполнении.</p>
+                      <p class="show-card__links">
+                        <a class="btn show-card__btn" href="#" aria-label="Перейти на страницу события.">Подробнее
+                        </a>
+                        <a class="btn btn--magenta show-card__btn" href="#" aria-label="Перейти к покупке билетов.">Купить билет
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="show-card">
+                    <div class="show-card__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/music-performer-2.webp, img/content/music-performer-2@2x.webp 2x"><img src="img/content/music-performer-2.jpg" srcset="img/content/music-performer-2@2x.jpg 2x" width="400" height="264" alt="Фотография исполнителя">
+                      </picture>
+                    </div>
+                    <div class="show-card__content">
+                      <div class="date show-card__date">
+                        <div class="date__icon-wrapper">
+                          <svg width="35" height="35" aria-hidden="true" viewBox="0 0 35 35">
+                            <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                          </svg>
+                        </div>
+                        <time class="date__time" datetime="2023-03-23 20:30">23 мар, чт 20:30</time>
+                      </div>
+                      <p class="title title--h3 title--no-text-transform show-card__title">Даниил Крамер и&nbsp;братья Бриль (джаз)</p>
+                      <p class="show-card__description">Джаз-стандарты на&nbsp;большой высоте!</p>
+                      <p class="show-card__links">
+                        <a class="btn show-card__btn" href="#" aria-label="Перейти на страницу события.">Подробнее
+                        </a>
+                        <a class="btn btn--magenta show-card__btn" href="#" aria-label="Перейти к покупке билетов.">Купить билет
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="show-card">
+                    <div class="show-card__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/music-performer-3.webp, img/content/music-performer-3@2x.webp 2x"><img src="img/content/music-performer-3.jpg" srcset="img/content/music-performer-3@2x.jpg 2x" width="400" height="264" alt="Фотография исполнителя">
+                      </picture>
+                    </div>
+                    <div class="show-card__content">
+                      <div class="date show-card__date">
+                        <div class="date__icon-wrapper">
+                          <svg width="35" height="35" aria-hidden="true" viewBox="0 0 35 35">
+                            <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                          </svg>
+                        </div>
+                        <time class="date__time" datetime="2023-03-24 20:30">24 мар, пт 20:30</time>
+                      </div>
+                      <p class="title title--h3 title--no-text-transform show-card__title">Константин Никольский (вокал, гитара, рок)</p>
+                      <p class="show-card__description">&laquo;Мой друг&nbsp;- художник и&nbsp;поэт&raquo; и&nbsp;другие любимые песни!</p>
+                      <p class="show-card__links">
+                        <a class="btn show-card__btn" href="#" aria-label="Перейти на страницу события.">Подробнее
+                        </a>
+                        <a class="btn btn--magenta show-card__btn" href="#" aria-label="Перейти к покупке билетов.">Купить билет
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="show-card">
+                    <div class="show-card__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/music-performer-4.webp, img/content/music-performer-4@2x.webp 2x"><img src="img/content/music-performer-4.jpg" srcset="img/content/music-performer-4@2x.jpg 2x" width="400" height="264" alt="Фотография исполнителя">
+                      </picture>
+                    </div>
+                    <div class="show-card__content">
+                      <div class="date show-card__date">
+                        <div class="date__icon-wrapper">
+                          <svg width="35" height="35" aria-hidden="true" viewBox="0 0 35 35">
+                            <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                          </svg>
+                        </div>
+                        <time class="date__time" datetime="2023-03-24 20:30">24 мар, пт 20:30</time>
+                      </div>
+                      <p class="title title--h3 title--no-text-transform show-card__title">Валерий Киселев и&nbsp;Ансамбль классического джаза</p>
+                      <p class="show-card__description">In&nbsp;the Mood of&nbsp;Swing. Хиты 1930&#8209;х годов в&nbsp;оригинальной аранжировке маэстро.</p>
+                      <p class="show-card__links">
+                        <a class="btn show-card__btn" href="#" aria-label="Перейти на страницу события.">Подробнее
+                        </a>
+                        <a class="btn btn--magenta show-card__btn" href="#" aria-label="Перейти к покупке билетов.">Купить билет
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="show-card">
+                    <div class="show-card__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/music-performer-5.webp, img/content/music-performer-5@2x.webp 2x"><img src="img/content/music-performer-5.jpg" srcset="img/content/music-performer-5@2x.jpg 2x" width="400" height="264" alt="Фотография исполнителя">
+                      </picture>
+                    </div>
+                    <div class="show-card__content">
+                      <div class="date show-card__date">
+                        <div class="date__icon-wrapper">
+                          <svg width="35" height="35" aria-hidden="true" viewBox="0 0 35 35">
+                            <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                          </svg>
+                        </div>
+                        <time class="date__time" datetime="2023-03-25 20:30">25 мар, сб 20:30</time>
+                      </div>
+                      <p class="title title--h3 title--no-text-transform show-card__title">Линда (вокал, поп, рок)</p>
+                      <p class="show-card__description">Завораживающая этника, магический имидж, энергия через край!</p>
+                      <p class="show-card__links">
+                        <a class="btn show-card__btn" href="#" aria-label="Перейти на страницу события.">Подробнее
+                        </a>
+                        <a class="btn btn--magenta show-card__btn" href="#" aria-label="Перейти к покупке билетов.">Купить билет
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="show-card">
+                    <div class="show-card__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/music-performer-6.webp, img/content/music-performer-6@2x.webp 2x"><img src="img/content/music-performer-6.jpg" srcset="img/content/music-performer-6@2x.jpg 2x" width="400" height="264" alt="Фотография исполнителя">
+                      </picture>
+                    </div>
+                    <div class="show-card__content">
+                      <div class="date show-card__date">
+                        <div class="date__icon-wrapper">
+                          <svg width="35" height="35" aria-hidden="true" viewBox="0 0 35 35">
+                            <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                          </svg>
+                        </div>
+                        <time class="date__time" datetime="2023-03-25 20:30">25 мар, сб 20:30</time>
+                      </div>
+                      <p class="title title--h3 title--no-text-transform show-card__title">Сергей Манукян (вокал, джаз)</p>
+                      <p class="show-card__description">Легенда российского джаза на&nbsp;сцене Старого Арбата.</p>
+                      <p class="show-card__links">
+                        <a class="btn show-card__btn" href="#" aria-label="Перейти на страницу события.">Подробнее
+                        </a>
+                        <a class="btn btn--magenta show-card__btn" href="#" aria-label="Перейти к покупке билетов.">Купить билет
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="show-card">
+                    <div class="show-card__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/music-performer-2.webp, img/content/music-performer-2@2x.webp 2x"><img src="img/content/music-performer-2.jpg" srcset="img/content/music-performer-2@2x.jpg 2x" width="400" height="264" alt="Фотография исполнителя">
+                      </picture>
+                    </div>
+                    <div class="show-card__content">
+                      <div class="date show-card__date">
+                        <div class="date__icon-wrapper">
+                          <svg width="35" height="35" aria-hidden="true" viewBox="0 0 35 35">
+                            <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                          </svg>
+                        </div>
+                        <time class="date__time" datetime="2023-03-26 19:30">26 мар, вс 19:30</time>
+                      </div>
+                      <p class="title title--h3 title--no-text-transform show-card__title">&laquo;Классика и&nbsp;джаз&raquo; Даниил Крамер, братья Бриль</p>
+                      <p class="show-card__description">Яркие образы, безупречный вокал.</p>
+                      <p class="show-card__links">
+                        <a class="btn show-card__btn" href="#" aria-label="Перейти на страницу события.">Подробнее
+                        </a>
+                        <a class="btn btn--magenta show-card__btn" href="#" aria-label="Перейти к покупке билетов.">Купить билет
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="show-card">
+                    <div class="show-card__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/music-performer-7.webp, img/content/music-performer-7@2x.webp 2x"><img src="img/content/music-performer-7.jpg" srcset="img/content/music-performer-7@2x.jpg 2x" width="400" height="264" alt="Фотография исполнителя">
+                      </picture>
+                    </div>
+                    <div class="show-card__content">
+                      <div class="date show-card__date">
+                        <div class="date__icon-wrapper">
+                          <svg width="35" height="35" aria-hidden="true" viewBox="0 0 35 35">
+                            <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                          </svg>
+                        </div>
+                        <time class="date__time" datetime="2023-03-26 19:30">26 мар, вс 19:30</time>
+                      </div>
+                      <p class="title title--h3 title--no-text-transform show-card__title">Ретро-группа &laquo;Мамина пластинка&raquo;</p>
+                      <p class="show-card__description">Душевные песни Аиды Ведищевой, Валерия Ободзинского, Вадима Мулермана и&nbsp;других.</p>
+                      <p class="show-card__links">
+                        <a class="btn show-card__btn" href="#" aria-label="Перейти на страницу события.">Подробнее
+                        </a>
+                        <a class="btn btn--magenta show-card__btn" href="#" aria-label="Перейти к покупке билетов.">Купить билет
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="show-card">
+                    <div class="show-card__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/music-performer-8.webp, img/content/music-performer-8@2x.webp 2x"><img src="img/content/music-performer-8.jpg" srcset="img/content/music-performer-8@2x.jpg 2x" width="400" height="264" alt="Фотография исполнителя">
+                      </picture>
+                    </div>
+                    <div class="show-card__content">
+                      <div class="date show-card__date">
+                        <div class="date__icon-wrapper">
+                          <svg width="35" height="35" aria-hidden="true" viewBox="0 0 35 35">
+                            <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                          </svg>
+                        </div>
+                        <time class="date__time" datetime="2023-03-29 20:30">29 мар, ср 20:30</time>
+                      </div>
+                      <p class="title title--h3 title--no-text-transform show-card__title">Гия Дзагнидзе и&nbsp;Modern Blues Band (блюз)</p>
+                      <p class="show-card__description">Энергичный блюз в&nbsp;лучших традициях исполнения!</p>
+                      <p class="show-card__links">
+                        <a class="btn show-card__btn" href="#" aria-label="Перейти на страницу события.">Подробнее
+                        </a>
+                        <a class="btn btn--magenta show-card__btn" href="#" aria-label="Перейти к покупке билетов.">Купить билет
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="pagination-container">
+                  <div class="pagination">
+                    <ul class="pagination__list">
+                      <li class="pagination__item pagination__item--arrow">
+                        <a class="btn pagination__link pagination__link--prev is-disabled" href="#" aria-label="Предыдущая страница" tabindex="-1"><span class="icon-wrapper">
+                            <svg width="16" height="8" aria-hidden="true">
+                              <use xlink:href="img/sprite.svg#icon-arrow-left"></use>
+                            </svg></span><span class="text"></span>
+                        </a>
+                      </li>
+                      <li class="pagination__item">
+                        <a class="btn pagination__link is-active" href="#" aria-label="Страница 1" tabindex="-1"><span class="text">1</span>
+                        </a>
+                      </li>
+                      <li class="pagination__item">
+                        <a class="btn pagination__link" href="#" aria-label="Страница 2" tabindex="0"><span class="text">2</span>
+                        </a>
+                      </li>
+                      <li class="pagination__item pagination__item--arrow">
+                        <a class="btn pagination__link pagination__link--next" href="#" aria-label="Следующая страница" tabindex="0"><span class="icon-wrapper">
+                            <svg width="16" height="8" aria-hidden="true">
+                              <use xlink:href="img/sprite.svg#icon-arrow-right"></use>
+                            </svg></span><span class="text"></span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container">
+          <div class="footer__legal">
+            <div class="logo logo--white"><a class="logo__wrapper" href="index.html" aria-label="Перейти на Главную">
+                <svg width="161" height="72" aria-hidden="true">
+                  <use xlink:href="img/sprite.svg#logo"></use>
+                </svg></a>
+            </div>
+            <p class="footer__copyright">&copy;&nbsp;Перепубликация материалов запрещается. Права на&nbsp;авторство юридически защищены</p>
+            <p class="footer__copyright">2015 — 2023 AcademJazzClub.ru</p>
+          </div>
+          <div class="footer__info">
+            <div class="footer__info-card">
+              <p class="footer__title">Адрес</p>
+              <address>
+                <p class="footer__text">г. Москва, проспект Мира, 26/1</p>
+                <a class="link footer__link footer__link--no-opacity" href="#" aria-label="Открыть карту.">Посмотреть на карте
+                </a>
+              </address>
+            </div>
+            <div class="footer__info-card">
+              <p class="footer__title">Режим работы</p>
+              <p class="footer__text">Ежедневно</p>
+              <p class="footer__text">18:00 - 23:00</p>
+            </div>
+            <div class="footer__info-card">
+              <p class="footer__title">Телефон</p>
+              <a class="link footer__link" href="tel:+74955324723" aria-label="Позвонить.">+7 (495) 532-47-23
+              </a>
+            </div>
+            <div class="footer__info-card">
+              <p class="footer__title">Наши аккаунты</p>
+              <div class="socials">
+                <ul class="socials__list">
+                  <li class="socials__item">
+                    <a class="btn socials__link" href="#" target="_blank" rel="nofollow noopener noreferrer" aria-label="ВКонтакте."><span class="icon-wrapper">
+                        <svg width="26" height="26" aria-hidden="true">
+                          <use xlink:href="img/sprite.svg#icon-vk"></use>
+                        </svg></span><span class="text"></span>
+                    </a>
+                  </li>
+                  <li class="socials__item">
+                    <a class="btn socials__link" href="#" target="_blank" rel="nofollow noopener noreferrer" aria-label="Телеграм."><span class="icon-wrapper">
+                        <svg width="26" height="26" aria-hidden="true">
+                          <use xlink:href="img/sprite.svg#icon-telegram"></use>
+                        </svg></span><span class="text"></span>
+                    </a>
+                  </li>
+                  <li class="socials__item">
+                    <a class="btn socials__link" href="#" target="_blank" rel="nofollow noopener noreferrer" aria-label="Дзен."><span class="icon-wrapper">
+                        <svg width="26" height="26" aria-hidden="true">
+                          <use xlink:href="img/sprite.svg#icon-dzen"></use>
+                        </svg></span><span class="text"></span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer__subscribe">
+            <div class="footer__info-card">
+              <p class="footer__title">Подписаться на анонсы</p>
+              <div class="form" data-form-validate data-callback="base">
+                <form method="get" action="https://echo.htmlacademy.ru">
+                  <fieldset>
+                    <div class="custom-input custom-input--email" data-validate-type="email" data-required>
+                      <label>
+                        <input type="email" name="user-mail" placeholder="Введите ваш email" required>
+                      </label>
+                    </div>
+                    <button class="btn btn--submit" type="submit" aria-label="Отправить"><span class="icon-wrapper">
+                        <svg width="15" height="8" aria-hidden="true">
+                          <use xlink:href="img/sprite.svg#icon-arrow-right"></use>
+                        </svg></span><span class="text"></span>
+                    </button>
+                  </fieldset>
+                  <fieldset>
+                    <div class="custom-toggle custom-toggle--checkbox" data-validate-type="checkbox" data-required>
+                      <label>
+                        <input type="checkbox" value="user-agreement-1" name="user-agreement" required><span class="custom-toggle__icon"></span><span class="custom-toggle__label">Я даю согласие на обработку моих персональных данных</span>
+                      </label>
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+            <a class="link footer__link" href="#" aria-label="Перейти на страницу пользовательского соглашения.">Пользовательское соглашение
+            </a>
+            <a class="link footer__link" href="#" aria-label="Перейти на страницу политики конфиденциальности.">Политика конфиденциальности
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div class="modal modal--preload modal--search" data-modal="search">
+      <div class="modal__wrapper">
+        <div class="modal__overlay" data-close-modal></div>
+        <div class="modal__content">
+          <div class="modal-search" data-modal-search></div>
+          <button class="modal__close-btn" type="button" aria-label="Закрыть попап" data-close-modal>
+            <svg width="15" height="15" aria-hidden="true">
+              <use xlink:href="img/sprite.svg#icon-close"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <style>
+      .loader {
+        width: 48px;
+        height: 48px;
+        border: 5px solid #000;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+      }
+      .loader-wrapper {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        z-index: 30;
+      }
+
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <div class="loader-wrapper"><span class="loader"></span></div>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=8446336a-d459-4377-94ec-49b4fc34be5c&amp;lang=ru_RU"></script>
+    <script src="js/vendor.min.js"></script>
+    <script src="js/main.min.js"></script>
+  </body>
+</html>

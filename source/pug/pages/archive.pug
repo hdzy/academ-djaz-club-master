@@ -1,0 +1,223 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Архив концертов - Академ Джаз Клуб"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "archive.html"
+  -
+    const breadcrumbs = [
+      {
+        text: "Главная",
+        href: "index.html",
+      },
+      {
+        text: "Архив концертов",
+        href: "archive.html",
+      },
+    ]
+  -
+    const previousConcerts = [
+      {
+        cardTitle: "Трибьют Фрэнку Синатре (вокал, джаз)",
+        description: "Хиты великого Синатры в&nbsp;безупречном исполнении.",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-1"
+      },
+      {
+        cardTitle: "Даниил Крамер и&nbsp;братья Бриль (джаз)",
+        description: "Джаз-стандарты на&nbsp;большой высоте!",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-2"
+      },
+      {
+        cardTitle: "Константин Никольский (вокал, гитара, рок)",
+        description: "&laquo;Мой друг&nbsp;- художник и&nbsp;поэт&raquo; и&nbsp;другие любимые песни!",
+        dateText: "24 мар, пт 20:30",
+        dateTime: "2023-03-24 20:30",
+        image: "music-performer-3"
+      },
+      {
+        cardTitle: "Валерий Киселев и&nbsp;Ансамбль классического джаза",
+        description: "In&nbsp;the Mood of&nbsp;Swing. Хиты 1930&#8209;х годов в&nbsp;оригинальной аранжировке маэстро.",
+        dateText: "24 мар, пт 20:30",
+        dateTime: "2023-03-24 20:30",
+        image: "music-performer-4"
+      },
+      {
+        cardTitle: "Линда (вокал, поп, рок)",
+        description: "Завораживающая этника, магический имидж, энергия через край!",
+        dateText: "25 мар, сб 20:30",
+        dateTime: "2023-03-25 20:30",
+        image: "music-performer-5"
+      },
+      {
+        cardTitle: "Сергей Манукян (вокал, джаз)",
+        description: "Легенда российского джаза на сцене Старого Арбата.",
+        dateText: "25 мар, сб 20:30",
+        dateTime: "2023-03-25 20:30",
+        image: "music-performer-6"
+      },
+      {
+        cardTitle: "&laquo;Классика и&nbsp;джаз&raquo; Даниил Крамер, братья Бриль",
+        description: "Яркие образы, безупречный вокал.",
+        dateText: "26 мар, вс 19:30",
+        dateTime: "2023-03-26 19:30",
+        image: "music-performer-2"
+      },
+      {
+        cardTitle: "Ретро-группа &laquo;Мамина пластинка&raquo;",
+        description: "Душевные песни Аиды Ведищевой, Валерия Ободзинского, Вадима Мулермана и&nbsp;других.",
+        dateText: "26 мар, вс 19:30",
+        dateTime: "2023-03-26 19:30",
+        image: "music-performer-7"
+      },
+      {
+        cardTitle: "Гия Дзагнидзе и&nbsp;Modern Blues Band (блюз)",
+        description: "Энергичный блюз в&nbsp;лучших традициях исполнения!",
+        dateText: "29 мар, ср 20:30",
+        dateTime: "2023-03-29 20:30",
+        image: "music-performer-8"
+      },
+      {
+        cardTitle: "Трибьют Фрэнку Синатре (вокал, джаз)",
+        description: "Хиты великого Синатры в&nbsp;безупречном исполнении.",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-1"
+      },
+      {
+        cardTitle: "Даниил Крамер и&nbsp;братья Бриль (джаз)",
+        description: "Джаз-стандарты на&nbsp;большой высоте!",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-2"
+      },
+      {
+        cardTitle: "Константин Никольский (вокал, гитара, рок)",
+        description: "&laquo;Мой друг&nbsp;- художник и&nbsp;поэт&raquo; и&nbsp;другие любимые песни!",
+        dateText: "24 мар, пт 20:30",
+        dateTime: "2023-03-24 20:30",
+        image: "music-performer-3"
+      },
+      {
+        cardTitle: "Валерий Киселев и&nbsp;Ансамбль классического джаза",
+        description: "In&nbsp;the Mood of&nbsp;Swing. Хиты 1930&#8209;х годов в&nbsp;оригинальной аранжировке маэстро.",
+        dateText: "24 мар, пт 20:30",
+        dateTime: "2023-03-24 20:30",
+        image: "music-performer-4"
+      },
+      {
+        cardTitle: "Линда (вокал, поп, рок)",
+        description: "Завораживающая этника, магический имидж, энергия через край!",
+        dateText: "25 мар, сб 20:30",
+        dateTime: "2023-03-25 20:30",
+        image: "music-performer-5"
+      },
+      {
+        cardTitle: "Сергей Манукян (вокал, джаз)",
+        description: "Легенда российского джаза на сцене Старого Арбата.",
+        dateText: "25 мар, сб 20:30",
+        dateTime: "2023-03-25 20:30",
+        image: "music-performer-6"
+      },
+      {
+        cardTitle: "&laquo;Классика и&nbsp;джаз&raquo; Даниил Крамер, братья Бриль",
+        description: "Яркие образы, безупречный вокал.",
+        dateText: "26 мар, вс 19:30",
+        dateTime: "2023-03-26 19:30",
+        image: "music-performer-2"
+      },
+      {
+        cardTitle: "Ретро-группа &laquo;Мамина пластинка&raquo;",
+        description: "Душевные песни Аиды Ведищевой, Валерия Ободзинского, Вадима Мулермана и&nbsp;других.",
+        dateText: "26 мар, вс 19:30",
+        dateTime: "2023-03-26 19:30",
+        image: "music-performer-7"
+      },
+      {
+        cardTitle: "Гия Дзагнидзе и&nbsp;Modern Blues Band (блюз)",
+        description: "Энергичный блюз в&nbsp;лучших традициях исполнения!",
+        dateText: "29 мар, ср 20:30",
+        dateTime: "2023-03-29 20:30",
+        image: "music-performer-8"
+      },
+    ]
+  -
+    const pagination = [
+      {
+        link: {href: "#"},
+        icon: {name: "icon-arrow-left"},
+        label: "Предыдущая страница",
+        isPrev: true,
+        isDisabled: true
+      },
+      {
+        link: {text: "1", href: "#"},
+        label: "Страница 1",
+        isCurrent: true
+      },
+      {
+        link: {text: "2", href: "#"},
+        label: "Страница 2"
+      },
+      {
+        link: {href: "#"},
+        icon: {name: "icon-arrow-right"},
+        label: "Следующая страница",
+      }
+    ]
+  -
+    const cards = [
+      {
+        cardTitle: "Трибьют Фрэнку Синатре (вокал, джаз)",
+        description: "Хиты великого Синатры в&nbsp;безупречном исполнении.",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-1"
+      },
+      {
+        cardTitle: "Даниил Крамер и&nbsp;братья Бриль (джаз)",
+        description: "Джаз-стандарты на&nbsp;большой высоте!",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-2"
+      },
+      {
+        cardTitle: "Константин Никольский (вокал, гитара, рок)",
+        description: "&laquo;Мой друг&nbsp;- художник и&nbsp;поэт&raquo; и&nbsp;другие любимые песни!",
+        dateText: "24 мар, пт 20:30",
+        dateTime: "2023-03-24 20:30",
+        image: "music-performer-3"
+      },
+      {
+        cardTitle: "Валерий Киселев и&nbsp;Ансамбль классического джаза",
+        description: "In&nbsp;the Mood of&nbsp;Swing. Хиты 1930&#8209;х годов в&nbsp;оригинальной аранжировке маэстро.",
+        dateText: "24 мар, пт 20:30",
+        dateTime: "2023-03-24 20:30",
+        image: "music-performer-4"
+      },
+    ]
+
+block main
+  main
+    +page-content()
+      +breadcrumbs(breadcrumbs)
+      +page-section()
+        +show-cards-section({
+          text: 'Архив концертов',
+          tag: 'h1',
+        }, previousConcerts, pagination)
+      +page-section().page-section--bg-gray
+        +show-cards-section({
+          text: "Скоро на сцене",
+          }, cards)
+
+block modals
+  +modal("modal--search")(data-modal="search")
+    +modal-search()

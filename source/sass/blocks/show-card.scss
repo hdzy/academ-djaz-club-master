@@ -1,0 +1,162 @@
+.show-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 639px;
+
+  background-color: $color-default-white;
+
+  @include vp-1023 {
+    min-height: 510px;
+  }
+
+  @include vp-767 {
+    min-height: 252px;
+  }
+
+  &__img {
+    position: relative;
+    width: 100%;
+    min-height: 264px;
+    overflow: hidden;
+
+    background-color: $color-pink-swan;
+
+    &::before {
+      content: "";
+      display: block;
+      padding-bottom: calc(264/400 * 100%);
+
+      @include vp-767 {
+        padding-bottom: calc(107/165 * 100%);
+      }
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    @include vp-767 {
+      min-height: initial;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 30px;
+
+    border: 1px solid $color-pink-swan;
+    border-top: none;
+
+    @include vp-1279 {
+      padding: 20px;
+    }
+
+    @include vp-1023 {
+      padding: 18px;
+    }
+
+    @include vp-767 {
+      padding: 10px 10px 8px;
+    }
+  }
+
+  &__date {
+    margin-bottom: 20px;
+
+    @include vp-1023 {
+      margin-bottom: 15px;
+    }
+
+    @include vp-767 {
+      margin-bottom: 5px;
+    }
+  }
+
+  &__title {
+    margin: 0 0 10px;
+
+    word-break: break-word;
+
+    @include vp-767 {
+      margin-bottom: 5px;
+
+      font-size: 10px;
+    }
+  }
+
+  &__description {
+    margin: 0 0 25px;
+
+    @include vp-1023 {
+      margin-bottom: 15px;
+
+      font-size: 12px;
+    }
+
+    @include vp-767 {
+      margin-bottom: 7px;
+
+      font-size: 8px;
+    }
+  }
+
+  &__links {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 15px;
+    margin: auto 0 0;
+
+    text-align: center;
+
+    @include vp-1023 {
+      gap: 10px;
+    }
+
+    @include vp-767 {
+      gap: 8px;
+    }
+
+    @include vp-374 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__btn {
+    word-break: break-word;
+
+    @include vp-1279 {
+      font-size: 16px;
+    }
+
+    @include vp-1023 {
+      font-size: 12px;
+    }
+
+    @include vp-767 {
+      font-size: 8px;
+    }
+
+    &:only-of-type {
+      justify-self: start;
+    }
+
+    &:not(:only-of-type) {
+      padding: 14px 10px;
+
+      @include vp-1279 {
+        padding: 14px 6px;
+      }
+
+      @include vp-767 {
+        padding: 5px 4px 6px;
+      }
+    }
+  }
+}

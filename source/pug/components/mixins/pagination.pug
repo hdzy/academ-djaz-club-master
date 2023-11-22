@@ -1,0 +1,16 @@
+mixin pagination(items = {})
+  .pagination&attributes(attributes)
+    ul.pagination__list
+      each item in items
+        - const {link, icon, label} = item
+        - const isPrev = item.isPrev ? "pagination__link--prev" : "pagination__link--next";
+        - const isCurrent = item.isCurrent ? "is-active" : "";
+        - const isDisabled = item.isDisabled ? "is-disabled" : "";
+        - const tabindex = item.isDisabled || item.isCurrent ? "-1" : "0";
+        if (icon)
+          li.pagination__item.pagination__item--arrow
+            +btn-with-icon({href: link.href, isExternal: false, iconId: icon.name, iconWidth: 16, iconHeight: 8}).pagination__link(aria-label=label, class=isPrev, class=isDisabled, tabindex=tabindex)
+        else
+          li.pagination__item
+            +btn({href: link.href, isExternal: false}).pagination__link(aria-label=label, class=isCurrent, tabindex=tabindex)
+              span.text!= link.text

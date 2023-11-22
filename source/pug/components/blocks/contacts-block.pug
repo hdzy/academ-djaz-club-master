@@ -1,0 +1,20 @@
+mixin contacts-block()
+  .contacts-block&attributes(attributes)
+    .container
+      .page-title
+        h1.title Контакты
+      .contacts-block__wrapper
+        +grid()
+          +info-card("Адрес")
+            address Проспект Мира 26/1 (вход в&nbsp;ресторан Огород)
+          +info-card("Бронирование билетов")
+            p #[a(href="tel:+79296351714") +7 (929) 635-17-14]
+          +info-card("Отмены и&nbsp;переносы концертов")
+            p #[a(href="tel:+74955324723") +7 (495) 532-47-23]
+            p #[a(href="mailto:academjazz@gmail.com") academjazz@gmail.com]
+        +grid()
+          +info-card("Арт-менеджер клуба", "Для артистов")
+            p #[a(href="tel:+79262589920") +7(926) 258-99-20]
+            p #[a(href="mailto:lera_sh@bk.ru") lera_sh@bk.ru]
+          +info-card("Мария Аксёнова", "Для прессы")
+            p #[a(href="mailto:maksenova@gmail.com") maksenova@gmail.com]

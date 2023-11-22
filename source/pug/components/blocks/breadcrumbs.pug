@@ -1,0 +1,12 @@
+mixin breadcrumbs(links)
+  .breadcrumbs
+    .container
+      .breadcrumbs__prev
+        +btn-with-icon({text: "Назад", href: links[0].href, label: "Вернуться на предыдущую страницу", iconId: "icon-arrow-left", iconWidth: 15, iconHeight: 7}).btn--prev
+      ol.breadcrumbs__list
+        each link in links
+          li.breadcrumbs__item
+            if link !== links[links.length - 1]
+              +link({text: link.text, href: link.href}).breadcrumbs__round
+            else
+              span.breadcrumbs__round.link #{link.text}

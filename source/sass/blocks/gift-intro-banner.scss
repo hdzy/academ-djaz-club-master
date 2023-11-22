@@ -1,0 +1,101 @@
+.gift-intro-banner {
+  &__wrapper {
+    position: relative;
+    min-height: 401px;
+    padding: 55px 70px;
+
+    @include vp-1023 {
+      padding: 45px 40px;
+    }
+
+    @include vp-767 {
+      min-height: 211px;
+      padding: 0;
+    }
+
+    .intro-banner {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+
+      @include vp-767 {
+        position: static;
+        z-index: 0;
+        margin-bottom: 25px;
+      }
+
+      &__wrapper {
+        position: static;
+
+        @include vp-767 {
+          position: relative;
+        }
+      }
+    }
+  }
+
+  &__note {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 130%;
+    max-width: 550px;
+    margin-bottom: 30px;
+
+    @include vp-1023 {
+      font-size: 20px;
+      max-width: 400px;
+    }
+
+    @include vp-767 {
+      font-size: 16px;
+      line-height: 140%;
+      margin-bottom: 18px;
+      max-width: none;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__button {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 19px;
+    row-gap: 10px;
+    max-width: 494px;
+
+    @include vp-1023 {
+      grid-template-columns: auto;
+      max-width: 380px;
+    }
+
+    @include vp-767 {
+      grid-template-columns: 1fr;
+      width: 100%;
+      max-width: none;
+    }
+
+    .btn--magenta-middle {
+      @include vp-767 {
+        width: 100%;
+      }
+    }
+  }
+
+  .banner-wrapper {
+    margin-top: 63px;
+
+    @include vp-767 {
+      margin-top: 26px;
+    }
+  }
+
+  &__text .banner:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}

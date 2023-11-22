@@ -1,0 +1,10 @@
+mixin video-card({source, quality="sd"})
+  - const pic = `https://i.ytimg.com/vi/${source}/${quality}default.jpg`
+
+  .video-card(data-video-card=source)
+    .video-card__player(data-video=source, id=source)
+      .video-card__img(data-img)
+        img(width="400", height="225", src=pic, alt="Превью видео-ролика")
+      a.video-card__button(href=`https://www.youtube.com/watch?v=${source}`, data-btn=source)
+        span.visually-hidden Включить ютуб-видео
+        +icon("play-btn")

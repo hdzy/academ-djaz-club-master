@@ -1,0 +1,67 @@
+// Colors
+// ---------------------------------
+
+// Default
+
+$color-default-black:               #000000;
+$color-default-white:               #ffffff;
+$color-transparent:                 rgba(255, 255, 255, 0);
+
+// Project palette
+// для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
+
+$color-silver:                      #c1c1c1;
+$color-pink-swan:                   #b6b6b6;
+$color-zambezi:                     #5c5c5c;
+$color-medium-orchid:               #b362e5;
+$color-dark-magenta:                #9d15a0;
+$color-palatinate-purple:           #580a5a;
+$color-navy-blue:                   #0142e7;
+$color-night-rider:                 #2e2e2e;
+$color-radical-red:                 #ff4a52;
+$color-gainsboro:                   #d9d9d9;
+$color-lavender:                    #eaebff;
+$color-white-smoke:                 #f5f5f5;
+
+// Typography
+// ---------------------------------
+
+$ff-montserrat:                     "Montserrat", "Arial", sans-serif;
+
+// у некоторых шрифтов в ios возникают проблемы с символом рубля
+// https://www.artlebedev.ru/kovodstvo/sections/159/#13
+$ff-rouble:                         "Rouble", "Arial", sans-serif;
+
+// Animation
+// ---------------------------------
+
+$tf-default:                        ease;
+$trans-default:                     0.3s $tf-default;
+
+// если требуется изинг отличный от $tf-default, то переменную называем не цифрой
+$trans-modal:                       0.6s cubic-bezier(0.55, 0, 0.1, 1);
+
+$trans-600:                         0.6s $tf-default;
+
+// Viewports
+// ---------------------------------
+
+$vp-320:                            320px;
+$vp-375:                            375px;
+$vp-768:                            768px;
+$vp-1024:                           1024px;
+$vp-1280:                           1280px;
+
+// Retina
+// ---------------------------------
+
+$retina-dpi:                        144dpi;
+$retina-dppx:                       1.5dppx;
+
+// Z-index
+// ---------------------------------
+
+$z-index-header:                    30;
+$z-index-header-menu:               10;
+$z-index-header-button:             11;
+$z-index-search-button:              3;

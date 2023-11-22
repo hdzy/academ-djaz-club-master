@@ -1,0 +1,22 @@
+mixin menu-buttons-block(data = {})
+  .menu-buttons-block&attributes(attributes)
+    .container
+      .page-title
+        h1.title!= 'Меню'
+      .menu-buttons-block__wrapper
+        +btn-with-icon({
+          text: "Меню ресторана",
+          href: "menu--food.html",
+          label: "Переход на страницу ресторана",
+          iconId: "icon-restaurant",
+          iconWidth: 35,
+          iconHeight: 35,
+        }).btn--white-middle
+        +btn-with-icon({
+          text: "Меню бара",
+          href: "menu--beverages.html",
+          label: "Переход на страницу бара",
+          iconId: "icon-bar",
+          iconWidth: 35,
+          iconHeight: 35
+        }).btn--white-middle

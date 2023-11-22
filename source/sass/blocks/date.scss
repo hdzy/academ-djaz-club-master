@@ -1,0 +1,52 @@
+.date {
+  display: flex;
+  justify-content: start;
+  color: $color-dark-magenta;
+  align-items: center;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__icon-wrapper {
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+
+    @include vp-1023 {
+      margin-right: 10px;
+      width: 25px;
+      height: 25px;
+      min-width: 25px;
+    }
+
+    @include vp-767 {
+      margin-right: 6px;
+      width: 12px;
+      height: 12px;
+      min-width: 12px;
+    }
+  }
+
+  &__time {
+    color: $color-default-black;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 110%;
+    display: flex;
+    align-items: center;
+
+    @include vp-1023 {
+      font-size: 12px;
+    }
+
+    @include vp-767 {
+      font-size: 8px;
+    }
+  }
+}

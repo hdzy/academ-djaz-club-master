@@ -1,0 +1,45 @@
+.socials {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 250px;
+    margin: 0;
+    padding: 0;
+    margin-left: -16px;
+    margin-top: -10px;
+    list-style: none;
+
+    @include vp-1023 {
+      margin-left: -12px;
+      margin-top: -7px;
+    }
+  }
+
+  &__item {
+    margin-left: 16px;
+    margin-top: 10px;
+
+    @include vp-1023 {
+      margin-left: 12px;
+      margin-top: 6px;
+    }
+
+    svg {
+      color: $color-dark-magenta;
+
+      @include vp-1023 {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  &__link.btn {
+    display: flex;
+    background-color: $color-transparent;
+    padding: 0;
+    border: none;
+    font-size: 0;
+    line-height: 0;
+  }
+}

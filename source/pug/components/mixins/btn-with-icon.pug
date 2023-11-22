@@ -1,0 +1,18 @@
+mixin btn-with-icon(options = {})
+  - const href = options.href || false;
+  - const rel = options.isExternal ? true : false;
+  - const target = options.isExternal ? "_blank" : false;
+  - const iconId = options.iconId ||"";
+  - const iconWidth = options.iconWidth || "26";
+  - const iconHeight = options.iconHeight || "26";
+  - const text = options.text || "";
+  - const datetime = options.datetime;
+  - const label = options.label || false;
+
+    +btn({href:href, target:target, isExternal:rel, label: label})&attributes(attributes)
+      span.icon-wrapper
+        +icon(iconId, iconWidth, iconHeight)
+      if datetime
+        time.text(datetime = options.datetime)!= text
+      else
+        span.text!= text

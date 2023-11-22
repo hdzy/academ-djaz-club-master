@@ -1,0 +1,24 @@
+mixin form(items = {})
+  .form(data-form-validate, data-callback="base")&attributes(attributes)
+    form(method="get", action="https://echo.htmlacademy.ru")
+      each item in items
+        - const {input, checkbox} = item
+        - const isInvalid = item.isInvalid ? "is-invalid" : "";
+        if (input)
+          fieldset
+            +custom-input({
+              inputType: input.type,
+              inputPlaceholder: input.placeholder,
+              inputName: "user-mail",
+              inputRequired: true,
+              }).custom-input--email(class=isInvalid, data-validate-type="email", data-required)
+            +btn-with-icon({iconId: "icon-arrow-right", iconWidth: 15, iconHeight: 8}).btn--submit(type="submit", aria-label="Отправить")
+        else
+          fieldset
+            +custom-toggle({
+              inputLabel: checkbox.label,
+              inputName: "user-agreement",
+              inputValue: "user-agreement-1",
+              inputChecked: false,
+              inputRequired: true,
+            }).custom-toggle--checkbox(class=isInvalid, data-validate-type="checkbox", data-required)

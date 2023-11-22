@@ -1,0 +1,11 @@
+mixin logo(data = {})
+  - const isInternal = data.currentUrl !== "index.html"
+  - const isFooter = data.isFooter ?? false
+
+  .logo&attributes(attributes)
+    if (isInternal || isFooter)
+      a.logo__wrapper(href="index.html", aria-label="Перейти на Главную")
+        +icon(data.name, data.width, data.height)
+    else
+      span.logo__wrapper
+        +icon(data.name, data.width, data.height)

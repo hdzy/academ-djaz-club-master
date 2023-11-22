@@ -1,0 +1,15 @@
+mixin brand-card(options = {})
+  - const path = options.path;
+  - const image = options.image;
+  - const format = options.format;
+  - const width = options.width;
+  - const height = options.height;
+  - const altText = options.altText;
+  - const link = options.link;
+
+  if (link)
+    a.brand-card.behavior(href=link, target="_blank", rel="nofollow noopener")
+      +picture(path, image, format, width, height, altText)
+  else
+    .brand-card
+      +picture(path, image, format, width, height, altText)

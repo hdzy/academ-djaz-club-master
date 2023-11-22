@@ -1,0 +1,71 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Отзывы - Академ Джаз Клуб"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "reviews.html"
+  - const breadcrumbs = [{text: "Главная", href: "index.html"}, {text: "Отзывы", href: "#"}]
+  -
+    const sources = [
+      {source: "nvUwKvP6jQc"},
+      {source: "ZpHODUEgrUc"},
+      {source: "LUs2xG-XoMs"},
+      {source: "DVQst2ZDczw"},
+      {source: "Wf0IfZqzfLg"},
+      {source: "UndUZ60QbL4"},
+      {source: "MoQr3eq4EXE"},
+      {source: "3A3QiCObVZw"},
+      {source: "j-njr6YCNNI"},
+    ]
+  -
+    const cards = [
+      {
+        cardTitle: "Трибьют Фрэнку Синатре (вокал, джаз)",
+        description: "Хиты великого Синатры в&nbsp;безупречном исполнении.",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-1"
+      },
+      {
+        cardTitle: "Даниил Крамер и&nbsp;братья Бриль (джаз)",
+        description: "Джаз-стандарты на&nbsp;большой высоте!",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-2"
+      },
+      {
+        cardTitle: "Константин Никольский (вокал, гитара, рок)",
+        description: "&laquo;Мой друг&nbsp;- художник и&nbsp;поэт&raquo; и&nbsp;другие любимые песни!",
+        dateText: "24 мар, пт 20:30",
+        dateTime: "2023-03-24 20:30",
+        image: "music-performer-3"
+      },
+      {
+        cardTitle: "Валерий Киселев и&nbsp;Ансамбль классического джаза",
+        description: "In&nbsp;the Mood of&nbsp;Swing. Хиты 1930&#8209;х годов в&nbsp;оригинальной аранжировке маэстро.",
+        dateText: "24 мар, пт 20:30",
+        dateTime: "2023-03-24 20:30",
+        image: "music-performer-4"
+      },
+    ]
+
+block main
+  main
+    +page-content()
+      +breadcrumbs(breadcrumbs)
+      +page-section()
+        +reviews-block("Отзывы", "Нам будет очень приятно, если вы&nbsp;поделитесь впечатлениями о&nbsp;нашем клубе и&nbsp;напишете небольшой отзыв")
+      +page-section().page-section--padding-top-null
+        +video-block({video: sources, title: "Видео-отзывы"}).title
+      +page-section().page-section--bg-gray
+        +show-cards-section({
+          text: "Скоро на сцене",
+          }, cards)
+
+block modals
+  +modal("modal--search")(data-modal="search")
+    +modal-search()

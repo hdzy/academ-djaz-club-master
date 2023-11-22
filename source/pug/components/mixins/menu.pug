@@ -1,0 +1,28 @@
+mixin menu(dataLeft, dataRight)
+  .menu.grid.grid--menu-column&attributes(attributes)(data-accordion="parent", data-destroy="(max-width: 1023px)", data-fix-transition)
+    .menu__col
+      each item in dataLeft
+        .menu__item(data-accordion="element")
+          if (item.title)
+            +menu-title(item.title)(data-accordion="button")
+          .menu__wrapper(data-accordion="content")
+            each group in item.groups
+              .menu__group
+                if (group.description)
+                  p.menu__description!= group.description
+                each product in group.positions
+                  +menu-item(product)
+
+    .menu__col
+      if (dataRight)
+        each item in dataRight
+          .menu__item(data-accordion="element")
+            if (item.title)
+              +menu-title(item.title)(data-accordion="button")
+            .menu__wrapper(data-accordion="content")
+              each group in item.groups
+                .menu__group
+                  if (group.description)
+                    p.menu__description!= group.description
+                  each product in group.positions
+                    +menu-item(product)

@@ -1,0 +1,100 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Список страниц"
+
+block main
+  style
+    include ../../sass/inline/sitemap.css
+
+  -
+    const pages = [
+      {
+        name: "UI-kit — ui-kit.html",
+        src: "ui-kit.html"
+      },
+      {
+        name: "Главная — index.html",
+        src: "index.html"
+      },
+      {
+        name: "Афиша — playbill.html",
+        src: "playbill.html"
+      },
+      {
+        name: "Архив концертов — archive.html",
+        src: "archive.html"
+      },
+      {
+        name: "Образец страницы концерта — show.html",
+        src: "show.html"
+      },
+      {
+        name: "Артисты — artists.html",
+        src: "artists.html"
+      },
+      {
+        name: "Образец страницы артиста — artist.html",
+        src: "artist.html"
+      },
+      {
+        name: "Меню (разводящая) — menu.html",
+        src: "menu.html"
+      },
+      {
+        name: "Меню ресторана — menu--food.html",
+        src: "menu--food.html"
+      },
+      {
+        name: "Меню бара — menu--beverages.html",
+        src: "menu--beverages.html"
+      },
+      {
+        name: "Подарочные сертификаты — gifts.html",
+        src: "gifts.html"
+      },
+      {
+        name: "О нас — about.html",
+        src: "about.html"
+      },
+      {
+        name: "Билеты (покупка/возврат) — tickets.html",
+        src: "tickets.html"
+      },
+      {
+        name: "Партнеры — partners.html",
+        src: "partners.html"
+      },
+      {
+        name: "Фотоотчеты — photos.html",
+        src: "photos.html"
+      },
+      {
+        name: "Отзывы — reviews.html",
+        src: "reviews.html"
+      },
+      {
+        name: "Контакты — contacts.html",
+        src: "contacts.html"
+      },
+    ]
+
+  main
+    .sitemap
+      .container
+        img(src="img/svg/logo.svg", width="300", alt="Логотип проекта")
+        h1 Список страниц
+        ol
+          each page in pages
+            li
+              if page.id
+                label(for=page.id)
+                  span!= page.name
+                input.visually-hidden(type="checkbox", checked=true, id=page.id)
+                div
+                  ul
+                    each item in page.innerList
+                      li
+                        a(href= item.src)= item.name
+              else
+                a(href= page.src)= page.name

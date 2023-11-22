@@ -1,0 +1,243 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Меню бара - Академ Джаз Клуб"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "menu--beverages.html"
+  -
+    const breadcrumbs = [
+      {
+        text: "Главная",
+        href: "index.html",
+      },
+      {
+        text: "Меню",
+        href: "menu.html",
+      },
+      {
+        text: "Меню бара",
+        href: "menu--beverages.html",
+      },
+    ]
+  -
+    const dataLeft = [
+      {
+        title: {
+          title: "Шампанское",
+        },
+        groups: [
+          {
+            positions: [
+              {
+                title: "Dom Perignon Vintage Extra Brut White",
+                price: "50 000",
+              },
+              {
+                title: "Veuve Clicquot Ponsardin",
+                price: "18 000",
+              },
+              {
+                title: "Moet & Chandon Imperial Brut",
+                price: "18 000",
+              },
+              {
+                title: "Moet & Chandon Rose Imperial",
+                price: "20 000",
+              },
+              {
+                title: "Moet & Chandon Imperial Brut",
+                price: "4 000",
+                descriptionPink: "200 мл.",
+              },
+              {
+                title: "Moet & Chandon Rose Imperial",
+                price: "5 000",
+                descriptionPink: "200 мл.",
+              }
+            ]
+          },
+        ]
+      },
+      {
+        title: {
+          title: "Белые вина",
+        },
+        groups: [
+          {
+            description: "Франция",
+            positions: [
+              {
+                title: "Baron de L Pouilly Fume AOC",
+                price: "25 000",
+              },
+              {
+                title: "Chablis 1-er Cru АОС Pic 1-er",
+                price: "25 000",
+              },
+              {
+                title: "Sancerre Comte Lafond Grande Cuvee AOC",
+                price: "15 000",
+              },
+              {
+                title: "Gewurztraminer Estate Alsace AOC",
+                price: "9 500",
+              },
+              {
+                title: "Chablis АОС Le Finage",
+                price: "9 000",
+              },
+              {
+                title: "M Minuty Cotes de Provence AOP",
+                price: "8 000",
+              },
+              {
+                title: "Chateau du Cornet Bordeaux АОС",
+                price: "3 000",
+              },
+              {
+                title: "Selection des Princes Bordeaux Rouge АОР",
+                price: "900",
+              }
+            ]
+          },
+          {
+            description: "Италия",
+            positions: [
+              {
+                title: "Pinot Grigio, Colli Orientali Friuli DOC Livio Felluga",
+                price: "25 000",
+              },
+              {
+                title: "Rovereto Gavi DOCG del Comune di Gavi",
+                price: "25 000",
+              },
+              {
+                title: "Orvieto DOC Classico Campogrande",
+                price: "15 000",
+              },
+              {
+                title: "Villa Antinori Bianco Toscana IGT",
+                price: "9 500",
+              },
+              {
+                title: "Bramito Chardonnay Umbria IGT",
+                price: "9 000",
+              },
+              {
+                title: "Jale Sicilia DOC",
+                price: "8 000",
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  -
+    const dataRight = [
+      {
+        title: {
+          title: "Игристые вина",
+        },
+        groups: [
+          {
+            description: "Франция",
+            positions: [
+              {
+                title: "Montelvini Prosecco Treviso Cuvee dell'Erede secco",
+                price: "4 000",
+              },
+              {
+                title: "Asti Marchesini",
+                price: "3 000",
+              },
+              {
+                title: "Sparkling wine Barcelona Mediterranean Wine",
+                price: "3 500",
+              },
+              {
+                title: 'Sparkling wine "Shandon" Brut',
+                price: "1 100",
+                descriptionPink: "187 мл.",
+              },
+              {
+                title: "Montelvini Prosecco Treviso Cuvee dell'Erede secco",
+                price: "1 200",
+                descriptionPink: "200 мл.",
+              }
+            ],
+          }
+        ]
+      },
+      {
+        title: {
+          title: "Вино в бокалах",
+          description: "125 мл.",
+        },
+        groups: [
+          {
+            description: "Белые вина",
+            positions: [
+              {
+                title: "Chateau du Cornet Bordeaux АОС",
+                price: "650",
+              }
+            ],
+          }
+        ]
+      },
+    ]
+  -
+    const cards = [
+      {
+        cardTitle: "Трибьют Фрэнку Синатре (вокал, джаз)",
+        description: "Хиты великого Синатры в&nbsp;безупречном исполнении.",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-1"
+      },
+      {
+        cardTitle: "Даниил Крамер и&nbsp;братья Бриль (джаз)",
+        description: "Джаз-стандарты на&nbsp;большой высоте!",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-2"
+      },
+      {
+        cardTitle: "Константин Никольский (вокал, гитара, рок)",
+        description: "&laquo;Мой друг&nbsp;- художник и&nbsp;поэт&raquo; и&nbsp;другие любимые песни!",
+        dateText: "24 мар, пт 20:30",
+        dateTime: "2023-03-24 20:30",
+        image: "music-performer-3"
+      },
+      {
+        cardTitle: "Валерий Киселев и&nbsp;Ансамбль классического джаза",
+        description: "In&nbsp;the Mood of&nbsp;Swing. Хиты 1930&#8209;х годов в&nbsp;оригинальной аранжировке маэстро.",
+        dateText: "24 мар, пт 20:30",
+        dateTime: "2023-03-24 20:30",
+        image: "music-performer-4"
+      },
+    ]
+
+block main
+  main
+    +page-content()
+      +breadcrumbs(breadcrumbs)
+      +page-section()
+        +menu-block({
+          title: "Меню бара Академ Джаз Клуба",
+          tag: 'h1',
+          dataLeft: dataLeft,
+          dataRight: dataRight,
+        })
+      +page-section().page-section--bg-gray
+        +show-cards-section({
+          text: "Скоро на сцене",
+          }, cards)
+
+block modals
+  +modal("modal--search")(data-modal="search")
+    +modal-search()

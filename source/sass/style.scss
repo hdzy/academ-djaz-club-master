@@ -1,0 +1,75 @@
+// Vendor
+// ---------------------------------
+
+@import "vendor/normalize";
+// Swiper 7.4.1
+@import "vendor/swiper";
+
+// Global
+// ---------------------------------
+
+@import "variables";
+@import "mixins";
+@import "global/fonts";
+@import "global/reboot";
+@import "global/utils";
+@import "global/container";
+
+// Blocks
+// ---------------------------------
+
+@import "blocks/custom-toggle";
+@import "blocks/custom-input";
+@import "blocks/page-section";
+@import "blocks/video-card";
+@import "blocks/page-title";
+@import "blocks/main-nav";
+@import "blocks/footer";
+@import "blocks/modal";
+@import "blocks/title";
+@import "blocks/link";
+@import "blocks/logo";
+@import "blocks/date";
+@import "blocks/btn";
+@import "blocks/search-form";
+@import "blocks/data-accordion";
+@import "blocks/text-content";
+@import "blocks/intro-banner";
+@import "blocks/show-actor";
+@import "blocks/show-info";
+@import "blocks/grid-show";
+@import "blocks/price";
+@import "blocks/menu-item";
+@import "blocks/form";
+@import "blocks/brand-card";
+@import "blocks/nav";
+@import "blocks/grid";
+@import "blocks/page-intro";
+@import "blocks/banner";
+@import "blocks/info-card";
+@import "blocks/menu-title";
+@import "blocks/slider";
+@import "blocks/breadcrumbs";
+@import "blocks/brand-grid";
+@import "blocks/menu";
+@import "blocks/brand-text-card";
+@import "blocks/show-card";
+@import "blocks/socials";
+@import "blocks/pagination";
+@import "blocks/header";
+@import "blocks/show-cards-section";
+@import "blocks/gift-intro-banner";
+@import "blocks/info-block";
+@import "blocks/map";
+@import "blocks/tickets-order";
+@import "blocks/menu-buttons-block";
+@import "blocks/contacts-block";
+@import "blocks/reviews-block";
+@import "blocks/contacts-socials";
+@import "blocks/artist-cards";
+@import "blocks/partners-block";
+@import "blocks/contacts-map";
+@import "blocks/about-block";
+@import "blocks/address";
+@import "blocks/photos-content";
+@import "blocks/menu-block";

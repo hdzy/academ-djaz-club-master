@@ -1,0 +1,13 @@
+mixin show-information()
+  .info-block
+    .container
+      .page-title
+        h1.title.title--h3 Трибьют Фрэнку Синатре (вокал, джаз)
+        p Хиты великого Синатры в безупречном исполнении
+      .main-information
+        .main-information__image
+          +picture('content', 'artist-sinatra', 'jpg', 400, 264, 'Фотография исполнителя.')
+        .main-information__grid
+          +grid-show([{iconId: "icon-calendar", title: "Дата", description: "23 марта, чт", datetime: "2023-04-08 20:30"},{iconId: "icon-clock", title: "Начало", description: "20:30", datetime: "2023-04-08 20:30"},{iconId: "icon-home", title: "Адрес", description: "пр-кт Мира, 26/1"},{iconId: "icon-money", title: "Цена", description: "от 2000 ₽"}])
+        .main-information__button
+          +btn({text: "Купить билет",href: "#",isExternal: true, label: "Перейти на страницу покупки билета."}).btn--magenta

@@ -1,0 +1,90 @@
+.info-block {
+  .main-information {
+    display: grid;
+    grid-template-columns: minmax(400px, auto) 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "photo info" "photo button";
+    gap: 20px;
+
+    justify-content: center;
+
+    @include vp-1023 {
+      grid-template-columns: 1fr;
+      grid-template-rows: none;
+      grid-template-areas: none;
+
+      align-items: center;
+    }
+
+    @include vp-767 {
+      gap: 9px;
+    }
+
+    &__image {
+      grid-area: photo;
+      position: relative;
+      overflow: hidden;
+
+      @include vp-1023 {
+        grid-area: unset;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        padding-bottom: calc(226 / 343 * 100%);
+      }
+
+      img {
+        background-color: $color-pink-swan;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__grid {
+      grid-area: info;
+
+      @include vp-1023 {
+        grid-area: unset;
+      }
+    }
+
+    &__button {
+      grid-area: button;
+      display: flex;
+      flex-wrap: wrap;
+      align-self: end;
+
+      margin-top: -10px;
+      margin-right: -10px;
+
+      @include vp-1023 {
+        grid-area: unset;
+        margin-right: 0;
+      }
+
+      .btn--magenta {
+        margin-top: 10px;
+        margin-right: 10px;
+
+        padding: 15px 30px;
+
+        @include vp-1023 {
+          width: 100%;
+
+          padding: 15px 20px;
+          margin-right: 0;
+
+          font-size: 18px;
+          font-weight: 700;
+          line-height: 110%;
+        }
+      }
+    }
+  }
+}

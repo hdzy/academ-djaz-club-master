@@ -1,0 +1,56 @@
+mixin tickets-order(partners)
+  .tickets-order
+    .page-section.page-section--padding-bottom-null
+      .container
+        .page-title
+          h1.title Билеты (покупка / возврат)
+          p Приобрести билеты можно как на&nbsp;нашем сайте в&nbsp;разделе #[a(href="playbill.html") Афиша], так и&nbsp;у&nbsp;партнеров клуба
+        .brand-grid.brand-grid--4-columns
+          each item in partners
+            +brand-card(item)
+
+    .page-section.page-section--padding-bottom-null
+      .container
+        .page-title.page-title--no-margin-bottom
+          h2.title Заказ билетов с&nbsp;доставкой
+          .tickets-order__phones
+            p
+              a.link(href="tel:+74955324723") +7 (495) 532 47 23
+              a.link(href="tel:+79296351714") +7 (929) 635 17 14
+
+    .page-section.page-section--padding-bottom-null
+      .container
+        .page-title.page-title--no-margin-bottom
+          h2.title Перенос и&nbsp;возврат билетов
+          .text-content
+            p
+              | О&nbsp;датах переноса мы&nbsp;сообщаем на&nbsp;странице #[a(href="playbill.html") Афиша], а&nbsp;так&nbsp;же в&nbsp;личных сообщениях на&nbsp;e-mail покупателя. Покупатель в&nbsp;праве воспользоваться перенесенным билетом на&nbsp;любой концерт в&nbsp;Академ Джаз клубе. Свой приход необходимо #[b подтвердить по&nbsp;телефону #[a(href="tel:+74955324723") +7&nbsp;(495)&nbsp;532-4723] не&nbsp;менее чем за&nbsp;5&nbsp;дней до&nbsp;концерта.]
+            p
+              | Возврат производится только на&nbsp;отмененные концерты по&nbsp;заявлению в&nbsp;свободной форме. К&nbsp;заявлению необходимо приложить данные для банковского перевода, паспортные данные и&nbsp;электронные билеты.
+              br
+              | Заявление необходимо отправить на&nbsp;email: #[a(href="mailto:academjazz@gmail.com") academjazz@gmail.com]
+            p
+              | #[a(href="#") Приказ] Минкультуры России от&nbsp;24.07.2020 N&nbsp;830
+
+    .page-section
+      .container
+        .page-title.page-title--no-margin-bottom
+          h2.title Важная информация
+          .text-content
+            p
+              | С&nbsp;1&nbsp;сентября 2019&nbsp;на законодательном уровне изменились правила возврата билетов. Прежде всего это касается суммы, которую необходимо выдать покупателю.
+            p
+              b
+                | Сколько денег нужно вернуть?
+                br
+                | 100%&nbsp;&mdash; при отмене мероприятия
+                br
+                | 100%&nbsp;&mdash; при обращении за&nbsp;10&nbsp;и&nbsp;более дней до&nbsp;мероприятия
+                br
+                | 50%&nbsp;&mdash; при обращении за&nbsp;5-10 дней
+                br
+                | 30%&nbsp;&mdash; при обращении за&nbsp;3-5 дней
+                br
+                | 0&nbsp;%&nbsp;&mdash; при обращении менее, чем за&nbsp;3&nbsp;дня
+            p Зритель имеет право получить всю сумму, если он&nbsp;заболел или потерял близкого родственника.
+            p С&nbsp;условиями возврата можно ознакомиться в&nbsp;договоре #[a(href="#") оферты].

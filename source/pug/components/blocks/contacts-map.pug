@@ -1,0 +1,21 @@
+-
+  const mapData = {
+    center: "55.777980, 37.633158",
+    zoom: 17,
+    pin: {
+      coordinates: "55.777980, 37.633158",
+      header: "3 мин",
+      body: "226 м",
+      footer: "<a href=#>Подробнее</a>",
+    },
+  };
+
+mixin contacts-map()
+  .contacts-map
+    .container
+      h2.visually-hidden Карты
+      .contacts-map__wrapper
+        .page-title.page-title--closer
+          h3.title.title--h3 Клуб в&nbsp;3&#8209;х мин. пешком от&nbsp;метро &#8220;проспект мира&#8221;
+        .contacts-map__map-wrapper
+          +map(mapData)(id="map-1")

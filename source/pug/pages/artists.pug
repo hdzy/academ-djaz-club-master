@@ -1,0 +1,302 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Артисты - Академ Джаз Клуб"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "artists.html"
+  -
+    const breadcrumbs = [
+      {
+        text: "Главная",
+        href: "index.html"
+      },
+      {
+        text: "Артисты",
+        href: "artists.html"
+      }
+    ]
+  -
+    const artistCards = [
+      {
+        name: 'В&nbsp;джазе только девушки. Проект братьев Бриль',
+        description: 'Звёздные певицы в&nbsp;проекте братьев Бриль.',
+        photo: {
+          path: 'content/artists',
+          image: 'artist-1',
+          format: 'jpg',
+          width: '400',
+          height: '264',
+          altText: 'Фотография исполнителя',
+        },
+        link: '#',
+      },
+      {
+        name: 'Alex Abra',
+        description: 'Аутентичная атмосфера высшего света Нью-Йорка середины 20&nbsp;века.',
+        photo: {
+          path: 'content/artists',
+          image: 'artist-2',
+          format: 'jpg',
+          width: '400',
+          height: '264',
+          altText: 'Фотография исполнителя',
+        },
+        link: '#',
+      },
+      {
+        name: 'Billy&rsquo;s Band',
+        description: 'Пьянящий алкоджаз, делающий сердца открытыми.',
+        photo: {
+          path: 'content/artists',
+          image: 'artist-3',
+          format: 'jpg',
+          width: '400',
+          height: '264',
+          altText: 'Фотография исполнителя',
+        },
+        link: '#',
+      },
+      {
+        name: 'Jewish Songs. Проект братьев Бриль',
+        description: 'Братья Бриль и&nbsp;именитые певицы&nbsp;&ndash; в&nbsp;новой программе.',
+        photo: {
+          path: 'content/artists',
+          image: 'artist-4',
+          format: 'jpg',
+          width: '400',
+          height: '264',
+          altText: 'Фотография исполнителя',
+        },
+        link: '#',
+      },
+      {
+        name: 'Real Jam',
+        description: 'Джаз-оркестр и&nbsp;атмосфера чёрно-белого кино.',
+        photo: {
+          path: 'content/artists',
+          image: 'artist-5',
+          format: 'jpg',
+          width: '400',
+          height: '264',
+          altText: 'Фотография исполнителя',
+        },
+        link: '#',
+      },
+      {
+        name: 'Акапелла Экспресс',
+        description: 'Шоу шести голосов. Экспрессия и&nbsp;шарм.',
+        photo: {
+          path: 'content/artists',
+          image: 'artist-6',
+          format: 'jpg',
+          width: '400',
+          height: '264',
+          altText: 'Фотография исполнителя',
+        },
+        link: '#',
+      },
+      {
+        name: 'Александр Ф. Скляр',
+        description: 'Хиты &laquo;Ва-Банка&raquo; и&nbsp;городские романсы Высоцкого и&nbsp;Утёсова в&nbsp;новых аранжировках!',
+        photo: {
+          path: 'content/artists',
+          image: 'artist-7',
+          format: 'jpg',
+          width: '400',
+          height: '264',
+          altText: 'Фотография исполнителя',
+        },
+        link: '#',
+      },
+      {
+        name: 'Алексей Архиповский',
+        description: 'Виртуоз игры на&nbsp;русской балалайке Алексей Архиповский с&nbsp;концертами в&nbsp;Академ Джаз Клубе.',
+        photo: {
+          path: 'content/artists',
+          image: 'artist-8',
+          format: 'jpg',
+          width: '400',
+          height: '264',
+          altText: 'Фотография исполнителя',
+        },
+        link: '#',
+      },
+      {
+        name: 'Алексей Глызин',
+        description: '&laquo;Ты&nbsp;не&nbsp;ангел&raquo;, &laquo;Зимний сад&raquo; и&nbsp;другие хиты любимого артиста.',
+        photo: {
+          path: 'content/artists',
+          image: 'artist-9',
+          format: 'jpg',
+          width: '400',
+          height: '264',
+          altText: 'Фотография исполнителя',
+        },
+        link: '#',
+      },
+      {
+        name: 'В&nbsp;джазе только девушки. Проект братьев Бриль',
+        description: 'Звёздные певицы в&nbsp;проекте братьев Бриль.',
+        photo: {
+          path: 'content/artists',
+          image: 'artist-1',
+          format: 'jpg',
+          width: '400',
+          height: '264',
+          altText: 'Фотография исполнителя',
+        },
+        link: '#',
+      },
+      {
+        name: 'Alex Abra',
+        description: 'Аутентичная атмосфера высшего света Нью-Йорка середины 20&nbsp;века.',
+        photo: {
+          path: 'content/artists',
+          image: 'artist-2',
+          format: 'jpg',
+          width: '400',
+          height: '264',
+          altText: 'Фотография исполнителя',
+        },
+        link: '#',
+      },
+      {
+        name: 'Billy&rsquo;s Band',
+        description: 'Пьянящий алкоджаз, делающий сердца открытыми.',
+        photo: {
+          path: 'content/artists',
+          image: 'artist-3',
+          format: 'jpg',
+          width: '400',
+          height: '264',
+          altText: 'Фотография исполнителя',
+        },
+        link: '#',
+      },
+      {
+        name: 'Jewish Songs. Проект братьев Бриль',
+        description: 'Братья Бриль и&nbsp;именитые певицы&nbsp;&ndash; в&nbsp;новой программе.',
+        photo: {
+          path: 'content/artists',
+          image: 'artist-4',
+          format: 'jpg',
+          width: '400',
+          height: '264',
+          altText: 'Фотография исполнителя',
+        },
+        link: '#',
+      },
+      {
+        name: 'Real Jam',
+        description: 'Джаз-оркестр и&nbsp;атмосфера чёрно-белого кино.',
+        photo: {
+          path: 'content/artists',
+          image: 'artist-5',
+          format: 'jpg',
+          width: '400',
+          height: '264',
+          altText: 'Фотография исполнителя',
+        },
+        link: '#',
+      },
+      {
+        name: 'Акапелла Экспресс',
+        description: 'Шоу шести голосов. Экспрессия и&nbsp;шарм.',
+        photo: {
+          path: 'content/artists',
+          image: 'artist-6',
+          format: 'jpg',
+          width: '400',
+          height: '264',
+          altText: 'Фотография исполнителя',
+        },
+        link: '#',
+      },
+      {
+        name: 'Александр Ф. Скляр',
+        description: 'Хиты &laquo;Ва-Банка&raquo; и&nbsp;городские романсы Высоцкого и&nbsp;Утёсова в&nbsp;новых аранжировках!',
+        photo: {
+          path: 'content/artists',
+          image: 'artist-7',
+          format: 'jpg',
+          width: '400',
+          height: '264',
+          altText: 'Фотография исполнителя',
+        },
+        link: '#',
+      },
+      {
+        name: 'Алексей Архиповский',
+        description: 'Виртуоз игры на&nbsp;русской балалайке Алексей Архиповский с&nbsp;концертами в&nbsp;Академ Джаз Клубе.',
+        photo: {
+          path: 'content/artists',
+          image: 'artist-8',
+          format: 'jpg',
+          width: '400',
+          height: '264',
+          altText: 'Фотография исполнителя',
+        },
+        link: '#',
+      },
+      {
+        name: 'Алексей Глызин',
+        description: '&laquo;Ты&nbsp;не&nbsp;ангел&raquo;, &laquo;Зимний сад&raquo; и&nbsp;другие хиты любимого артиста.',
+        photo: {
+          path: 'content/artists',
+          image: 'artist-9',
+          format: 'jpg',
+          width: '400',
+          height: '264',
+          altText: 'Фотография исполнителя',
+        },
+        link: '#',
+      }
+    ]
+  -
+    const showCards = [
+      {
+        cardTitle: "Трибьют Фрэнку Синатре (вокал, джаз)",
+        description: "Хиты великого Синатры в&nbsp;безупречном исполнении.",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-1"
+      },
+      {
+        cardTitle: "Даниил Крамер и&nbsp;братья Бриль (джаз)",
+        description: "Джаз-стандарты на&nbsp;большой высоте!",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-2"
+      },
+      {
+        cardTitle: "Константин Никольский (вокал, гитара, рок)",
+        description: "&laquo;Мой друг&nbsp;- художник и&nbsp;поэт&raquo; и&nbsp;другие любимые песни!",
+        dateText: "24 мар, пт 20:30",
+        dateTime: "2023-03-24 20:30",
+        image: "music-performer-3"
+      },
+      {
+        cardTitle: "Валерий Киселев и&nbsp;Ансамбль классического джаза",
+        description: "In&nbsp;the Mood of&nbsp;Swing. Хиты 1930&#8209;х годов в&nbsp;оригинальной аранжировке маэстро.",
+        dateText: "24 мар, пт 20:30",
+        dateTime: "2023-03-24 20:30",
+        image: "music-performer-4"
+      },
+    ]
+
+block main
+  main
+    +page-content()
+      +breadcrumbs(breadcrumbs)
+      +page-section()
+        +artist-cards(artistCards)
+      +page-section().page-section--bg-gray
+        +show-cards-section({text: "Скоро на сцене"}, showCards)
+
+block modals
+  +modal("modal--search")(data-modal="search")
+    +modal-search()

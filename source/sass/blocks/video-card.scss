@@ -1,0 +1,48 @@
+.video-card {
+  position: relative;
+  width: 100%;
+  height: 0;
+  background-color: #06063f;
+  overflow: hidden;
+  clip-path: inset(1px 1px);
+  padding-bottom: 56.25%;
+
+  &__player,
+  iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  &__img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    object-fit: cover;
+  }
+
+  &__button {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 8.05%;
+    height: 10%;
+    transform: translate(-50%, -50%);
+    transition: transform $trans-default;
+    box-sizing: content-box;
+    border: 10px transparent solid;
+
+    @include hover-focus {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    @include vp-767 {
+      border: 20px transparent solid;
+    }
+  }
+}

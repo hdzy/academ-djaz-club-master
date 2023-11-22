@@ -1,0 +1,1531 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "UI-kit"
+  -
+    const dataLeft = [
+      {
+        title: {
+          title: "Холодные закуски и салаты",
+        },
+        groups: [
+          {
+            positions: [
+              {
+                title: "Суши - сет",
+                price: "4 800",
+                description: "Филадельфия, Венеция, Калифорния с лососем, суши с лососем (3 шт), с креветкой (3 шт)",
+              }
+            ]
+          }
+        ]
+      },
+      {
+        title: {
+          title: "Белые вина",
+        },
+        groups: [
+          {
+            description: "Франция",
+            positions: [
+              {
+                title: "Baron de L Pouilly Fume AOC",
+                price: "25 000",
+              }
+            ],
+          },
+          {
+            description: "Италия",
+            positions: [
+              {
+                title: "Jale Sicilia DOC",
+                price: "8 000",
+              }
+            ],
+          }
+        ]
+      }
+    ]
+  -
+    const dataRight = [
+      {
+        title: {
+          title: "Горячие закуски",
+        },
+        groups: [
+          {
+            positions: [
+              {
+                title: "Фуа-гра",
+                price: "2 100",
+                description: "На ложе из шпината в обрамлении соуса из маракуйи",
+              },{
+                title: "«Блинный мешочек»",
+                price: "1 500",
+                description: "Морской гребешок с красной икрой и острым малиновым соусом",
+              }
+            ]
+          },
+        ]
+      },
+      {
+        title: {
+          title: "Вино в бокалах",
+          description: "125 мл.",
+        },
+        groups: [
+          {
+            description: "Белые вина",
+            positions: [
+              {
+                title: "Chateau du Cornet Bordeaux АОС",
+                price: "650",
+              }
+            ],
+          }
+        ]
+      },
+    ]
+  -
+    const headerLinks = [
+      {
+        link: {text: "Афиша", href: "playbill.html"},
+        subLinks: []
+      },
+      {
+        link: {text: "Информация"},
+        subLinks: [
+          {text: "О нас", href: "about.html"},
+          {text: "Меню ресторана", href: "menu.html"}
+        ]
+      },
+      {
+        link: {text: "Отзывы", href: "reviews.html"},
+        subLinks: []
+      }
+    ]
+  -
+    const socialItems = [
+      {
+        link: {href: "#"},
+        icon: {name: "icon-vk"},
+        label: "ВКонтакте"
+      },
+      {
+        link: {href: "#"},
+        icon: {name: "icon-telegram"},
+        label: "Телеграм",
+      },
+      {
+        link: {href: "#"},
+        icon: {name: "icon-dzen"},
+        label: "Дзен",
+      }
+    ]
+  -
+    const paginationLinks = [
+      {
+        link: {href: "#"},
+        icon: {name: "icon-arrow-left"},
+        label: "Предыдущая страница",
+        isPrev: true,
+        isDisabled: true
+      },
+      {
+        link: {text: "1", href: "#"},
+        label: "Страница 1",
+        isCurrent: true
+      },
+      {
+        link: {text: "2", href: "#"},
+        label: "Страница 2"
+      },
+      {
+        link: {href: "#"},
+        icon: {name: "icon-arrow-right"},
+        label: "Следующая страница",
+      }
+    ]
+  -
+    const paginationLinksMore = [
+      {
+        link: {href: "#"},
+        icon: {name: "icon-arrow-left"},
+        label: "Предыдущая страница",
+        isPrev: true,
+        isDisabled: true
+      },
+      {
+        link: {text: "1", href: "#"},
+        label: "Страница 1",
+        isCurrent: true
+      },
+      {
+        link: {text: "2", href: "#"},
+        label: "Страница 2"
+      },
+      {
+        link: {text: "3", href: "#"},
+        label: "Страница 3"
+      },
+      {
+        link: {text: "...", href: "#"},
+        label: "Показать еще"
+      },
+      {
+        link: {text: "8", href: "#"},
+        label: "Страница 8"
+      },
+      {
+        link: {text: "9", href: "#"},
+        label: "Страница 9"
+      },
+      {
+        link: {text: "10", href: "#"},
+        label: "Страница 10"
+      },
+      {
+        link: {href: "#"},
+        icon: {name: "icon-arrow-right"},
+        label: "Следующая страница",
+      }
+    ]
+  -
+    const cards = [
+      {
+        cardTitle: "Трибьют Фрэнку Синатре (вокал, джаз)",
+        description: "Хиты великого Синатры в&nbsp;безупречном исполнении.",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-1"
+      },
+      {
+        cardTitle: "Даниил Крамер и&nbsp;братья Бриль (джаз)",
+        description: "Джаз-стандарты на&nbsp;большой высоте!",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-2"
+      },
+      {
+        cardTitle: "Константин Никольский (вокал, гитара, рок)",
+        description: "&laquo;Мой друг&nbsp;- художник и&nbsp;поэт&raquo; и&nbsp;другие любимые песни!",
+        dateText: "24 мар, пт 20:30",
+        dateTime: "2023-03-24 20:30",
+        image: "music-performer-3"
+      },
+    ]
+
+block main
+  style
+    include ../../sass/inline/uikit.css
+    include ../../sass/inline/prism.css
+
+  main
+    .uikit
+      //----------------------- Разделы с компонентами
+      .uikit__sections
+        label(for="section-burger")
+          span Разделы&nbsp;компонентов
+        input.visually-hidden(type="checkbox", checked, id="section-burger")
+        div
+          ul
+            li
+              a(href="#modals") Модальные окна
+            li
+              a(href="#buttons") Кнопки
+            li
+              a(href="#forms") Элементы форм
+            li
+              a(href="#link") Ссылки
+            li
+              a(href="#date") Даты
+            li
+              a(href="#titles") Заголовки
+            li
+              a(href="#text-content") Текстовый контент
+            li
+              a(href="#page-section") Обертка для блоков
+            li
+              a(href="#page-content") Обвязка страницы
+            li
+              a(href="#video-card") Видео-карточка
+            li
+              a(href="#intro-banner") Интро баннеры
+            li
+              a(href="#search-form") Форма поиска
+            li
+              a(href="#show-actor") Карточка артиста
+            li
+              a(href="#grid-show") Сетка мероприятия
+            li
+              a(href="#price") Цена
+            li
+              a(href="#menu-item") Строка товара
+            li
+              a(href="#brand-card") Карточка с брендом
+            li
+              a(href="#brand-text-card") Карточка с брендом и текстом
+            li
+              a(href="#grid") Блок с колонками
+            li
+              a(href="#banner") Баннер
+            li
+              a(href="#info-card") Карточка контактов
+            li
+              a(href="#info-title") Заголовок товара
+            li
+              a(href="#slider") Слайдер
+            li
+              a(href="#breadcrumbs") Хлебные крошки
+            li
+              a(href="#brand-grid") Сетка для брендов (партнеры и спонсоры)
+            li
+              a(href="#menu") Меню
+            li
+              a(href="#nav") Навигация-аккордеон
+            li
+              a(href="#logo") Логотип
+            li
+              a(href="#page-intro") Интро страницы
+            li
+              a(href="#show-card") Карточка события
+            li
+              a(href="#form") Форма подписки
+            li
+              a(href="#socials") Блок соцсетей
+            li
+              a(href="#pagination") Пагинация
+            li
+              a(href="#map-sample") Карта
+            li
+              a(href="#show-cards-section") Блок карточек события
+
+      //----------------------------------------------
+      .container
+        a.uikit__header-link(href="sitemap.html")
+          img(src="img/svg/logo.svg", width="300", alt="Логотип проекта")
+        h1 Компоненты, используемые на проекте
+
+        section
+          h2 Название компонента или группы компонентов
+          p.uikit__text Информация о компоненте (подсказки \ предупреждение \ важная информация)
+          .uikit__component
+            p.uikit__text  Класс компонента \ модификаторы
+            pre
+              |
+              code(class="language-pug").
+                p Пример кода
+
+        //- Модальные окна
+        section(id="modals")
+          h2 Модальные окна
+          .uikit__component
+            p.uikit__text.uikit__text--class .modal \ .modal--search
+            p.uikit__text modal-search использует компонент +search-form(), он обязательно должен присутствовать на странице.
+            p.uikit__text На разрешении больше 1280px отображается компонент +search-form(), а кнопка вызова модального окна блокируется.
+            p.uikit__text На разрешении меньше 1280px компонент +search-form() переносится в модальное окно, кнопка вызова модального окна становится активной.
+            +btn().btn--search(aria-pressed="false", aria-label="Переключатель отображения поиска", data-open-modal="search")
+              +icon("icon-search", "20", "20")
+            pre
+              |
+              code(class="language-pug").
+                +btn().btn--search(aria-pressed="false", aria-label="Переключатель отображения поиска", data-open-modal="search")
+                  +icon("icon-search", "20", "20")
+
+        //- Кнопки
+        section(id="buttons")
+          h2 Кнопки
+          .uikit__component
+            p.uikit__text.uikit__text--class .btn \ default \ button
+            p.uikit__text Тег компонента зависит от наличия ссылки (параметр "href"). При указании ссылки — "a", без указания ссылки — "button".
+            +btn({text: "Кнопка"})(data-example="Пример добавления дополнительного атрибута")
+            pre
+              |
+              code(class="language-pug").
+                +btn({text: "Текст"})(data-example="Пример добавления дополнительного атрибута")
+          .uikit__component
+            p.uikit__text.uikit__text--class .btn \ link
+            +btn({text: "Подробнее", href: "#", isExternal: true, label: "Просто ссылка"})
+            pre
+              |
+              code(class="language-pug").
+                +btn({
+                  text: "Текст",
+                  href: "#",
+                  isExternal: true,
+                  label: "Просто ссылка"
+                  })
+
+            .uikit__component
+            p.uikit__text.uikit__text--class .btn \.btn--slider-before
+            +btn({text: ""}).btn--slider-before(aria-label="Переключиться на предыдущий слайд.")
+              +icon("icon-arrow-left", 14, 7)(viewBox="0 0 14 7")
+            pre
+              |
+              code(class="language-pug").
+                +btn({text: ""}).btn--slider-before(aria-label="Переключиться на предыдущий слайд.")
+                  +icon("icon-arrow-left", 14, 7)(viewBox="0 0 14 7")
+            .uikit__component
+            p.uikit__text.uikit__text--class .btn \.btn--slider-next
+            +btn({text: ""}).btn--slider-next(aria-label="Переключиться на следующий слайд.")
+              +icon("icon-arrow-right", 14, 7)(viewBox="0 0 14 7")
+            pre
+              |
+              code(class="language-pug").
+                +btn({text: ""}).btn--slider-next(aria-label="Переключиться на cледующий слайд.")
+                  +icon("icon-arrow-right", 14, 7)(viewBox="0 0 14 7")
+
+
+          .uikit__component
+            p.uikit__text.uikit__text--class .btn \ .btn--magenta \ link
+            +btn({text: "Купить билет", href: "#", isExternal: true, label: "Просто ссылка"}).btn--magenta
+            pre
+              |
+              code(class="language-pug").
+                +btn({
+                  text: "Текст",
+                  href: "#",
+                  isExternal: true,
+                  label: "Просто ссылка"
+                  }).btn--magenta
+          .uikit__component
+            p.uikit__text.uikit__text--class .btn \ .btn--magenta-middle \ link
+            +btn({text: "Купить сертификат", href: "#", isExternal: true, label: "Просто ссылка"}).btn--magenta-middle
+            pre
+              |
+              code(class="language-pug").
+                +btn({
+                  text: "Купить сертификат",
+                  href: "#",
+                  isExternal: true,
+                  label: "Просто ссылка"
+                  }).btn--magenta-middle
+          .uikit__component
+            p.uikit__text.uikit__text--class .btn \ .btn--social \ link
+            +btn-with-icon({text: "Подписаться в Яндекс Дзен", href: "#", isExternal: true, label: "Просто ссылка", iconId: "icon-dzen", widthIcon: 26, heightIcon: 26}).btn--social
+            pre
+              |
+              code(class="language-pug").
+                +btn-with-icon({
+                  text: "Подписаться в Яндекс Дзен", href: "#",
+                  isExternal: true,
+                  iconId: "icon-dzen",
+                  label: "Просто ссылка",
+                  widthIcon: 26,
+                  heightIcon: 26
+                  }).btn--social
+          .uikit__component
+            p.uikit__text.uikit__text--class .btn \ .btn--white-middle \ link
+            +btn-with-icon({text: "20 апр, чт 20:30", datetime: "2023-04-30 20:30", href: "#", label: "Просто ссылка", iconId: "icon-calendar", iconWidth: 26, iconHeight: 26}).btn--white-middle
+            pre
+              |
+              code(class="language-pug").
+                +btn-with-icon({
+                  text: "20 апр, чт 20:30",
+                  datetime: "2023-04-30 20:30",
+                  href: "#",
+                  label: "Просто ссылка",
+                  iconId: "icon-calendar",
+                  iconWidth: 26,
+                  iconHeight: 26
+                  }).btn--white-middle
+          .uikit__component
+            p.uikit__text.uikit__text--class .btn \ .btn--white-middle \ link
+            +btn-with-icon({text: "Меню ресторана", href: "#", label: "Просто ссылка", iconId: "icon-restaurant", iconWidth: 26, iconHeight: 26}).btn--white-middle
+            pre
+              |
+              code(class="language-pug").
+                +btn-with-icon({
+                  text: "Меню ресторана",
+                  href: "#",
+                  label: "Просто ссылка",
+                  iconId: "icon-restaurant",
+                  iconWidth: 26,
+                  iconHeight: 26
+                  }).btn--white-middle
+          .uikit__component
+            p.uikit__text.uikit__text--class .btn \ disabled \ button
+            +btn({text: "Текст"}).btn--magenta(disabled)
+            pre
+              |
+              code(class="language-pug").
+                +btn({text: "Текст"}).btn--magenta(disabled)
+
+        //- Элементы форм
+        section(id="forms")
+          h2 Элементы форм
+          .uikit__component
+            p.uikit__text.uikit__text--class .custom-input \ .custom-input--footer \ type="email"
+            p.uikit__text Атрибут style задан инлайново для демонстрации, по дефолту фон компонента прозрачный
+            +custom-input({
+              inputType: "email",
+              inputPlaceholder: "Введите ваш email",
+              inputName: "user-mail",
+            })(style="background-color: #2e2e2e; padding: 5px;")
+            pre
+              |
+              code(class="language-pug").
+                +custom-input({
+                  inputType: "email",
+                  inputPlaceholder: "Введите ваш email",
+                  inputName: "user-mail",
+                })
+          .uikit__component
+            p.uikit__text.uikit__text--class +custom-toggle \ default
+            p.uikit__text Атрибут style задан инлайново для демонстрации, по дефолту фон компонента прозрачный
+            +custom-toggle({
+              inputLabel: "Я даю согласие на обработку моих персональных данных",
+              inputName: "user-agreement",
+              inputValue: "user-agreement-1",
+              inputChecked: false
+            }).custom-toggle--checkbox(style="background-color: #2e2e2e; padding: 5px;")
+            pre
+              |
+              code(class="language-pug").
+                +custom-toggle({
+                  inputLabel: "Я даю согласие на обработку моих персональных данных",
+                  inputName: "user-agreement",
+                  inputValue: "user-agreement-1",
+                  inputChecked: false
+                }).custom-toggle--checkbox
+
+        //- Ссылки
+        section(id="link")
+          h2 Ссылки
+          p.uikit__text Параметры цвета и шрифта задаются от родителя
+          .uikit__component
+            p.uikit__text.uikit__text--class .link \ default
+            +link({text: "Ссылка", href: "#"})
+            pre
+              |
+              code(class="language-pug").
+                +link({text: "Ссылка", href: "#"})
+          .uikit__component
+            p.uikit__text.uikit__text--class .link \ тег button
+            +link({text: "Кнопка"})
+            pre
+              |
+              code(class="language-pug").
+                +link({text: "Кнопка"})
+          .uikit__component
+            p.uikit__text.uikit__text--class .link \ ссылка на внешний ресурс
+            +link({text: "Ссылка на внешний ресурс", href: "#", isExternal: true})
+            pre
+              |
+              code(class="language-pug").
+                +link({text: "Ссылка на внешний ресурс", href: "#", isExternal: true})
+          .uikit__component
+            p.uikit__text.uikit__text--class .link \ .link--semi-bold
+            +link({text: "Ссылка", href: "#"}).link--semi-bold
+            pre
+              |
+              code(class="language-pug").
+                +link({text: "Ссылка", href: "#"}).link--semi-bold
+
+        //-  Даты
+        section(id="date")
+          h2 Даты
+          p.uikit__text Семейство шрифта задается от родителя
+          .uikit__component
+            p.uikit__text.uikit__text--class .date \ default
+            +date({ text:"8 апр, сб 20:30", datetime: "2023-04-08 20:30"})
+            pre
+              |
+              code(class="language-pug").
+                +date({ text:" 8 апр, сб 20:30", datetime: "2023-04-08 20:30"})
+
+        //- Заголовки
+        section(id="titles")
+          h2 Заголовки
+          p.uikit__text По умолчанию заголовок 2 уровня. Чтобы снять uppercase, нужен модификатор .title--no-text-transform
+          .uikit__component
+            p.uikit__text.uikit__text--class .title \ .title--h1 \ .title--h3 \ .title--no-text-transform \ .title--pink \ title--center
+            p.title.title--h1 Заголовок первого уровня
+            pre
+              |
+              code(class="language-pug").
+                .title.title--h1 Заголовок первого уровня
+            hr
+            p.title Заголовок по умолчанию
+            pre
+              |
+              code(class="language-pug").
+                .title Заголовок по умолчанию
+            hr
+            p.title.title--h3 Заголовок третьего уровня
+            pre
+              |
+              code(class="language-pug").
+                .title.title--h3 Заголовок третьего уровня
+            hr
+            p.title.title--h3.title--no-text-transform  Заголовок третьего уровня, снят uppercase
+            pre
+              |
+              code(class="language-pug").
+                .title.title--h3.title--no-text-transform  Заголовок третьего уровня, снят uppercase
+            hr
+            p.title.title--pink Розовый модификатор заголовка по умолчанию
+            pre
+              |
+              code(class="language-pug").
+                .title.title--pink Розовый модификатор заголовка по умолчанию
+            hr
+            p.title.title--center Заголовок расположенный по центру
+            pre
+              |
+              code(class="language-pug").
+                .title.title--center Модификатор заголовка, который располагается по центру
+
+
+        //- Обертка для заголовка с текстом
+        section(id="page-title")
+          h2 Обертка для заголовка с текстом
+          p.uikit__text Обертка для заголовка с текстом, модификатор --closer имеет меньший margin-bottom у пследнего дочернего элемента этого компонента.
+          p.uikit__text Модификатор --no-margin-bottom убирает margin-bottom у последнего дочернего элемента. Нужно когда у следующего компонента есть свой внутренний вертикальный отсуп сверху.
+          p.uikit__text .page-title оборачивает заголовок и текст под ним, если он имеется.
+          .uikit__component
+            p.uikit__text.uikit__text--class .page-title \ .page-title--closer \ .page-title--no-margin-bottom
+            style.
+              .uikit__component>.page-title {
+                margin-top: 10px;
+                border: purple 1px solid;
+                padding: 10px;
+              }
+            .page-title
+              .title.title--h3 Заголовок третьего уровня и под ним абзац
+              p абзац
+            pre
+              |
+              code(class="language-pug").
+                .page-title
+                  h3.title.title--h3 Заголовок третьего уровня и под ним абзац
+                  p абзац
+            hr
+            .page-title
+              p.title Обычный заголовок
+              p абзац
+              p второй абзац
+            pre
+              |
+              code(class="language-pug").
+                .page-title
+                  .title Обычный заголовок
+                  p абзац
+                  p второй абзац
+
+        //- Текстовый контент
+        section(id="text-content")
+          h2 Текстовый контент
+          p.uikit__text Параметры цвета и шрифта задаются от родителя. Абзацы обернуты в тег p, жирный шрифт - это ссылка, обернутая в тег a. Теги p и a стилизованы от обертки с классом .text-content
+          .uikit__component
+            p.uikit__text.uikit__text--class .text-content \ default
+            +text-content()
+            pre
+              |
+              code(class="language-pug").
+                +text-content()
+          .uikit__component
+            p.uikit__text.uikit__text--class .text-content \ .text-content--margin-top
+            +text-content().text-content--margin-top
+            pre
+              |
+              code(class="language-pug").
+                +text-content().text-content--margin-top
+
+        //- Обертка для больших смысловых блоков
+        section(id="page-section")
+          h2 Обертка для больших смысловых блоков
+          .uikit__component
+            p.uikit__text.uikit__text--class .page-section \ .page-section--padding-top-null \ page-section--padding-bottom-null
+            pre
+              |
+              code(class="language-pug").
+                +page-section()
+                +page-section().page-section--padding-top-null
+                +page-section().page-section--padding-top-null.page-section--padding-bottom-null
+
+        //- Обвязка страницы
+        section(id="page-content")
+          h2 Обвязка страницы
+          p.uikit__text Обертка для контента внутри main. Все page-section добавляются внутрь
+          .uikit__component
+            p.uikit__text.uikit__text--class .page-content
+            pre
+              |
+              code(class="language-pug").
+                main
+                  +page-content()
+                    +page-section()
+                      +some-block()
+                    +page-section()
+                      +some-block2()
+
+          //-  Интро баннеры
+        section(id="intro-banner")
+          h2 Интро баннеры
+          p.uikit__text Баннер с картинкой
+          .uikit__component
+            p.uikit__text.uikit__text--class .intro-banner \ default
+            +intro-banner()
+              +picture("content", "intro-card", "jpg", "1280", "401", "Подарочный сертификат")
+            pre
+              |
+              code(class="language-pug").
+                +intro-banner()
+                  +picture("content", "intro-card", "jpg", "1280", "401", "Подарочный сертификат")
+
+          p.uikit__text Баннер с видео
+          .uikit__component
+            p.uikit__text.uikit__text--class .intro-banner \ .intro-banner--video
+            +intro-banner().intro-banner--video
+              +video-card({source: "FLL5ixEOXVM"})
+            pre
+              |
+              code(class="language-pug").
+                +intro-banner()
+                  +video-card({source: "айди ролика"})
+                  +video-card({source: "FLL5ixEOXVM", quality: "hq"})
+
+        //- Форма поиска
+        section(id="search-form")
+          h2 Форма поиска
+          p.uikit__text По умолчанию имеет ширину 100%.
+          p.uikit__text В случае ошибки, нужно добавить компоненту .custom-input класс .is-invalid
+          .uikit__component(style="align-items: initial")
+            p.uikit__text.uikit__text--class .search-form
+            +search-form({inputId: "h-search", inputName: "header-search", inputValue: "", inputPlaceholder: "Я ищу..."})
+            pre
+              |
+              code(class="language-pug").
+                +search-form({inputId: "h-search", inputName: "header-search", inputValue: "", inputPlaceholder: "Я ищу..."})
+          .uikit__component(style="align-items: initial")
+            p.uikit__text.uikit__text--class .search-form
+            p.uikit__text Компонент с введенным текстом
+            +search-form({inputId: "h-search", inputName: "header-search", inputValue: "Поисковый запрос", inputPlaceholder: "Я ищу..."})
+            pre
+              |
+              code(class="language-pug").
+                +search-form({inputId: "h-search", inputName: "header-search", inputValue: "Поисковый запрос", inputPlaceholder: "Я ищу..."})
+          .uikit__component(style="align-items: initial")
+            p.uikit__text.uikit__text--class .search-form
+            p.uikit__text Компонент используется в модальном окне modal-search, переместится в окно на разрешении меньше 1279px.
+            +search-form({inputId: "h-search", inputName: "header-search", inputValue: "", inputPlaceholder: "Я ищу..."})(data-da="[data-modal-search], 1279, first")
+            pre
+              |
+              code(class="language-pug").
+                +search-form({inputId: "h-search", inputName: "header-search", inputValue: "", inputPlaceholder: "Я ищу..."})(data-da="[data-modal-search], 1279, first")
+
+        //- Карточка артиста
+        section(id="show-actor")
+          h2 Карточка артиста
+          p.uikit__text
+          .uikit__component
+            p.uikit__text.uikit__text--class .show-actor
+            +show-actor({
+              name: 'Акапелла Экспресс',
+              description: 'Шоу шести голосов. Экспрессия и шарм.',
+              photo: {
+                path: 'content',
+                image: 'actors-placeholder',
+                format: 'jpg',
+                width: '400',
+                height: '264',
+                altText: 'Фотография исполнителя Акапелла Экспресс',
+              },
+              link: '#',
+            })(style="max-width: 400px")
+            pre
+              |
+              code(class="language-pug").
+                +show-actor({
+                  name: 'Акапелла Экспресс',
+                  description: 'Шоу шести голосов. Экспрессия и шарм.',
+                  photo: {
+                    path: 'content',
+                    image: 'actors-placeholder',
+                    format: 'jpg',
+                    width: '400',
+                    height: '264',
+                    altText: 'Фотография исполнителя Акапелла Экспресс.',
+                  },
+                  link: '#',
+                })(style="max-width: 400px")
+
+        //- Сетка мероприятия
+        section(id="grid-show")
+          h2 Сетка мероприятия
+          .uikit__component
+            p.uikit__text.uikit__text--class .show-info
+            +show-info({iconId: "icon-clock", title: "Начало", description: "20:30", datetime: "2023-03-23 20:30"})
+            pre
+              |
+              code(class="language-pug").
+                +show-info({iconId: "icon-clock", title: "Начало", description: "20:30", datetime: "2023-03-23 20:30"})
+          .uikit__component
+            p.uikit__text.uikit__text--class .grid-show
+              +grid-show([
+                {iconId: "icon-calendar", title: "Дата", description: "23 марта, чт", datetime: "2023-03-23 20:30"},
+                {iconId: "icon-clock", title: "Начало", description: "20:30", datetime: "2023-03-23 20:30"},
+                {iconId: "icon-home", title: "Адрес", description: "пр-кт Мира, 26/1"},
+                {iconId: "icon-money", title: "Цена", description: "от 2000 ₽"},
+                  ])
+            pre
+              |
+              code(class="language-pug").
+                +grid-show([
+                  {iconId: "icon-calendar", title: "Дата", description: "23 марта, чт", datetime: "2023-04-08 20:30"},
+                  {iconId: "icon-clock", title: "Начало", description: "20:30", datetime: "2023-04-08 20:30"},
+                  {iconId: "icon-home", title: "Адрес", description: "пр-кт Мира, 26/1"},
+                  {iconId: "icon-money", title: "Цена", description: "от 2000 ₽"}
+                    ])
+          //- Цена
+          section(id="price")
+          h2 Цена
+          p.uikit__text В миксин вписывается число (цена товара). Жирность настраивается модификатором (по умолчанию жирность 400).
+          .uikit__component
+            p.uikit__text  .price
+            +price('400')
+            pre
+              |
+              code(class="language-pug").
+                +price('400')
+          .uikit__component
+            p.uikit__text  .price--bold
+            +price('500').price--bold
+            pre
+              |
+              code(class="language-pug").
+                +price('500').price--bold
+
+          //- Строка товара
+          section(id="menu-item")
+          h2 Строка товара
+          .uikit__component
+            +menu-item({
+              title: "Феттучини «Болоньезе»",
+              price: "800",
+            })
+            pre
+              |
+              code(class="language-pug").
+                +menu-item({
+                  title: "Феттучини «Болоньезе»",
+                  price: "800",
+                })
+          .uikit__component
+            p.uikit__text Если есть серое описание, добавляется description
+            +menu-item({
+              title: "Суши - сет",
+              price: "4 800",
+              description: "Филадельфия, Венеция, Калифорния с лососем, суши с лососем (3 шт), с креветкой (3 шт)",
+            })
+            pre
+              |
+              code(class="language-pug").
+                +menu-item({
+                  title: "Суши - сет",
+                  price: "4 800",
+                  description: "Филадельфия, Венеция, Калифорния с лососем, суши с лососем (3 шт), с креветкой (3 шт)",
+                })
+          .uikit__component
+            p.uikit__text Если есть розовое описание, добавляется descriptionPink
+            +menu-item({
+              title: "Moet & Chandon Rose Imperial",
+              price: "5 000",
+              descriptionPink: "200 мл.",
+            })
+            pre
+              |
+              code(class="language-pug").
+                +menu-item({
+                  title: "Moet & Chandon Rose Imperial",
+                  price: "5 000",
+                  descriptionPink: "200 мл.",
+                })
+
+        //- Видео-карточка
+        section(id="video-card")
+          h2 Видео-карточка
+          p.uikit__text Первое свойство аргумента это айди видео.
+          p.uikit__text По умолчанию качество превью "sd", другой формат передается вторым необязательным свойством quality в объекте.
+          p.uikit__text Форматы : "", mq, hq, sd, maxres. Пустые кавычки в свойстве quality для самого низкого качества.
+          .uikit__component
+            p.uikit__text.uikit__text--class .video-card
+            +video-card({source: "FLL5ixEOXVM", quality: "hq"})
+            style.
+              .uikit__component>.video-card {
+                max-width: 400px;
+                padding-bottom: 225px;
+              }
+            pre
+              |
+              code(class="language-pug").
+                +video-card({source: "pUBEyUz-ELk", quality: "hq"})
+                +video-card({source: "pUBEyUz-ELk"})
+
+        //- Карточка с брендом
+        section(id="brand-card")
+          h2 Карточка с брендом
+          p.uikit__text Карточка с брендом. По сути для того чтобы быть ссылкой, но если не передать ссылку, элемент будет просто не интерактивный
+          .uikit__component
+            p.uikit__text.uikit__text--class .brand-card
+            .uikit__around-brand-card
+              +brand-card({path:"content/partners", image:"ponominalu", format:"png", width:"235", height:"38", altText:"Партнер клуба Пономиналу."})
+              style.
+                .uikit__around-brand-card>.brand-card {
+                  width: 300px;
+                }
+            pre
+              |
+              code(class="language-pug").
+                +brand-card({
+                  path:"content/partners",
+                  image:"ponominalu",
+                  format:"png",
+                  width:"235",
+                  height:"38",
+                  altText:"Партнер клуба Пономиналу.",
+                  link:"www.link.ru",
+                })
+
+        //- Карточка с брендом и текстом
+        section(id="brand-text-card")
+          h2 Карточка с брендом и текстом
+          p.uikit__text Карточка с брендом. По сути для того чтобы быть ссылкой, но если не передать ссылку, элемент будет просто не интерактивный
+          .uikit__component
+            p.uikit__text.uikit__text--class .brand-text-card
+            .uikit__around-brand-card
+              +brand-text-card({text: "Генеральный информационный партнёр", path:"content/partners", image:"jazz_fm", format:"png", width:"235", height:"38", altText:"Партнер клуба Пономиналу."})
+            style.
+              .uikit__around-brand-card>.brand-text-card {
+                max-width: 428px;
+              }
+            pre
+              |
+              code(class="language-pug").
+                +brand-text-card({
+                  text: "Генеральный информационный партнёр",
+                  path:"content/partners",
+                  image:"ponominalu",
+                  format:"png",
+                  width:"235",
+                  height:"38",
+                  altText:"Партнер клуба Пономиналу.",
+                  link:"www.link.ru",
+                })
+
+        //- Сетка для брендов
+        section(id="brand-grid")
+          h2 Сетка для брендов
+          p.uikit__text Сетка для брендов. По умолчанию три столбца
+          .uikit__component
+            p.uikit__text.uikit__text--class .brand-grid \ .brand-grid--4-columns
+            .brand-grid
+              +brand-text-card({text: "Генеральный информационный партнёр", path:"content/partners", image:"jazz_fm", format:"png", width:"235", height:"38", altText:"Партнер радио джаз эфэм."})
+              +brand-text-card({text: "Ваш Досуг. Лучшие развлечения Москвы", path:"content/partners", image:"leisure", format:"png", width:"204", height:"89", altText:"Партнер ваш досуг."})
+              +brand-text-card({text: "Ресторан огород", path:"content/partners", image:"ogorod", format:"png", width:"158", height:"144", altText:"Партнер ресторан огород."})
+
+            hr
+            .brand-grid.brand-grid--4-columns
+              - let n = 0;
+              while n < 4
+                - ++n
+                +brand-card({path:"content/partners", image:"ponominalu", format:"png", width:"235", height:"38", altText:"Партнер клуба Пономиналу."})
+
+            pre
+              |
+              code(class="language-pug").
+                .brand-grid
+
+                .brand-grid.brand-grid--4-columns
+
+        //- Блок с колонками
+        section(id="grid")
+          h2 Блок с колонками
+          p.uikit__text Блок с колонками для карточек и видео
+          .uikit__component
+            p.uikit__text.uikit__text--class .grid
+            p.uikit__text Блок для элементов с тремя колонками на десктопной, двумя колонками на мобильной и планшетной версии
+            +grid()
+              +show-actor({name: 'Акапелла Экспресс',
+                description: 'Шоу шести голосов. Экспрессия и шарм.',
+                photo: {
+                  path: 'content',
+                  image: 'actors-placeholder',
+                  format: 'jpg',
+                  width: '400',
+                  height: '264',
+                  altText: 'Фотография исполнителя Акапелла Экспресс',
+                },
+                link: '#',})
+              +show-actor({name: 'Акапелла Экспресс',
+                description: 'Шоу шести голосов. Экспрессия и шарм.',
+                photo: {
+                  path: 'content',
+                  image: 'actors-placeholder',
+                  format: 'jpg',
+                  width: '400',
+                  height: '264',
+                  altText: 'Фотография исполнителя Акапелла Экспресс',
+                },
+                link: '#',})
+              +show-actor({name: 'Акапелла Экспресс',
+                description: 'Шоу шести голосов. Экспрессия и шарм.',
+                photo: {
+                  path: 'content',
+                  image: 'actors-placeholder',
+                  format: 'jpg',
+                  width: '400',
+                  height: '264',
+                  altText: 'Фотография исполнителя Акапелла Экспресс',
+                },
+                link: '#',})
+              +show-actor({name: 'Акапелла Экспресс',
+                description: 'Шоу шести голосов. Экспрессия и шарм.',
+                photo: {
+                  path: 'content',
+                  image: 'actors-placeholder',
+                  format: 'jpg',
+                  width: '400',
+                  height: '264',
+                  altText: 'Фотография исполнителя Акапелла Экспресс',
+                },
+                link: '#',})
+          hr
+          .uikit__component
+            p.uikit__text.uikit__text--class .grid--mobile-one-column
+            p.uikit__text Блок для элементов с тремя колонками на десктопной, одной колонкой на мобильной и планшетной версии
+            +grid().grid--mobile-one-column
+              +video-card({source: "-FH6Pn9OUMc", quality: "hq"})
+              +video-card({source: "-FH6Pn9OUMc", quality: "hq"})
+
+          pre
+            |
+            code(class="language-pug").
+              +grid()
+                +some-card()
+                +some-card()
+              +grid().grid--mobile-one-column
+                +some-card()
+                +some-card()
+
+        //- Баннер
+        section(id="banner")
+          h2 Баннер
+          p.uikit__text В миксин передает блок с контентом из одного или нескольких параграфов, ссылки должны быть обернуты в тег ссылки. Теги a и p стилизованы от обертки с классом .banner
+          .uikit__component
+            p.uikit__text .banner
+            +banner({name: "icon-star", width: 46, height: 46})
+              p Места за столиками бронируйте заранее по телефону #[a(href="tel:+74955324723") +7 (495) 532-47-23], WhatsApp/Viber #[a(href="tel:+79262589920") +7 (926) 258-99-20]
+            pre
+              |
+              code(class="language-pug").
+                +banner({name: "icon-star", width: 46, height: 46})
+                  p Места за столиками бронируйте заранее по телефону \#[a(href="tel:+74955324723") +7 (495) 532-47-23], WhatsApp/Viber \#[a(href="tel:+79262589920") +7 (926) 258-99-20]
+
+        //-  Карточка контакта
+        section(id="info-card")
+          h2 Карточка контакта
+          p.uikit__text В миксин вставляется блок с контентом, ссылки должны быть обернуты в соответствующие теги (address, a(href="tel:"), a(href="mailto:"))
+          .uikit__component
+            p.uikit__text.uikit__text--class .info-card
+            +info-card("Отмены и переносы концертов")
+              p #[a(href="tel:+74955324723") +7 (495) 532-47-23]
+              p #[a(href="mailto:academjazz@gmail.com") academjazz@gmail.com]
+              address Проспект Мира 26/1 (вход в ресторан Огород)
+            pre
+              |
+              code(class="language-pug").
+                +info-card("Отмены и переносы концертов")
+                  p \#[a(href="tel:+74955324723") +7 (495) 532-47-23]
+                  p \#[a(href="mailto:academjazz@gmail.com") academjazz@gmail.com]
+                  address Проспект Мира 26/1 (вход в ресторан Огород)
+          .uikit__component
+            p.uikit__text.uikit__text--class .info-card с дополнительным заголовком, который передается вторым аргументом при вызове миксина
+            +info-card("Арт-менеджер клуба", "Для артистов")
+              p #[a(href="tel:+79262589920") +7(926) 258-99-20]
+              p #[a(href="mailto:lera_sh@bk.ru") lera_sh@bk.ru]
+            pre
+              |
+              code(class="language-pug").
+                +info-card("Арт-менеджер клуба", "Для артистов")
+                  p #[a(href="tel:+79262589920") +7(926) 258-99-20]
+                  p #[a(href="mailto:lera_sh@bk.ru") lera_sh@bk.ru]
+
+
+        //- Заголовок товара
+        section(id="menu-title")
+        h2 Заголовок товара
+        .uikit__component
+          +menu-title({
+            title: "Игристые вина",
+          })
+          pre
+            |
+            code(class="language-pug").
+              +menu-title({
+                title: "Игристые вина",
+              })
+        p.uikit__text Если есть описание, то добавляет description
+        .uikit__component
+          +menu-title({
+            title: "Вино в бокалах",
+            description: "125 мл.",
+          })
+          pre
+            |
+            code(class="language-pug").
+              +menu-title({
+                title: "Вино в бокалах",
+                description: "125 мл.",
+              })
+
+        //-  Слайдер
+        section(id="slider")
+          h2 Слайдер
+          p.uikit__text Слайдер реализован с помощью Swiper
+          .uikit__component
+            p.uikit__text.uikit__text--class .slider.swiper \ default
+            +slider({slides: [
+              {path: "content/slider-photo/slider-1", image: "slider-photo-1", format: "jpg", width: "400", height: "264", altText: "Группа Стаса Намина Цветы."},
+              {path: "content/slider-photo/slider-1", image: "slider-photo-2", format: "jpg", width: "400", height: "264", altText: "Группа Стаса Намина Цветы."},
+              {path: "content/slider-photo/slider-1", image: "slider-photo-3", format: "jpg", width: "400", height: "264", altText: "Группа Стаса Намина Цветы."},
+              {path: "content/slider-photo/slider-1", image: "slider-photo-1", format: "jpg", width: "400", height: "264", altText: "Группа Стаса Намина Цветы."},
+              {path: "content/slider-photo/slider-1", image: "slider-photo-2", format: "jpg", width: "400", height: "264", altText: "Группа Стаса Намина Цветы."},
+              {path: "content/slider-photo/slider-1", image: "slider-photo-3", format: "jpg", width: "400", height: "264", altText: "Группа Стаса Намина Цветы."},
+            ]})
+            pre
+              |
+              code(class="language-pug").
+                +slider({slides: [
+                  {path: "content/slider-photo/slider-1", image: "slider-photo-1", format: "jpg", width: "400", height: "264", altText: "Группа Стаса Намина Цветы."},
+                  {path: "content/slider-photo/slider-1", image: "slider-photo-2", format: "jpg", width: "400", height: "264", altText: "Группа Стаса Намина Цветы."},
+                  {path: "content/slider-photo/slider-1", image: "slider-photo-3", format: "jpg", width: "400", height: "264", altText: "Группа Стаса Намина Цветы."},
+                  {path: "content/slider-photo/slider-1", image: "slider-photo-1", format: "jpg", width: "400", height: "264", altText: "Группа Стаса Намина Цветы."},
+                  {path: "content/slider-photo/slider-1", image: "slider-photo-2", format: "jpg", width: "400", height: "264", altText: "Группа Стаса Намина Цветы."},
+                  {path: "content/slider-photo/slider-1", image: "slider-photo-3", format: "jpg", width: "400", height: "264", altText: "Группа Стаса Намина Цветы."},
+                  ]})
+
+        //-  Хлебные крошки
+        section(id="breadcrumbs")
+          h2 Хлебные крошки
+          p.uikit__text Семейство шрифта задается от родителя
+          .uikit__component
+            p.uikit__text.uikit__text--class .breadcrumbs
+            +breadcrumbs([{text: "Главная", href: "#"}, {text: "Афиша", href: "#"}])
+            pre
+              |
+              code(class="language-pug").
+                +breadcrumbs([
+                  {text: "Главная", href: "#"},
+                  {text: "Афиша", href: "#"}
+                  ])
+
+        //- Блок меню
+        section(id="menu")
+        h2 Меню
+        p.uikit__text +menu(dataLeft, dataRight)
+        p.uikit__text В компонент передаются объекты по колонкам dataLeft и dataRight. В объекте title отвечает за розовый заголовок, groups.description за синий подзаголовок, groups.positions за строчки меню (туда входит заголовок, цена, описание серое или розовое). Каждый элемент title, groups.description и тд можно пропустить, тогда он просто не отобразится.
+        .uikit__component
+          +menu(dataLeft, dataRight)
+          pre
+            |
+            code(class="language-pug").
+              [
+                {
+                  title: {
+                    title: "Холодные закуски и салаты",
+                    description: "",
+                  },
+                  groups: [
+                    {
+                      description: "",
+                      positions: [
+                        {
+                          title: "Суши - сет",
+                          price: "4 800",
+                          description: "Филадельфия, Венеция, Калифорния с лососем, суши с лососем (3 шт), с креветкой (3 шт)",
+                          descriptionPink: "",
+                        }
+                      ]
+                    },
+                  ]
+                },
+              ]
+
+        //- Навигация-аккордеон
+        section(id="nav")
+          h2 Навигация-аккордеон
+          p.uikit__text По умолчанию имеет бесцветный фон
+          p.uikit__text При добавлении ссылок в массив subLinks, будет создан аккордеон из этих ссылок
+          .uikit__component
+            p.uikit__text.uikit__text--class .nav \ default
+            +nav(headerLinks)
+            pre
+              |
+              code(class="language-pug").
+                +nav([
+                  {
+                    link: {text: "Афиша", href: "playbill.html"},
+                    subLinks: []
+                  },
+                  {
+                    link: {text: "Информация"},
+                    subLinks: [
+                      {text: "О нас", href: "about.html"},
+                      {text: "Меню ресторана", href: "menu.html"}
+                    ]
+                  },
+                  {
+                    link: {text: "Отзывы", href: "reviews.html"},
+                    subLinks: []
+                  }
+                ])
+
+        //- Логотип
+        section(id="logo")
+          h2 Логотип
+          p.uikit__text Логотип будет обернут в span, если страница index.html
+          p.uikit__text Если страница не index.html или передать флаг isFooter, то логотип будет обернут в ссылку
+          p.uikit__text Если добавить флаг isFooter, на разрешении меньше 768px логотип скрывается
+          p.uikit__text Аргументы currentUrl и isFooter передавать не обязательно
+          .uikit__component
+            p.uikit__text.uikit__text--class .logo \ обернут в span, т.к. currentUrl === "index.html"
+            +logo({name: "logo", width: "161", height: "72", currentUrl: "index.html"})
+            pre
+              |
+              code(class="language-pug").
+                +logo({name: "logo", width: "161", height: "72", currentUrl: "index.html"})
+          .uikit__component
+            p.uikit__text.uikit__text--class .logo \ обернут в link, т.к. currentUrl !== "index.html"
+            +logo({name: "logo", width: "161", height: "72", currentUrl: "about.html"})
+            pre
+              |
+              code(class="language-pug").
+                +logo({name: "logo", width: "161", height: "72", currentUrl: "about.html"})
+          .uikit__component
+            p.uikit__text.uikit__text--class .logo \ обернут в link, т.к. isFooter: true
+            +logo({name: "logo", width: "161", height: "72", currentUrl: "index.html", isFooter: true})
+            pre
+              |
+              code(class="language-pug").
+                +logo({name: "logo", width: "161", height: "72", currentUrl: "index.html", isFooter: true})
+          .uikit__component
+            p.uikit__text.uikit__text--class .logo \ .logo--footer
+            +logo({name: "logo", width: "161", height: "72", isFooter: true}).logo--footer
+            pre
+              |
+              code(class="language-pug").
+                +logo({name: "logo", width: "161", height: "72", isFooter: true}).logo--footer
+
+        //- Интро страницы
+        section(id="page-intro")
+          h2 Интро сраницы
+          .uikit__component
+            p.uikit__text.uikit__text--class .page-intro
+            +page-intro()
+            pre
+              |
+              code(class="language-pug").
+                +page-intro()
+
+        //- Карточка события
+        section(id="show-card")
+          h2 Карточка события
+          p.uikit__text
+          .uikit__component
+            p.uikit__text .show-card
+            +show-card({
+              name: "Валерий Киселев и Ансамбль классического джаза",
+              description: "In&nbsp;the Mood of&nbsp;Swing. Хиты 1930&#8209;х годов в&nbsp;оригинальной аранжировке маэстро.",
+              date: {
+                text: "24 мар, пт 20:30",
+                datetime: "2023-03-24 20:30"
+              },
+              photo: {
+                path: "content",
+                image: "show-placeholder",
+                format: "jpg",
+                width: "400",
+                height: "264",
+                altText: "Фотография исполнителя",
+              },
+              linkToShowPage: "#",
+              linkToPurchase: "#",
+            })(style="max-width: 400px")
+            pre
+              |
+              code(class="language-pug").
+                +show-card({
+                  name: "Валерий Киселев и Ансамбль классического джаза",
+                  description: "In&nbsp;the Mood of&nbsp;Swing. Хиты 1930&#8209;х годов в&nbsp;оригинальной аранжировке маэстро.",
+                  date: {
+                    text: "24 марта 2023, пт 20:30",
+                    datetime: "2023-03-24 20:30"
+                  },
+                  photo: {
+                    path: "content",
+                    image: "show-placeholder",
+                    format: "jpg",
+                    width: "400",
+                    height: "264",
+                    altText: "Фотография исполнителя",
+                  },
+                  linkToShowPage: "#",
+                  linkToPurchase: "#",
+                })(style="max-width: 400px")
+
+
+        //- Форма подписки
+        section(id="form")
+          h2 Форма подписки
+          p.uikit__text
+          p.uikit__text Атрибут style задан инлайново для демонстрации, по дефолту фон компонента прозрачный
+
+          .uikit__component
+            p.uikit__text.uikit__text--class .form \ default
+            +form([
+              {
+                input: {type: "email", placeholder: "Введите ваш email"},
+              },
+              {
+                checkbox: {label: "Я даю согласие на обработку моих персональных данных"},
+              }
+            ])(style="background-color: #2e2e2e;")
+            pre
+              |
+              code(class="language-pug").
+                +form([
+                  {
+                    input: {type: "email", placeholder: "Введите ваш email"},
+                  },
+                  {
+                    checkbox: {label: "Я даю согласие на обработку моих персональных данных"},
+                  }
+                ])
+
+            p.uikit__text.uikit__text--class .form \ invalid checkbox (для .custom-toggle задается класс .is-invalid )
+            +form([
+              {
+                input: {type: "email", placeholder: "Введите ваш email"},
+              },
+              {
+                checkbox: {label: "Я даю согласие на обработку моих персональных данных"},
+                isInvalid: true,
+              }
+            ])(style="background-color: #2e2e2e;")
+            pre
+              |
+              code(class="language-pug").
+                +form([
+                  {
+                    input: {type: "email", placeholder: "Введите ваш email"},
+                  },
+                  {
+                    checkbox: {label: "Я даю согласие на обработку моих персональных данных"},
+                    isInvalid: true,
+                  }
+                ])
+
+            p.uikit__text.uikit__text--class .form \ invalid input (для .custom-input задается класс .is-invalid )
+            +form([
+              {
+                input: {type: "email", placeholder: "Введите ваш email"},
+                isInvalid: true,
+              },
+              {
+                checkbox: {label: "Я даю согласие на обработку моих персональных данных"},
+              }
+            ])(style="background-color: #2e2e2e;")
+            pre
+              |
+              code(class="language-pug").
+                +form([
+                  {
+                    input: {type: "email", placeholder: "Введите ваш email"},
+                    isInvalid: true,
+                  },
+                  {
+                    checkbox: {label: "Я даю согласие на обработку моих персональных данных"},
+                  }
+                ])
+
+        //- Блок соцсетей
+        section(id="socials")
+          h2 Блок соцсетей
+          p.uikit__text
+          .uikit__component
+            p.uikit__text.uikit__text--class .socials \ default
+            +socials(socialItems)
+            pre
+              |
+              code(class="language-pug").
+                +socials([
+                  {
+                    link: {href: "#"},
+                    icon: {name: "icon-vk"},
+                    label: "ВКонтакте",
+                  },
+                  {
+                    link: {href: "#"},
+                    icon: {name: "icon-telegram"},
+                    label: "Телеграм",
+                  },
+                  {
+                    link: {href: "#"},
+                    icon: {name: "icon-dzen"},
+                    label: "Дзен",
+                  },
+                ])
+
+        //- Пагинация
+        section(id="pagination")
+          h2 Пагинация
+          p.uikit__text
+          p.uikit__text Состояния: стрелка влево - is-disabled, страница 1 - is-active
+          .uikit__component
+            p.uikit__text.uikit__text--class .pagination \ default
+            +pagination(paginationLinks)
+            pre
+              |
+              code(class="language-pug").
+                +pagination([
+                  {
+                    link: {href: "#"},
+                    icon: {name: "icon-arrow-left"},
+                    label: "Предыдущая страница",
+                    isPrev: true,
+                    isDisabled: true
+                  },
+                  {
+                    link: {text: "1", href: "#"},
+                    label: "Страница 1",
+                    isCurrent: true
+                  },
+                  {
+                    link: {text: "2", href: "#"},
+                    label: "Страница 2"
+                  },
+                  {
+                    link: {href: "#"},
+                    icon: {name: "icon-arrow-right"},
+                    label: "Следующая страница",
+                  }
+                ])
+          .uikit__component
+            p.uikit__text.uikit__text--class .pagination \ с бОльшим количеством страниц
+            +pagination(paginationLinksMore)
+            pre
+              |
+              code(class="language-pug").
+                +pagination([
+                  {
+                    link: {href: "#"},
+                    icon: {name: "icon-arrow-left"},
+                    label: "Предыдущая страница",
+                    isPrev: true,
+                    isDisabled: true
+                  },
+                  {
+                    link: {text: "1", href: "#"},
+                    label: "Страница 1",
+                    isCurrent: true
+                  },
+                  {
+                    link: {text: "2", href: "#"},
+                    label: "Страница 2"
+                  },
+                  {
+                    link: {text: "3", href: "#"},
+                    label: "Страница 3"
+                  },
+                  {
+                    link: {text: "...", href: "#"},
+                    label: "Показать еще"
+                  },
+                  {
+                    link: {text: "8", href: "#"},
+                    label: "Страница 8"
+                  },
+                  {
+                    link: {text: "9", href: "#"},
+                    label: "Страница 9"
+                  },
+                  {
+                    link: {text: "10", href: "#"},
+                    label: "Страница 10"
+                  },
+                  {
+                    link: {href: "#"},
+                    icon: {name: "icon-arrow-right"},
+                    label: "Следующая страница",
+                  }
+                ])
+
+        //- Карта
+        section(id="map-sample")
+          h2 Карта
+          p.uikit__text.uikit__text--class .map \ default
+          .uikit__component
+            .map-wrapper(style="width: 400px; max-width: 100%; height: 284px")
+              +map({
+                center: "55.777980, 37.633158",
+                zoom: 17,
+                pin: {
+                  coordinates: "55.777980, 37.633158",
+                  header: "3 мин",
+                  body: "226 м",
+                  footer: "<a href=#>Подробнее</a>",
+                },
+                })(id="map-2")
+            pre
+              |
+              code(class="language-pug").
+                .map-wrapper(style="width: 400px; max-width: 100%; height: 284px")
+                  +map({
+                    center: "55.777980, 37.633158",
+                    zoom: 17,
+                    pin: {
+                      coordinates: "55.777980, 37.633158",
+                      header: "3 мин",
+                      body: "226 м",
+                      footer: "<a href=#>Подробнее</a>",
+                      },
+                    })(id="map-2")
+
+        //- Блок карточек события
+        section(id="show-cards-section")
+          h2 Блок карточек события
+          p.uikit__text Первым аргументом передается объект. text - текст заголовка. Необязательный tag - тег, которым будет представлен заголовок. По умолчанию h2. Необязательный titlePosition - позиция заголовка. По умолчанию left. Необязательный isTitleHidden. По умолчанию false.
+          p.uikit__text Вторым массив карточек
+          p.uikit__text Третьим, необязательным paginationLinks, при наличии пагинации
+          .uikit__component
+            p.uikit__text.uikit__text--class .show-cards-section
+              +show-cards-section({
+                tag: "p",
+                text: "Скоро на сцене",
+                }, cards)
+            pre
+              |
+              code(class="language-pug").
+                +show-cards-section({
+                  tag: "h1"
+                  text: "Текст заголовка",
+                  titlePosition: "center"
+                }, cards, paginationLinks)
+
+                +show-cards-section({
+                  text: "Текст заголовка",
+                }, cards)
+
+                +show-cards-section({
+                  text: "Текст заголовка",
+                  isTitlesHidden: true,
+                }, cards)
+
+  script
+    include ../../js/inline/ui-kit.js
+
+block modals
+  +modal("modal--search")(data-modal="search")
+    +modal-search()

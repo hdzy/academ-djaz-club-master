@@ -1,0 +1,15 @@
+mixin show-info(options = {})
+  - const iconId = options.iconId ||"";
+  - const title = options.title ||"";
+  - const description = options.description ||"";
+  - const datetime = options.datetime;
+
+  .show-info&attributes(attributes)
+    span.show-info__icon-wrapper
+      +icon(iconId, 35, 35)
+    .show-info__text
+      p.show-info__title #{title}
+      if datetime
+        time.show-info__description(datetime = options.datetime) #{description}
+      else
+        p.show-info__description #{description}

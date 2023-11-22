@@ -1,0 +1,10 @@
+.map {
+  width: 100%;
+  height: 100%;
+
+  outline: 1px solid $color-pink-swan;
+
+  .ymaps-2-1-79-balloon__close-button {
+    transition: opacity $trans-default;
+  }
+}

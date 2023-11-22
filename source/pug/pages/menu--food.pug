@@ -1,0 +1,449 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Меню ресторана - Академ Джаз Клуб"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "menu--food.html"
+  -
+    const breadcrumbs = [
+      {
+        text: "Главная",
+        href: "index.html",
+      },
+      {
+        text: "Меню",
+        href: "menu.html",
+      },
+      {
+        text: "Меню ресторана",
+        href: "menu--food.html"
+      },
+    ]
+  -
+    const dataLeft = [
+      {
+        title: {
+          title: " Холодные закуски и салаты",
+        },
+        groups: [
+          {
+            positions: [
+              {
+                title: "Суши&nbsp;&dash; сет",
+                price: "4 800",
+                description: "Филадельфия, Венеция, Калифорния с&nbsp;лососем, суши с&nbsp;лососем (3&nbsp;шт), с&nbsp;креветкой (3&nbsp;шт)",
+              },
+              {
+                title: "«Морские кораллы»",
+                price: "950",
+                description: "Икра красная лососевая на&nbsp;льду",
+              },
+              {
+                title: "Мозаика из&nbsp;деликатесных рыб",
+                price: "1 800",
+                description: "Слабосоленый лосось, мидии, сиг холодного и&nbsp;угорь горячего копчения",
+              },
+              {
+                title: "Сельдь с&nbsp;картофелем &laquo;Нуазет&raquo;",
+                price: "400",
+              },
+              {
+                title: "&laquo;Мясная трапеза&raquo;",
+                price: "900",
+                description: "Копчёная индейка, утка, язык отварной и&nbsp;филе говядины",
+              },
+              {
+                title: "&laquo;Вителло тоннато&raquo;",
+                price: "800",
+                description: "Холодная закуска из&nbsp;ростбифа и&nbsp;соусом из&nbsp;майонеза, тунца и&nbsp;каперсов",
+              },
+              {
+                title: "Ассорти из&nbsp;свежих овощей",
+                price: "600",
+              },
+              {
+                title: "Грибочки из&nbsp;бабушкиного погребка",
+                price: "600",
+                description: "Белые грибочки и&nbsp;свежие шампиньоны, маринованные по&nbsp;бабушкиному рецепту",
+              },
+              {
+                title: "&laquo;Капреззо&raquo;",
+                price: "600",
+                description: "Сыр моцарелла с&nbsp;томатами и&nbsp;базиликом",
+              },
+              {
+                title: "Салат &laquo;Де&nbsp;&dash; Голь&raquo;",
+                price: "700",
+                description: "Фантазия из&nbsp;копченной утки, шампиньонов, корня сельдерея и&nbsp;стручков зеленой фасоли под &laquo;дижонским&raquo; соусом",
+              },
+              {
+                title: "&laquo;Соло для любимой&raquo;",
+                price: "1 800",
+                description: "Изысканное сочетание крабов с&nbsp;дольками ананаса в&nbsp;коньячном соус",
+              },
+              {
+                title: "&laquo;Цезарь&raquo;",
+                price: "750",
+                description: "Нежное куриное мясо в&nbsp;сочетании с&nbsp;хрустящими гренками, свежей зеленью и&nbsp;пикантной заправкой &laquo;Цезарь&raquo;",
+              },
+              {
+                title: "Теплый салат с&nbsp;креветками",
+                price: "1 700",
+                description: "Руккола, помидоры и&nbsp;сыр &laquo;Пармезан&raquo;",
+              },
+              {
+                title: "Салат &laquo;Капитоль&raquo;",
+                price: "700",
+                description: "Кусочки нежного куриного мяса, пропитанные в&nbsp;соке апельсина, с&nbsp;дольками винограда и&nbsp;жареным миндалем",
+              },
+              {
+                title: "Салат с&nbsp;ростбифом",
+                price: "1 200",
+                description: "В&nbsp;сочетании с&nbsp;рукколой, сыром пармезан, томатами черри, огурцом и&nbsp;соусом вафу",
+              },
+              {
+                title: "Тар тар из&nbsp;тунца",
+                price: "750",
+              },
+            ]
+          },
+        ]
+      },
+      {
+        title: {
+          title: "Горячие блюда",
+        },
+        groups: [
+          {
+            positions: [
+              {
+                title: "Ассорти из&nbsp;шашлыков",
+                price: "4 500",
+                description: "Корейка ягненка, мясо ягненка, люля из&nbsp;баранины, телятина филе, вырезка телячья, куриное филе, овощи гриль",
+              },
+              {
+                title: "Ассорти из&nbsp;шашлыков",
+                price: "4 500",
+                description: "Корейка ягненка, мясо ягненка, люля из&nbsp;баранины, свиная шейка, вырезка телячья, куриное филе, овощи гриль, соус томатный",
+              },
+              {
+                title: "Стейк из&nbsp;лосося",
+                price: "1 600",
+              },
+              {
+                title: "Тигровые креветки на&nbsp;гриле",
+                price: "2 200",
+              },
+              {
+                title: "Стерлядка паровая",
+                price: "3 300",
+                description: "Фаршированная тушкой семги, припущенная в&nbsp;шампанском под соусом &laquo;Икорная рапсодия&raquo;",
+              },
+              {
+                title: "Форель радужная с&nbsp;овощами",
+                price: "1 100",
+                description: "Подается с&nbsp;гранатовым соусом",
+              },
+              {
+                title: "Дорада фаршированная зелёным маслом",
+                price: "1 300",
+              },
+              {
+                title: "Палтус с&nbsp;фаршированными блинчиками",
+                price: "1 700",
+              },
+              {
+                title: "Свинина на&nbsp;углях",
+                price: "1 200",
+                description: "Нежная свиная шейка на&nbsp;углях с&nbsp;лёгким гарниром",
+              },
+              {
+                title: "Телятина с&nbsp;куриной печенью и&nbsp;шампиньонами",
+                price: "1 400",
+              },
+              {
+                title: "&laquo;Медальон Императорский&raquo;",
+                price: "1 600",
+                description: "Парная говяжья вырезка, панированная в&nbsp;семенах фенхеля, с&nbsp;овощами и&nbsp;мягким сыром моцарелла",
+              },
+              {
+                title: "Корейка ягненка",
+                price: "950",
+                description: "В&nbsp;бархатной панировке из&nbsp;ароматных трав под чесночным соусом",
+              },
+              {
+                title: "Говяжий язык под сливочно-грибным соусом",
+                price: "800",
+              },
+              {
+                title: "Утиная грудка &laquo;Магре&raquo;",
+                price: "1 200",
+                description: "С&nbsp;карамелизированными яблоками и&nbsp;обжаренным беконом",
+              },
+              {
+                title: "Бифштекс с&nbsp;яйцом и&nbsp;салатом",
+                price: "1 200",
+              },
+            ]
+          }
+        ]
+      }
+    ]
+  -
+    const dataRight = [
+      {
+        title: {
+          title: "Горячие закуски",
+        },
+        groups: [
+          {
+            positions: [
+              {
+                title: "Фуа-гра",
+                price: "2 100",
+                description: "На&nbsp;ложе из&nbsp;шпината в&nbsp;обрамлении соуса из&nbsp;маракуйи",
+              },
+              {
+                title: "&laquo;Блинный мешочек&raquo;",
+                price: "1 500",
+                description: "Морской гребешок с&nbsp;красной икрой и&nbsp;острым малиновым соусом",
+              },
+              {
+                title: "Жульен с&nbsp;лесными грибами",
+                price: "400",
+              },
+              {
+                title: "Французский камамбер",
+                price: "900",
+                description: "Нежный сыр с&nbsp;хрустящей корочкой",
+              },
+              {
+                title: "Осьминог с&nbsp;картофелем",
+                price: "1 900",
+              },
+              {
+                title: "Бургер",
+                price: "750",
+              },
+              {
+                title: "&laquo;Морская соната&raquo;",
+                price: "1 700",
+                description: "Голубые мидии в&nbsp;томатном соусе",
+              },
+            ],
+          }
+        ]
+      },
+      {
+        title: {
+          title: "Паста",
+        },
+        groups: [
+          {
+            positions: [
+              {
+                title: "Феттучини с&nbsp;белыми грибами",
+                price: "1 200",
+                description: "Под острым томатным соусом и&nbsp;сыром Пармезан",
+              },
+              {
+                title: "Феттучини &laquo;Болоньезе&raquo;",
+                price: "800",
+              },
+              {
+                title: "Феттучини с&nbsp;морепродуктами",
+                price: "1 800",
+              },
+              {
+                title: "Тальятелле с&nbsp;копченой уточкой",
+                price: "1 000",
+                description: "Тальятелле со&nbsp;шпинатом под соусом из&nbsp;сыра &laquo;Моцарелла&raquo;",
+              },
+              {
+                title: "Ризотто с&nbsp;белыми грибами",
+                price: " 1 200",
+              },
+              {
+                title: "Ризотто с&nbsp;семгой в&nbsp;сливочном соусе",
+                price: "1 600",
+              },
+            ],
+          }
+        ]
+      },
+      {
+        title: {
+          title: "Гарниры",
+        },
+        groups: [
+          {
+            positions: [
+              {
+                title: "Картофель фри",
+                price: "250",
+              },
+              {
+                title: "Картофель фри с&nbsp;паприкой",
+                price: "300",
+              },
+              {
+                title: "Сате (овощи тушеные)",
+                price: "350",
+              },
+              {
+                title: "Рис дикий",
+                price: "300",
+              },
+              {
+                title: "Капуста брокколи",
+                price: "300",
+              },
+            ],
+          }
+        ]
+      },
+      {
+        title: {
+          title: "Десерты",
+        },
+        groups: [
+          {
+            positions: [
+              {
+                title: "Сырная палитра",
+                price: "1 800",
+              },
+              {
+                title: "&laquo;Венеция&raquo;",
+                price: "500",
+                description: "Изысканное сочетание мусса &laquo;Бейлис&raquo; с&nbsp;соусом из&nbsp;маракуйи",
+              },
+              {
+                title: "Чизкейк с&nbsp;клубничным соусом",
+                price: "450",
+              },
+              {
+                title: "Тирамису",
+                price: "650",
+              },
+              {
+                title: "&laquo;Тысяча и&nbsp;одна ночь&raquo;",
+                price: "350",
+              },
+              {
+                title: "Ягоды и&nbsp;фрукты с&nbsp;сыром &laquo;Маскарпоне&raquo;",
+                price: "750",
+              },
+              {
+                title: "&laquo;Десертный петит&raquo; из&nbsp;пяти мини пирожных",
+                price: "300",
+              },
+              {
+                title: "&laquo;Маковый&raquo;",
+                price: "350",
+              },
+              {
+                title: "Клубника со&nbsp;сливками и&nbsp;шоколадным соусом",
+                price: "600",
+              },
+              {
+                title: "Штрудель с&nbsp;яблоками",
+                price: "500",
+                description: "C изюмом, карамельным соусом и&nbsp;мороженым",
+              },
+              {
+                title: "А-ля &laquo;Эстерхази&raquo;",
+                price: "550",
+              },
+              {
+                title: "&laquo;Шоколадная фантазия&raquo;",
+                price: "400",
+                description: "Mусс из&nbsp;трех видов шоколада с&nbsp;сыром &laquo;Филадельфия&raquo; и&nbsp;ванильным соусом",
+              },
+              {
+                title: "Десерт &laquo;Фисташковый&raquo;",
+                price: "500",
+                description: "Bоздушный мусс из&nbsp;сыра Маскарпоне с&nbsp;фисташками и&nbsp;цукатами",
+              },
+              {
+                title: "Десерт &laquo;Йогуртовый&raquo;",
+                price: "400",
+                description: "Воздушный мусс из&nbsp;йогурта с&nbsp;пюре манго",
+              },
+              {
+                title: "&laquo;Карамельный поцелуй&raquo;",
+                price: "600",
+                description: "Карамельный мусс с&nbsp;тремя видами соуса, свежей малиной и&nbsp;карамелью",
+              },
+              {
+                title: "Медовик",
+                price: "350",
+              },
+              {
+                title: "Мороженое",
+                price: "480",
+              },
+              {
+                title: "Ассорти из сорбетов",
+                price: "600",
+              },
+            ],
+          }
+        ]
+      },
+    ]
+  -
+    const cards = [
+      {
+        cardTitle: "Трибьют Фрэнку Синатре (вокал, джаз)",
+        description: "Хиты великого Синатры в&nbsp;безупречном исполнении.",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-1"
+      },
+      {
+        cardTitle: "Даниил Крамер и&nbsp;братья Бриль (джаз)",
+        description: "Джаз-стандарты на&nbsp;большой высоте!",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-2"
+      },
+      {
+        cardTitle: "Константин Никольский (вокал, гитара, рок)",
+        description: "&laquo;Мой друг&nbsp;- художник и&nbsp;поэт&raquo; и&nbsp;другие любимые песни!",
+        dateText: "24 мар, пт 20:30",
+        dateTime: "2023-03-24 20:30",
+        image: "music-performer-3"
+      },
+      {
+        cardTitle: "Валерий Киселев и&nbsp;Ансамбль классического джаза",
+        description: "In&nbsp;the Mood of&nbsp;Swing. Хиты 1930&#8209;х годов в&nbsp;оригинальной аранжировке маэстро.",
+        dateText: "24 мар, пт 20:30",
+        dateTime: "2023-03-24 20:30",
+        image: "music-performer-4"
+      },
+    ]
+
+block main
+  main
+    +page-content()
+      +breadcrumbs(breadcrumbs)
+      +page-section()
+        +menu-block({
+          title: "Меню ресторана Академ Джаз Клуба",
+          tag: 'h1',
+          dataLeft: dataLeft,
+          dataRight: dataRight,
+        })
+      +page-section().page-section--bg-gray
+        +show-cards-section({
+          text: "Скоро на сцене",
+          }, cards)
+
+block modals
+  +modal("modal--search")(data-modal="search")
+    +modal-search()

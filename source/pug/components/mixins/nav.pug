@@ -1,0 +1,25 @@
+mixin nav(items = {}, currentUrl)
+  nav.nav(data-nav-accordion)&attributes(attributes)
+    ul.nav__list(data-accordion="parent", data-single)
+      each item in items
+        - const {link, subLinks} = item
+
+        if (subLinks.length)
+          li.nav__item(data-accordion="element")
+            +link({text: link.text}).nav__link.nav__link--with-icon(data-accordion="button")
+              +icon("icon-menu-arrow", 8, 5)
+            .nav__content(data-accordion="content")
+              .nav__content-wrapper(data-accordion="wrapper")
+                ul.nav__sublist
+                  each subLink in subLinks
+                    li.nav__subitem
+                      if (currentUrl !== subLink.href)
+                        +link({text: subLink.text, href: subLink.href}).nav__link.nav__link--sublink(tabindex="-1")
+                      else
+                        span.nav__link.nav__link--sublink.nav__link--current #{subLink.text}
+        else
+          li.nav__item
+            if (currentUrl !== link.href)
+              +link({text: link.text, href: link.href}).nav__link
+            else
+              span.nav__link.nav__link--current #{link.text}

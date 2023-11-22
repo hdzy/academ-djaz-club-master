@@ -1,0 +1,60 @@
+extends ../components/base/layout
+
+block variables
+  script (src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
+  -
+    const cards = [
+      {
+        cardTitle: "Трибьют Фрэнку Синатре (вокал, джаз)",
+        description: "Хиты великого Синатры в&nbsp;безупречном исполнении.",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-1"
+      },
+    ]
+  - const title = "Академ Джаз Клуб"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "index.html"
+  -
+    const paginationLinks = [
+      {
+        link: {href: "#"},
+        icon: {name: "icon-arrow-left"},
+        label: "Предыдущая страница",
+        isPrev: true,
+        isDisabled: true
+      },
+      {
+        link: {text: "1", href: "#"},
+        label: "Страница 1",
+        isCurrent: true
+      },
+      {
+        link: {text: "2", href: "#"},
+        label: "Страница 2"
+      },
+      {
+        link: {href: "#"},
+        icon: {name: "icon-arrow-right"},
+        label: "Следующая страница",
+      }
+    ]
+
+block main
+  main
+    +page-content()
+      +page-section().page-section--padding-top-null.page-section--padding-bottom-null
+        +page-intro()
+      +page-section()
+        +show-cards-section({
+          text: 'Ближайшие концерты',
+          titlePosition: "center",
+        }, cards, paginationLinks)
+
+block modals
+  +modal("modal--search")(data-modal="search")
+    +modal-search()

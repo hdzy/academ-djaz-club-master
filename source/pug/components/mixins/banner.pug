@@ -1,0 +1,8 @@
+mixin banner(icon)
+  .banner&attributes(attributes)
+    if (icon)
+      - const {name, width, height} = icon
+        +icon(name, width, height).banner__icon
+
+    .banner__text
+      block

@@ -1,0 +1,18 @@
+mixin slider(options = {})
+  .slider.swiper
+    ul.slider__wrapper.swiper-wrapper
+      each item in options.slides
+        - const path = item.path || "";
+        - const image = item.image || "";
+        - const format = item.format || "";
+        - const width = item.width || "";
+        - const height = item.height || "";
+        - const altText = item.altText || "";
+        li.slider__slide-wrapper.swiper-slide
+          .slider__slide-container
+            +picture(path, image, format, width, height, altText)
+    .slider__button-wrapper
+      +btn({text: ""}).btn--slider-before(aria-label="Переключиться на предыдущий слайд.")
+        +icon("icon-arrow-left", 14, 7)(viewBox="0 0 14 7")
+      +btn({text: ""}).btn--slider-next(aria-label="Переключиться на следующий слайд.")
+        +icon("icon-arrow-right", 14, 7)(viewBox="0 0 14 7")

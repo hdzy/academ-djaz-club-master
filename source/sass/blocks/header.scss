@@ -1,0 +1,260 @@
+.header {
+  z-index: $z-index-header;
+  padding: 41px 0;
+  background-color: $color-default-white;
+
+  @include vp-1023 {
+    padding: 21px 0;
+  }
+
+  &--sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+
+    @include vp-767 {
+      justify-content: space-between;
+      padding: 0 8px;
+    }
+  }
+
+  &__logo {
+    flex: 0 0 161px;
+    margin-right: auto;
+
+    @include vp-1023 {
+      flex-basis: 120px;
+    }
+
+    @include vp-767 {
+      flex-basis: 105px;
+      margin: 0;
+    }
+  }
+
+  &__nav {
+    margin: 0 20px;
+
+    @include vp-1023 {
+      margin: 0 10px;
+    }
+
+    @include vp-767 {
+      margin: 0;
+    }
+  }
+
+  &__nav-wrapper {
+    @include vp-767 {
+      z-index: $z-index-header-menu;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      justify-content: flex-end;
+      background: linear-gradient(to right, rgba($color-night-rider, 0.8) 50%, $color-night-rider 50%);
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+      transition: opacity $trans-default, visibility $trans-default;
+    }
+
+    .is-open & {
+      opacity: 1;
+      pointer-events: all;
+      visibility: visible;
+      cursor: pointer;
+    }
+  }
+
+  &__nav-content {
+    @include vp-767 {
+      padding: 40px 44px 40px 32px;
+      width: 80%;
+      background-color: $color-night-rider;
+      cursor: default;
+      overflow-y: scroll;
+      scrollbar-color: $color-dark-magenta $color-night-rider;
+
+      &::-webkit-scrollbar {
+        width: 2px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: $color-night-rider;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $color-dark-magenta;
+      }
+    }
+  }
+
+  &__contacts {
+    flex: 0 0 200px;
+    display: flex;
+    flex-direction: column;
+    margin: -16px 20px 0 15px;
+    padding: 0;
+    list-style: none;
+
+    @include vp-1279 {
+      order: 2;
+      margin: -16px 0 0;
+    }
+
+    @include vp-1023 {
+      flex: 0 0 164px;
+    }
+
+    @include vp-767 {
+      flex: 1 1 auto;
+      order: initial;
+      display: none;
+      margin: 0;
+    }
+  }
+
+  &__contact {
+    display: flex;
+    margin-top: 16px;
+  }
+
+  &__phone {
+    font-size: 22px;
+    line-height: 1.1;
+    font-weight: 500;
+    color: $color-default-black;
+    transition: color $trans-default;
+
+    @include vp-1023 {
+      font-size: 18px;
+    }
+
+    @include hover-focus {
+      color: $color-dark-magenta;
+    }
+  }
+
+  &__search {
+    flex: 0 1 224px;
+    min-width: 180px;
+    margin-left: auto;
+
+    @include vp-1279 {
+      flex: 1 1 auto;
+      display: none;
+      min-width: initial;
+      margin: 0;
+    }
+
+    [data-modal-search] & {
+      display: block;
+    }
+  }
+
+  &__button {
+    display: none;
+
+    &--search {
+      @include vp-1279 {
+        order: 1;
+        display: block;
+        margin: 0 10px 0 auto;
+      }
+
+      @include vp-767 {
+        order: initial;
+        margin: 0;
+      }
+    }
+
+    &--burger {
+      @include vp-767 {
+        display: block;
+      }
+    }
+  }
+
+  &__toggle {
+    position: relative;
+    display: flex;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    color: $color-zambezi;
+    background-color: $color-transparent;
+    border: 0;
+    transform: translateZ(0);
+    transition: color $trans-default;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    &--search {
+      @include hover-focus {
+        color: $color-dark-magenta;
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+        margin: auto;
+      }
+    }
+
+    &--burger {
+      z-index: $z-index-header-button;
+
+      @include hover-focus {
+        &::after,
+        &::before {
+          color: $color-dark-magenta;
+          background-color: $color-dark-magenta;
+        }
+      }
+
+      &::before,
+      &::after {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        left: 10px;
+        content: "";
+        height: 2px;
+        background-color: $color-zambezi;
+        box-shadow: 0 -6px 0, 0 6px 0;
+        transition: color $trans-default, background-color $trans-default, transform $trans-default;
+      }
+
+      .is-open & {
+        &::before,
+        &::after {
+          right: 8px;
+          left: 8px;
+          background-color: $color-default-white;
+          box-shadow: none;
+        }
+
+        &::before {
+          transform: rotate(-45deg);
+        }
+
+        &::after {
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+}

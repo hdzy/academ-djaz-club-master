@@ -1,0 +1,16 @@
+.artist-cards {
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 72px;
+
+    @include vp-1023 {
+      margin-top: 40px;
+    }
+
+    @include vp-767 {
+      margin-top: 24px;
+    }
+  }
+}

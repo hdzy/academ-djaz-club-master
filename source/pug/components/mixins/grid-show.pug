@@ -1,0 +1,4 @@
+mixin grid-show(infoList)
+  .grid-show
+    each item in infoList
+      +show-info({iconId: item.iconId, title: item.title, description: item.description, datetime: item.datetime})

@@ -1,0 +1,120 @@
+.search-form {
+  height: 41px;
+
+  @include vp-1279 {
+    height: 89px;
+  }
+
+  form {
+    display: flex;
+  }
+
+  .custom-input {
+    order: 1;
+    flex: 1 1 auto;
+
+    label {
+      align-items: initial;
+      width: 100%;
+    }
+
+    input {
+      min-width: auto;
+      width: 100%;
+      min-height: auto;
+      padding: 10px 14px;
+      padding-left: 46px;
+      font-family: $ff-montserrat;
+      font-style: normal;
+      font-size: 16px;
+      line-height: 1.2;
+      font-weight: 300;
+      color: $color-zambezi;
+      background-color: $color-transparent;
+      border: 1px solid $color-pink-swan;
+      border-radius: 20px;
+      outline: none;
+      transition: color $trans-default, border-color $trans-default;
+
+      @include vp-1279 {
+        padding: 34px 14px;
+        padding-left: 46px;
+        color: $color-pink-swan;
+        background-color: $color-night-rider;
+        border: 0;
+        border-radius: 0;
+      }
+
+      &:hover,
+      &:focus {
+        font-size: 16px;
+        border-color: $color-dark-magenta;
+
+        @include vp-1279 {
+          border: 0;
+        }
+      }
+
+      &::placeholder {
+        color: $color-zambezi;
+        opacity: 0.8;
+
+        @include vp-1279 {
+          color: $color-silver;
+        }
+      }
+    }
+
+    &.is-invalid {
+      input {
+        color: $color-radical-red;
+        border-color: $color-radical-red;
+
+        &::placeholder {
+          color: $color-radical-red;
+        }
+      }
+
+      & + .search-form__button {
+        color: $color-radical-red;
+      }
+    }
+  }
+
+  &__button {
+    z-index: $z-index-search-button;
+    flex: 0 0 auto;
+    display: flex;
+    width: 41px;
+    margin-right: -41px;
+    padding: 0;
+    color: $color-zambezi;
+    background-color: $color-transparent;
+    border: 0;
+    border-radius: 20px 0 0 20px;
+    transition: color $trans-default;
+    outline: none;
+    cursor: pointer;
+
+    @include vp-1279 {
+      color: $color-silver;
+      border-radius: 0;
+    }
+
+    @include hover-focus {
+      color: $color-dark-magenta;
+    }
+
+    svg {
+      width: 17px;
+      height: 17px;
+      margin: auto;
+      margin-right: 6px;
+
+      @include vp-1279 {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}

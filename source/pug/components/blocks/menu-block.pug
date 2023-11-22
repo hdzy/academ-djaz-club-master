@@ -1,0 +1,13 @@
+mixin menu-block(data = {})
+  - const title = data.title || false;
+  - const tag = data.tag || 'h2';
+  - const dataLeft = data.dataLeft || false;
+  - const dataRight = data.dataRight || false;
+
+  .menu-block&attributes(attributes)
+    .container
+      if (title)
+        .page-title
+          #{tag}.title!= title
+      if (dataLeft)
+        +menu(dataLeft, dataRight)

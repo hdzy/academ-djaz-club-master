@@ -1,0 +1,80 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Образец страницы концерта - Академ Джаз Клуб"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "show.html"
+  - const breadcrumbs = [{text: "Главная", href: "index.html"}, {text: "Афиша", href: "playbill.html"}, {text: "Трибьют Фрэнку Синатре (вокал, джаз)", href: "show.html"}];
+  -
+    const cards = [
+      {
+        cardTitle: "Трибьют Фрэнку Синатре (вокал, джаз)",
+        description: "Хиты великого Синатры в&nbsp;безупречном исполнении.",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-1"
+      },
+      {
+        cardTitle: "Даниил Крамер и&nbsp;братья Бриль (джаз)",
+        description: "Джаз-стандарты на&nbsp;большой высоте!",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-2"
+      },
+      {
+        cardTitle: "Константин Никольский (вокал, гитара, рок)",
+        description: "&laquo;Мой друг&nbsp;- художник и&nbsp;поэт&raquo; и&nbsp;другие любимые песни!",
+        dateText: "24 мар, пт 20:30",
+        dateTime: "2023-03-24 20:30",
+        image: "music-performer-3"
+      }
+    ]
+  -
+    const dates = [
+      {
+        text: "8 апр, сб 20:30",
+        datetime: "2023-04-08 20:30",
+        href: "#",
+      },
+      {
+        text: "13 мая, сб 20:30",
+        datetime: "2023-05-13 20:30",
+        href: "#",
+      },
+      {
+        text: "25 июня, вс 19:30",
+        datetime: "2023-06-25 19:30",
+        href: "#",
+      },
+    ]
+  -
+    const sources = [
+      {source: "ZpHODUEgrUc"},
+      {source: "LUs2xG-XoMs"},
+    ]
+
+
+block main
+  main
+    +page-content()
+      +breadcrumbs(breadcrumbs)
+      +page-section().page-section--padding-bottom-null
+        +show-information()
+      +page-section().page-section--padding-bottom-null
+        +dates-block({title: 'Другие концерты', dates: dates})
+      +page-section().page-section--padding-bottom-null
+        +show-description()
+      +page-section()
+        +video-block({video: sources, title: "Видео", isTitleHidden: true})
+      +page-section().page-section--bg-gray
+        +show-cards-section({
+          text: "Скоро на сцене",
+          }, cards)
+
+block modals
+  +modal("modal--search")(data-modal="search")
+    +modal-search()

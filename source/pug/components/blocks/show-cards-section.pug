@@ -1,0 +1,38 @@
+mixin show-cards-section(title, cards, pagination)
+  - const titleTag = title.tag || "h2"
+  - const titlePosition = title.titlePosition || "left"
+  - const isTitleHidden = title.isTitleHidden || false
+
+  .show-cards-section&attributes(attributes)
+    .container
+      if isTitleHidden
+          #{titleTag}.visually-hidden!= title.text
+      else
+        .page-title
+          if titlePosition === "center"
+            #{titleTag}.title.title--center!= title.text
+          else
+            #{titleTag}.title!= title.text
+      +grid()
+        each card in cards
+          +show-card({
+            name: card.cardTitle,
+            description: card.description,
+            date: {
+              text: card.dateText,
+              datetime: card.dateTime,
+            },
+            photo: {
+              path: "content",
+              image: card.image,
+              format: "jpg",
+              width: "400",
+              height: "264",
+              altText: "Фотография исполнителя",
+            },
+            linkToShowPage: "#",
+            linkToPurchase: "#",
+          })
+      if (pagination)
+        .pagination-container
+          +pagination(pagination)

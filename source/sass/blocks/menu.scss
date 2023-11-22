@@ -1,0 +1,122 @@
+.menu {
+  width: 100%;
+
+  &__col:first-child {
+    @include vp-1023 {
+      margin: 0 0 -2px;
+    }
+
+    @include vp-767 {
+      margin: 0 0 4px;
+    }
+
+    .menu__item {
+      @include vp-1023 {
+        margin: 0 0 30px;
+      }
+
+      @include vp-767 {
+        margin: 0 0 24px;
+      }
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin: 0 0 62px;
+
+      @include vp-1023 {
+        margin: 0 0 30px;
+      }
+
+      @include vp-767 {
+        margin: 0 0 24px;
+      }
+    }
+
+    &.is-active .menu__wrapper {
+      @include vp-1023 {
+        max-height: 1000px;
+
+        overflow: hidden;
+        margin: 30px 0 0;
+      }
+
+      @include vp-767 {
+        margin: 20px 0 0;
+      }
+    }
+  }
+
+  &__group:not(:last-child) {
+    margin: 0 0 35px;
+
+    @include vp-1023 {
+      margin: 0 0 30px;
+    }
+
+    @include vp-767 {
+      margin: 0 0 24px;
+    }
+  }
+
+  .menu-title {
+    max-width: 100%;
+    width: fit-content;
+
+    margin: 0 0 35px;
+
+    @include vp-1023 {
+      cursor: pointer;
+
+      margin: 0;
+    }
+  }
+
+  &__wrapper {
+    display: block;
+    height: auto;
+
+    transition: max-height $trans-default, margin $trans-default;
+
+    @include vp-1023 {
+      max-height: 0;
+      margin: 0;
+    }
+  }
+
+  .menu-item:not(:last-child) {
+    margin: 0 0 26px;
+
+    @include vp-1023 {
+      margin: 0 0 24px;
+    }
+
+    @include vp-767 {
+      margin: 0 0 20px;
+    }
+  }
+
+  &__description {
+    font-size: 24px;
+    line-height: 110%;
+    font-style: italic;
+    font-weight: 600;
+
+    color: $color-navy-blue;
+
+    margin: 0 0 27px;
+
+    @include vp-1023 {
+      font-size: 20px;
+
+      margin: 0 0 24px;
+    }
+
+    @include vp-767 {
+      font-size: 14px;
+
+      margin: 0 0 21px;
+    }
+  }
+}

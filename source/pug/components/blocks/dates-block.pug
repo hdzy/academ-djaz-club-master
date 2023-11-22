@@ -1,0 +1,20 @@
+mixin dates-block (options = {})
+  - const title = options.title;
+  - const dates = options.dates || false;
+
+  .dates-block&attributes(attributes)
+    .container
+      if(title)
+        .page-title.page-title--closer
+          h2.title.title--h3!= title
+      .grid-show.grid-show--dates
+        each date in dates
+          - const href = date.href || false;
+          - const rel = date.isExternal ? true : false;
+          - const iconId = date.iconId ||"icon-calendar";
+          - const iconWidth = date.iconWidth || "26";
+          - const iconHeight = date.iconHeight || "26";
+          - const text = date.text || "";
+          - const datetime = date.datetime || false;
+          - const label = date.label || false;
+          +btn-with-icon({iconId: iconId, iconWidth: iconWidth, iconHeight: iconHeight, text: text, datetime: datetime, href: date.href, label: label}).btn--white-middle

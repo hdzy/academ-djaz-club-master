@@ -1,0 +1,46 @@
+mixin header(headerMods, currentUrl)
+  -
+    const headerLinks = [
+      {
+        link: {text: "Афиша", href: "playbill.html"},
+        subLinks: []
+      },
+      {
+        link: {text: "Информация"},
+        subLinks: [
+          {text: "О нас", href: "about.html"},
+          {text: "Меню ресторана", href: "menu.html"},
+          {text: "Подарочные сертификаты", href: "gifts.html"},
+          {text: "Билеты (покупка / возврат)", href: "tickets.html"},
+          {text: "Артисты", href: "artists.html"},
+          {text: "Партнеры", href: "partners.html"},
+          {text: "Фотоотчеты", href: "photos.html"},
+          {text: "Архив концертов", href: "archive.html"}
+        ]
+      },
+      {
+        link: {text: "Отзывы", href: "reviews.html"},
+        subLinks: []
+      },
+      {
+        link: {text: "Контакты", href: "contacts.html"},
+        subLinks: []
+      }
+    ]
+
+  header.header.header--sticky(class=headerMods, data-header="sticky", data-scroll-lock-fill-gap)
+    .container
+      .header__button.header__button--search
+        button.header__toggle.header__toggle--search(type="button", aria-pressed="false", aria-label="Переключатель отображения поиска", data-open-modal="search")
+          +icon("icon-search", "20", "20")
+      +logo({name: "logo", width: "161", height: "72", currentUrl}).header__logo
+      .header__nav(data-nav)
+        .header__button.header__button--burger
+          button.header__toggle.header__toggle--burger(type="button", aria-pressed="false", aria-label="Переключатель отображения меню", data-burger)
+        .header__nav-wrapper(data-nav-wrapper, data-fix-transition, data-close-menu)
+          .header__nav-content
+            +nav(headerLinks, currentUrl)
+      ul.header__contacts
+        li.header__contact
+          +link({text: "+7 (495) 532-47-23", href: "tel:74955324723"}).header__phone
+      +search-form({inputId: "h-search", inputName: "header-search", inputPlaceholder: "Я ищу..."}).header__search(data-da="[data-modal-search], 1279, first")
