@@ -1,3 +1,12 @@
+function startLoad() {
+  document.querySelector('.loader-wrapper').style = 'display: flex';
+}
+
+function endLoad() {
+  document.querySelector('.loader-wrapper').style = 'display: none';
+}
+
+
 function loadData() {
   startLoad();
   const req_body = {
@@ -71,6 +80,47 @@ function loadData() {
                   ${other[1].content}
                   <img src="https://academjazzclub.ru/images/pages/th/${other[1].photo_url}" alt="">
       `
+
+      let section = document.createElement("section");
+      section.classList.add('page-section');
+      section.classList.add('page-section--padding-top-null');
+        section.innerHTML = `<div class="contacts-socials">
+          <div class="container">
+            <div class="page-title page-title--closer">
+              <h2 class="title">Мы в&nbsp;соцсетях</h2>
+              <p>
+                Дорогие друзья! Приглашаем вас подписаться на&nbsp;наши страницы в&nbsp;Яндекс Дзен, Телеграм
+                и&nbsp;ВКонтакте.
+                Анонсы концертов, интересные факты, атмосфера с&nbsp;концертов&nbsp;– всё это вы&nbsp;сможете найти
+                в&nbsp;нашем Telegram-канале
+                и&nbsp;сообществе VK. Присоединяйтесь!
+              </p>
+            </div>
+            <div class="grid">
+              <a class="btn btn--social" href="https://vk.com/academjazzclub
+" target="_blank" rel="nofollow noopener noreferrer"><span
+                class="icon-wrapper">
+                      <svg width="26" height="26" aria-hidden="true">
+                        <use xlink:href="img/sprite.svg#icon-vk"></use>
+                      </svg></span><span class="text">Подписаться ВКонтакте</span>
+              </a>
+              <a class="btn btn--social" href="https://t.me/academ_jazz_club" target="_blank" rel="nofollow noopener noreferrer"><span
+                class="icon-wrapper">
+                      <svg width="26" height="26" aria-hidden="true">
+                        <use xlink:href="img/sprite.svg#icon-telegram"></use>
+                      </svg></span><span class="text">Подписаться в&nbsp;Telegram</span>
+              </a>
+              <a class="btn btn--social" href="https://dzen.ru/id/5cf1451d8da00a00b0287480
+" target="_blank" rel="nofollow noopener noreferrer"><span
+                class="icon-wrapper">
+                      <svg width="26" height="26" aria-hidden="true">
+                        <use xlink:href="img/sprite.svg#icon-dzen"></use>
+                      </svg></span><span class="text">Подписаться в&nbsp;Яндекс Дзен</span>
+              </a>
+            </div>
+          </div>
+        </div>`;
+      document.querySelector('.page-section:last-of-type').before(section);
 
         // document.querySelector('.contacts-block__wrapper .grid').innerHTML = `
         //

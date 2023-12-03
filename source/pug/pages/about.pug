@@ -59,10 +59,14 @@ block main
         +about-block()
       +page-section()
         +address("Где расположен Академ Джаз Клуб?", true)
-      +page-section().page-section--bg-gray
+      +page-section().page-section--bg-gray.soon-on-stage
         +show-cards-section({
           text: "Скоро на сцене",
           }, cards)
+      div.loader-wrapper
+        span.loader
+      script(src="js/servermain.min.js" defer)
+      script(src="js/about.min.js" defer)
 
 block modals
   +modal("modal--search")(data-modal="search")

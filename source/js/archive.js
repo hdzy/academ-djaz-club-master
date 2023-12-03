@@ -1,3 +1,12 @@
+function startLoad() {
+  document.querySelector('.loader-wrapper').style = 'display: flex';
+}
+
+function endLoad() {
+  document.querySelector('.loader-wrapper').style = 'display: none';
+}
+
+
 let offset = 0;
 let count = 0;
 const postsPerPage = 18;
@@ -35,7 +44,7 @@ function loadDataM() {
         const element = `<div class="show-card">
                     <div class="show-card__img">
                       <picture>
-                        <source type="image/webp" srcset="https://academjazzclub.ru/images/afisha/th/${events[i]['photo_url']}, img/content/music-performer-1@2x.webp 2x"><img src="https://academjazzclub.ru/images/afisha/th/${events[i]['photo_url']}" srcset="img/content/music-performer-1@2x.jpg 2x" width="400" height="264" alt="Фотография исполнителя">
+                        <img src="https://academjazzclub.ru/images/afisha/th/${events[i]['photo_url']}" width="400" height="264" alt="Фотография исполнителя">
                       </picture>
                     </div>
                     <div class="show-card__content">
@@ -51,8 +60,6 @@ function loadDataM() {
                       <p class="show-card__description">${events[i].description.substring(0, 50)}...</p>
                       <p class="show-card__links">
                         <a class="btn show-card__btn" href="show.html?id=${events[i].id}" aria-label="Перейти на страницу события.">Подробнее
-                        </a>
-                        <a class="btn btn--magenta show-card__btn" href="#" aria-label="Перейти к покупке билетов.">Купить билет
                         </a>
                       </p>
                     </div>

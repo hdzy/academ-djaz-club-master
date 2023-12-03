@@ -1,3 +1,12 @@
+function startLoad() {
+  document.querySelector('.loader-wrapper').style = 'display: flex';
+}
+
+function endLoad() {
+  document.querySelector('.loader-wrapper').style = 'display: none';
+}
+
+
 let offset = 0;
 let count = 0;
 const postsPerPage = 18;

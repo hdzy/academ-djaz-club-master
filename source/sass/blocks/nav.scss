@@ -8,7 +8,7 @@
 
   &__list {
     display: flex;
-    flex-wrap: wrap;
+    width: max-content;
     margin: 0;
     margin-left: -35px;
     padding: 0;
@@ -135,8 +135,6 @@
 
   &__content-wrapper {
     @media screen and (orientation: landscape) {
-      max-height: 58vh;
-      overflow-y: scroll;
       scrollbar-color: $color-dark-magenta $color-night-rider;
 
       &::-webkit-scrollbar {

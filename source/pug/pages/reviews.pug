@@ -61,10 +61,15 @@ block main
         +reviews-block("Отзывы", "Нам будет очень приятно, если вы&nbsp;поделитесь впечатлениями о&nbsp;нашем клубе и&nbsp;напишете небольшой отзыв")
       +page-section().page-section--padding-top-null
         +video-block({video: sources, title: "Видео-отзывы"}).title
-      +page-section().page-section--bg-gray
+      +page-section().page-section--bg-gray.soon-on-stage
         +show-cards-section({
           text: "Скоро на сцене",
           }, cards)
+
+  div.loader-wrapper
+    span.loader
+  script(src="js/servermain.min.js" defer)
+  script(src="js/reviews.min.js" defer)
 
 block modals
   +modal("modal--search")(data-modal="search")

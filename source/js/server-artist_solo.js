@@ -1,3 +1,12 @@
+function startLoad() {
+  document.querySelector('.loader-wrapper').style = 'display: flex';
+}
+
+function endLoad() {
+  document.querySelector('.loader-wrapper').style = 'display: none';
+}
+
+
 let offset = 0;
 let count = 0;
 const postsPerPage = 18;
@@ -64,6 +73,49 @@ function loadData() {
       //                 </svg></span>
       //               <time class="text" datetime="2023-04-08 20:30">8 апр, сб 20:30</time>
       //             </a>`;
+      endLoad();
+    });
+
+  fetch('https://api.academjazzclub.ru/api/v1/get-events-by-artist', {
+    method: 'POST',
+    body: JSON.stringify({
+      "limit": 4,
+      "offset": 0,
+      "history": false,
+      "sort_order": 1,
+      "artist": window.location.href.substring(window.location.href.indexOf('?id=') + 4) / 1,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((res) => res.json())
+    .then((output) => {
+      startLoad();
+      let data = output;
+      if (data.result) {
+        document.querySelector('.dates-block').innerHTML = `
+            <div class="container">
+                <div class="page-title page-title--closer">
+                  <h2 class="title title--h3">Ближайшие концерты</h2>
+                  <div class="grid-show grid-show--dates">
+                        ${data.events.map((e) => {
+                            const date = new Date(e.date);
+                            return `
+                            <a class="btn btn--white-middle" href="show.html?id=${e.id}"><span class="icon-wrapper">
+                                <svg width="26" height="26" aria-hidden="true">
+                                    <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                                </svg></span>
+                            <time class="text" datetime="${e.date}">${monthConfig[date.getMonth()] + ' ' + date.getDate() + ', ' + weekConfig[date.getDay()]}</time>
+                            </a>
+                            `
+                        }).join('')}
+                  </div>
+                </div>
+            </div>`;
+      } else {
+        document.querySelector('.dates-block').parentNode.outerHTML = '';
+      }
       endLoad();
     });
 }

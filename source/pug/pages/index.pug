@@ -54,6 +54,10 @@ block main
           text: 'Ближайшие концерты',
           titlePosition: "center",
         }, cards, paginationLinks)
+  div.loader-wrapper
+    span.loader
+  script(src="js/servermain.min.js" defer)
+  script(src="js/server.min.js" defer)
 
 block modals
   +modal("modal--search")(data-modal="search")

@@ -57,10 +57,14 @@ block main
     +breadcrumbs(breadcrumbs)
     +page-section()
       +gift-intro-banner()
-    +page-section().page-section--bg-gray
+    +page-section().page-section--bg-gray.soon-on-stage
       +show-cards-section({
           text: "Скоро на сцене",
           }, cards)
+  script(src="js/servermain.min.js" defer)
+  script(src="js/gifts.min.js" defer)
+  div.loader-wrapper
+    span.loader
 
 block modals
   +modal("modal--search")(data-modal="search")

@@ -101,10 +101,15 @@ block main
       +breadcrumbs(breadcrumbs)
       +page-section()
         +partners-block(partners)
-      +page-section().page-section--bg-gray
+      +page-section().page-section--bg-gray.soon-on-stage
         +show-cards-section({
           text: "Скоро на сцене",
           }, cards)
+
+  div.loader-wrapper
+    span.loader
+  script(src="js/servermain.min.js" defer)
+  script(src="js/serverpartners.min.js" defer)
 
 
 block modals

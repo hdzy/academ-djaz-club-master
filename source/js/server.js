@@ -1,3 +1,12 @@
+function startLoad() {
+  document.querySelector('.loader-wrapper').style = 'display: flex';
+}
+
+function endLoad() {
+  document.querySelector('.loader-wrapper').style = 'display: none';
+}
+
+
 let offset = 0;
 let count = 0;
 const postsPerPage = 18;
@@ -34,9 +43,7 @@ function loadDataM() {
         for (let i = 0; i < events.length; i++) {
           const element = `<div class="show-card">
                     <div class="show-card__img">
-                      <picture>
-                        <source type="image/webp" srcset="https://academjazzclub.ru/images/afisha/th/${events[i]['photo_url']}, img/content/music-performer-1@2x.webp 2x"><img src="https://academjazzclub.ru/images/afisha/th/${events[i]['photo_url']}" srcset="img/content/music-performer-1@2x.jpg 2x" width="400" height="264" alt="Фотография исполнителя">
-                      </picture>
+                      <img src="https://academjazzclub.ru/images/afisha/th/${events[i]['photo_url']}" width="400" height="264" alt="Фотография исполнителя">
                     </div>
                     <div class="show-card__content">
                       <div class="date show-card__date">
@@ -52,11 +59,11 @@ function loadDataM() {
                       <p class="show-card__links">
                         <a class="btn show-card__btn" href="show.html?id=${events[i].id}" aria-label="Перейти на страницу события.">Подробнее
                         </a>
-                        <a class="btn btn--magenta show-card__btn" href="#" aria-label="Перейти к покупке билетов.">Купить билет
+                        <a class="btn btn--magenta show-card__btn" target="_blank" href="https://pankova.edinoepole.ru/api/v1/pages/default_landing_page?unifd-performance-id=${events[i]['ep_id']}" aria-label="Перейти к покупке билетов.">Купить билет
                         </a>
                       </p>
                     </div>
-                  </div>`;
+                  </div>`.replaceAll('<b>', '').replaceAll('</b>');
           path.innerHTML += element;
         }
 
@@ -123,9 +130,6 @@ function pagesInit(count) {
     })
 };
 
-window.addEventListener('load', () => {
-
-});
 
 function updatePage(param) {
   document.querySelector(`*[data-page="${currentPage}"]`).classList.remove('is-active');

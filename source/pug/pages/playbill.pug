@@ -213,6 +213,10 @@ block main
           text: "Афиша",
           tag: "h1",
           }, upcomingConcerts, pagination)
+  div.loader-wrapper
+    span.loader
+  script(src="js/servermain.min.js" defer)
+  script(src="js/server.min.js" defer)
 
 block modals
   +modal("modal--search")(data-modal="search")

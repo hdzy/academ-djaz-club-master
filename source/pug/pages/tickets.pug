@@ -86,10 +86,14 @@ block main
     +page-content()
       +breadcrumbs(breadcrumbs)
     +tickets-order(pictures)
-    +page-section().page-section--bg-gray
+    +page-section().page-section--bg-gray.soon-on-stage
       +show-cards-section({
           text: "Скоро на сцене",
           }, cards)
+  div.loader-wrapper
+    span.loader
+  script(src="js/servermain.min.js" defer)
+  script(src="js/tickets.min.js" defer)
 
 block modals
   +modal("modal--search")(data-modal="search")
