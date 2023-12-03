@@ -1,0 +1,64 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Контакты - Академ Джаз Клуб"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "template.html"
+  -
+    const breadcrumbs = [
+      {
+        text: "Главная",
+        href: "index.html",
+      },
+      {
+        text: "Страница",
+        href: "#",
+      },
+    ]
+  -
+    const cards = [
+      {
+        cardTitle: "Трибьют Фрэнку Синатре (вокал, джаз)",
+        description: "Хиты великого Синатры в&nbsp;безупречном исполнении.",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-1"
+      },
+      {
+        cardTitle: "Даниил Крамер и&nbsp;братья Бриль (джаз)",
+        description: "Джаз-стандарты на&nbsp;большой высоте!",
+        dateText: "23 мар, чт 20:30",
+        dateTime: "2023-03-23 20:30",
+        image: "music-performer-2"
+      },
+      {
+        cardTitle: "Константин Никольский (вокал, гитара, рок)",
+        description: "&laquo;Мой друг&nbsp;- художник и&nbsp;поэт&raquo; и&nbsp;другие любимые песни!",
+        dateText: "24 мар, пт 20:30",
+        dateTime: "2023-03-24 20:30",
+        image: "music-performer-3"
+      }
+    ]
+
+block main
+  main
+    +page-content()
+      +breadcrumbs(breadcrumbs)
+      +page-section()
+        +contacts-block()
+      +page-section().page-section--bg-gray.soon-on-stage
+        +show-cards-section({
+          text: "Скоро на сцене",
+        }, cards)
+  div.loader-wrapper
+    span.loader
+  script(src="js/servermain.min.js" defer)
+  script(src="js/template.min.js" defer)
+
+block modals
+  +modal("modal--search")(data-modal="search")
+    +modal-search()
