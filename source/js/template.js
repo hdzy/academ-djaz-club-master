@@ -35,7 +35,7 @@ function loadData() {
                     result += `<h1>${e.title}</h1>`
                   }
                   if (e.content) {
-                    result += e.content;
+                    result += e.content.replaceAll('<a', '<a style="color:#0000FF;"');
                   }
                   if (e.photo_url) {
                     result += `<img src="https://academjazzclub.ru/images/pages/pic/${e.photo_url}">`

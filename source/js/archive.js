@@ -22,7 +22,7 @@ function loadDataM() {
       'limit': 18,
       'offset': offset,
       'history': true,
-      'sort_order': 1,
+      'sort_order': "-1",
     }),
     headers: {
       'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ function loadDataM() {
                         </div>
                         <time class="date__time" datetime="2023-03-23 20:30">${events[i].date.substring(0, events[i].date.length - 3)}</time>
                       </div>
-                      <p class="title title--h3 title--no-text-transform show-card__title">${events[i].title}</p>
+                      <a href="artist.html?id=${events[i].artist_id}" class="title title--h3 title--no-text-transform show-card__title">${events[i].title}</a>
                       <p class="show-card__description">${events[i].description.substring(0, 50)}...</p>
                       <p class="show-card__links">
                         <a class="btn show-card__btn" href="show.html?id=${events[i].id}" aria-label="Перейти на страницу события.">Подробнее

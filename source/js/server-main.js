@@ -1,4 +1,7 @@
+
 loadData();
+
+
 const monthConfig = {
   0: 'Январь',
   1: 'Февраль',
@@ -13,7 +16,6 @@ const monthConfig = {
   10: 'Ноябрь',
   11: 'Декабрь',
 };
-
 const weekConfig = {
   0: 'пн',
   1: 'вт',
@@ -140,7 +142,6 @@ function loadData() {
       }
       );
 }
-
 fetch('https://api.academjazzclub.ru/api/v1/get-events-list', {
   method: 'POST',
   headers: {
@@ -155,7 +156,7 @@ fetch('https://api.academjazzclub.ru/api/v1/get-events-list', {
 })
   .then((res) => res.json())
   .then((output) => {
-      let data = output.events;
+    let data = output.events;
       console.log(output)
       if (data) {
         if (document.querySelector('.soon-on-stage')) {
@@ -177,12 +178,12 @@ fetch('https://api.academjazzclub.ru/api/v1/get-events-list', {
                         </div>
                         <time class="date__time" datetime="${e.date}">${monthConfig[date.getMonth()] + ' ' + date.getDate() + ', ' + weekConfig[date.getDay()]}</time>
                       </div>
-                      <p class="title title--h3 title--no-text-transform show-card__title">${e.title}</p>
-                      <p class="show-card__description">${e.description.substring(0, 50)}...</p>
+                      <a href="artist.html?id=${events[i].artist_id}" class="title title--h3 title--no-text-transform show-card__title">${e.title}</a>
+                      <p class="show-card__description">${e.description.replaceAll('<b>', '').replaceAll('</b>', '').substring(0, 50)}...</p>
                       <p class="show-card__links">
                         <a class="btn show-card__btn" href="show.html?id=${e.id}" aria-label="Перейти на страницу события.">Подробнее
                         </a>
-                        <a class="btn btn--magenta show-card__btn" href="https://pankova.edinoepole.ru/api/v1/pages/default_landing_page?unifd-performance-id=${e['ep_id']}" aria-label="Перейти к покупке билетов.">Купить билет
+                        <a class="btn btn--magenta show-card__btn" data-id="${e['ep_id']}" aria-label="Перейти к покупке билетов.">Купить билет
                         </a>
                       </p>
                     </div>
@@ -193,3 +194,25 @@ fetch('https://api.academjazzclub.ru/api/v1/get-events-list', {
       }
     }
   );
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  setInterval(() => {
+    function ticket() {
+      document.querySelectorAll('.show-card__btn').forEach((e) => e.addEventListener('click', (e) => {
+        const id = e.target.dataset['id'];
+        document.body.innerHTML += `
+        <div class="unifd">
+            <div class="unifd__in">
+                <iframe src="https://pankova.edinoepole.ru/api/v1/pages/default_landing_page?unifd-performance-id=${id}" frameborder="no" scrolling="no" class="unifd__frame" ,="" id="unifd__frame" data-gtm-yt-inspected-8399948_38="true" data-gtm-yt-inspected-14="true" style="height: 700px;">
+                </iframe>
+                <a style="cursor: pointer" onclick="document.body.removeChild(document.querySelector('.unifd'))" class="js-unifd-close unifd__close">X</a>
+            </div>
+        </div>`
+      }));
+    }
+    ticket();
+
+
+  }, 2000)
+})

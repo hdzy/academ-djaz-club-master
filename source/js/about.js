@@ -32,7 +32,7 @@ function loadData() {
     if (e.title) {
       return `
                     <h1>${e.title}</h1>
-                    <p>${e.content}</p>
+                    <p>${e.content.replaceAll("<iframe", "<br><iframe")}</p>
                     `;
     } else {
       return `<p>${e.content}</p>`;
