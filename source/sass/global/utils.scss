@@ -212,3 +212,12 @@
     margin-right: -430px;
   }
 }
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-content iframe {
+  margin: 0 auto;
+}

@@ -96,7 +96,21 @@ function loadData() {
         document.addEventListener('DOMContentLoaded', () => {
           document.title = data.site_title;
           document.body.innerHTML = document.body.innerHTML.replaceAll('academjazz@gmail.com', data.site_email).replaceAll('+7 (495) 532-47-23', data.site_phone).replaceAll('+74955324723', data.site_phone).replaceAll('74955324723', data.site_phone) + data.metrics_conters;
-          document.head.innerHTML = document.head.innerHTML.replaceAll('academjazz@gmail.com', data.site_email).replaceAll('+7 (495) 532-47-23', data.site_phone).replaceAll('+74955324723', data.site_phone).replaceAll('74955324723', data.site_phone) + data.site_metatags;
+          document.head.innerHTML = document.head.innerHTML.replaceAll('academjazz@gmail.com', data.site_email).replaceAll('+7 (495) 532-47-23', data.site_phone).replaceAll('+74955324723', data.site_phone).replaceAll('74955324723', data.site_phone) + data.site_metatags + `<!-- Top.Mail.Ru counter -->
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3416535", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "tmr-code");
+</script>
+<noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3416535;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
+<!-- /Top.Mail.Ru counter -->
+`;
         });
       }
       );
@@ -126,6 +140,7 @@ function loadData() {
                           </a>
                         </li>
                         ${e['children'].map((e) => {
+                          if (e.id == 186) return;
     return `<li class="nav__subitem">
                           <a class="link nav__link nav__link--sublink" href="${pagesInfo.find(el => el.id === e.id)?.link || `template.html?id=${e.id}`}" tabindex="-1">${e.title}
                           </a>
@@ -178,7 +193,7 @@ fetch('https://api.academjazzclub.ru/api/v1/get-events-list', {
                         </div>
                         <time class="date__time" datetime="${e.date}">${monthConfig[date.getMonth()] + ' ' + date.getDate() + ', ' + weekConfig[date.getDay()]}</time>
                       </div>
-                      <a href="artist.html?id=${events[i].artist_id}" class="title title--h3 title--no-text-transform show-card__title">${e.title}</a>
+                      <a href="artist.html" class="title title--h3 title--no-text-transform show-card__title">${e.title}</a>
                       <p class="show-card__description">${e.description.replaceAll('<b>', '').replaceAll('</b>', '').substring(0, 50)}...</p>
                       <p class="show-card__links">
                         <a class="btn show-card__btn" href="show.html?id=${e.id}" aria-label="Перейти на страницу события.">Подробнее
@@ -199,7 +214,7 @@ fetch('https://api.academjazzclub.ru/api/v1/get-events-list', {
 document.addEventListener('DOMContentLoaded', () => {
   setInterval(() => {
     function ticket() {
-      document.querySelectorAll('.show-card__btn').forEach((e) => e.addEventListener('click', (e) => {
+      document.querySelectorAll('.show-card__btn.btn--magenta').forEach((e) => e.addEventListener('click', (e) => {
         const id = e.target.dataset['id'];
         document.body.innerHTML += `
         <div class="unifd">

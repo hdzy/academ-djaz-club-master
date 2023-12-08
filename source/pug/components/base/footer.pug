@@ -10,7 +10,7 @@ mixin footer(footerMods)
           p.footer__title Адрес
           address
             p.footer__text г. Москва, проспект Мира, 26/1
-            +link({text: "Посмотреть на карте", href: "https://yandex.ru/maps/213/moscow/?from=mapframe&indoorLevel=1&ll=37.633180%2C55.778754&mode=routes&rtext=~55.777961%2C37.633054&rtt=pd&ruri=~&z=18"}).footer__link.footer__link--no-opacity(aria-label="Открыть карту.")
+            +link({text: "Посмотреть на карте", href: "contacts.html#map-scroll"}).footer__link.footer__link--no-opacity(aria-label="Открыть карту.")
         .footer__info-card
           p.footer__title Режим работы
           p.footer__text Ежедневно
@@ -39,11 +39,11 @@ mixin footer(footerMods)
                 },
               ])
       .footer__subscribe
-        .footer__info-card
-          p.footer__title Подписаться на анонсы
-          +form([
-              {input: {type: "email", placeholder: "Введите ваш email"}},
-              {checkbox: {label: "Я даю согласие на обработку моих персональных данных"}}
-            ])
+        //.footer__info-card
+        //  p.footer__title Подписаться на анонсы
+        //  +form([
+        //      {input: {type: "email", placeholder: "Введите ваш email"}},
+        //      {checkbox: {label: "Я даю согласие на обработку моих персональных данных"}}
+        //    ])
         +link({text: "Пользовательское соглашение", href: "https://academjazzclub.ru/get/297"}).footer__link(aria-label="Пользовательское соглашение")
         +link({text: "Политика конфиденциальности", href: "https://academjazzclub.ru/get/296"}).footer__link(aria-label="Политика конфиденциальности")

@@ -112,20 +112,7 @@
               </a>
             </li>
           </ul>
-          <div class="search-form header__search" data-search-form data-form-validate data-callback="search" data-da="[data-modal-search], 1279, first">
-            <form method="get" action="https://echo.htmlacademy.ru" role="search" aria-label="Найти на сайте" novalidate>
-              <div class="custom-input" data-search-form="input" data-validate-type="text" data-required>
-                <label>
-                  <input type="search" id="h-search" name="header-search" placeholder="Я ищу..." required>
-                </label>
-              </div>
-              <button class="search-form__button" type="submit" aria-label="Отправить запрос" data-search-form="button">
-                <svg width="17" height="17" aria-hidden="true">
-                  <use xlink:href="img/sprite.svg#icon-search"></use>
-                </svg>
-              </button>
-            </form>
-          </div>
+          <!--+search-form({inputId: "h-search", inputName: "header-search", inputPlaceholder: "Я ищу..."}).header__search(data-da="[data-modal-search], 1279, first")-->
         </div>
       </header>
       <main>
@@ -230,7 +217,7 @@
               <p class="footer__title">Адрес</p>
               <address>
                 <p class="footer__text">г. Москва, проспект Мира, 26/1</p>
-                <a class="link footer__link footer__link--no-opacity" href="https://yandex.ru/maps/213/moscow/?from=mapframe&amp;indoorLevel=1&amp;ll=37.633180%2C55.778754&amp;mode=routes&amp;rtext=~55.777961%2C37.633054&amp;rtt=pd&amp;ruri=~&amp;z=18" aria-label="Открыть карту.">Посмотреть на карте
+                <a class="link footer__link footer__link--no-opacity" href="contacts.html#map-scroll" aria-label="Открыть карту.">Посмотреть на карте
                 </a>
               </address>
             </div>
@@ -274,32 +261,12 @@
             </div>
           </div>
           <div class="footer__subscribe">
-            <div class="footer__info-card">
-              <p class="footer__title">Подписаться на анонсы</p>
-              <div class="form" data-form-validate data-callback="base">
-                <form method="get" action="https://echo.htmlacademy.ru">
-                  <fieldset>
-                    <div class="custom-input custom-input--email" data-validate-type="email" data-required>
-                      <label>
-                        <input type="email" name="user-mail" placeholder="Введите ваш email" required>
-                      </label>
-                    </div>
-                    <button class="btn btn--submit" type="submit" aria-label="Отправить"><span class="icon-wrapper">
-                        <svg width="15" height="8" aria-hidden="true">
-                          <use xlink:href="img/sprite.svg#icon-arrow-right"></use>
-                        </svg></span><span class="text"></span>
-                    </button>
-                  </fieldset>
-                  <fieldset>
-                    <div class="custom-toggle custom-toggle--checkbox" data-validate-type="checkbox" data-required>
-                      <label>
-                        <input type="checkbox" value="user-agreement-1" name="user-agreement" required><span class="custom-toggle__icon"></span><span class="custom-toggle__label">Я даю согласие на обработку моих персональных данных</span>
-                      </label>
-                    </div>
-                  </fieldset>
-                </form>
-              </div>
-            </div>
+            <!--.footer__info-card-->
+            <!--  p.footer__title Подписаться на анонсы-->
+            <!--  +form([-->
+            <!--      {input: {type: "email", placeholder: "Введите ваш email"}},-->
+            <!--      {checkbox: {label: "Я даю согласие на обработку моих персональных данных"}}-->
+            <!--    ])-->
             <a class="link footer__link" href="https://academjazzclub.ru/get/297" aria-label="Пользовательское соглашение">Пользовательское соглашение
             </a>
             <a class="link footer__link" href="https://academjazzclub.ru/get/296" aria-label="Политика конфиденциальности">Политика конфиденциальности

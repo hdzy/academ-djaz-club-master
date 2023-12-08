@@ -6,7 +6,6 @@ function endLoad() {
   document.querySelector('.loader-wrapper').style = 'display: none';
 }
 
-
 function loadData() {
   startLoad();
   const req_body = {
@@ -67,7 +66,7 @@ function loadData() {
         document.querySelector('.page-title').innerHTML += `<p>${text.description}</p>`;
 
         document.querySelector('.contacts-map__wrapper').innerHTML = `
-                       <div class="page-title page-title--closer">
+                       <div class="page-title page-title--closer" id="ymap-title">
                     <h3 class="title title--h3">${other[0].title}</h3>
                   </div>
                   ${other[0].content}
@@ -125,6 +124,10 @@ function loadData() {
         // document.querySelector('.contacts-block__wrapper .grid').innerHTML = `
         //
         // `
+      if (window.location.href.indexOf('#map-scroll')) {
+        var element = document.getElementById("ymap-title");
+        element.scrollIntoView({behavior: "smooth"});
+      }
       endLoad();
       }
     );

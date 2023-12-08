@@ -12,18 +12,18 @@ let count = 0;
 const postsPerPage = 18;
 let currentPage = 1;
 const monthConfig = {
-  0: 'Январь',
-  1: 'Февраль',
-  2: 'Март',
-  3: 'Апрель',
-  4: 'Май',
-  5: 'Июнь',
-  6: 'Июль',
-  7: 'Август',
-  8: 'Сентябрь',
-  9: 'Октябрь',
-  10: 'Ноябрь',
-  11: 'Декабрь',
+  0: 'янв',
+  1: 'фев',
+  2: 'мар',
+  3: 'апр',
+  4: 'май',
+  5: 'июн',
+  6: 'июл',
+  7: 'авг',
+  8: 'сен',
+  9: 'окт',
+  10: 'ноя',
+  11: 'дек',
 };
 
 const weekConfig = {
@@ -61,14 +61,13 @@ function loadData() {
         document.title = data.title;
         document.querySelector('.page-title .title').innerHTML = data.title;
         document.querySelector('.page-title p').innerHTML = data.photo_description;
-        document.querySelector('.text-content').innerHTML = data.description;
+        document.querySelector('.text-content').innerHTML = data.description.replaceAll('<iframe', '<br><iframe');
         document.querySelector('.video-block').innerHTML = '';
         document.querySelector('.breadcrumbs__item:last-of-type').innerHTML = data.title;
         document.querySelector('.main-information__image picture').outerHTML = `<img src="https://academjazzclub.ru/images/afisha/pic/${data.photo_url}">`;
         document.querySelector('.main-information__image img').srcset = '';
         document.querySelector('.show-info:nth-of-type(2) .show-info__description').innerHTML = time;
-        document.querySelector('.show-info:nth-of-type(1) .show-info__description').innerHTML = monthConfig[date.getMonth()] + ' ' + date.getDate() + ', ' + weekConfig[date.getDay()];
-        document.querySelector('.show-info:nth-of-type(3) .show-info__description').innerHTML = data.place;
+        document.querySelector('.show-info:nth-of-type(1) .show-info__description').innerHTML = date.getDate() + ' ' + monthConfig[date.getMonth()] + ', ' + weekConfig[date.getDay()];
         if (date < now) {
           document.querySelector('.main-information__button').style.display = 'none';
         } else {
@@ -112,7 +111,7 @@ function loadData() {
                                 <svg width="26" height="26" aria-hidden="true">
                                     <use xlink:href="img/sprite.svg#icon-calendar"></use>
                                 </svg></span>
-                            <time class="text" datetime="${e.date}">${monthConfig[date.getMonth()] + ' ' + date.getDate() + ', ' + weekConfig[date.getDay()]}</time>
+                            <time class="text" datetime="${e.date}">${date.getDate() + monthConfig[date.getMonth()] + ' ' + ', ' + weekConfig[date.getDay()]}</time>
                             </a>
                             `
               }).join('')}
