@@ -61,50 +61,6 @@ function loadDataM() {
         let data = output;
         text = data.category_info;
         content = data.category_content;
-        const div = document.createElement('div');
-        div.style = `margin-bottom: 20px;`;
-        div.classList.add('pagination-container')
-        div.innerHTML = `
-          <div class="pagination">
-            <ul style="justify-content: center" class="pagination__list">
-              <li class="pagination__item pagination__item--arrow">
-                <a class="btn pagination__link pagination__link--prev" aria-label="Предыдущая страница" tabindex="-1"><span class="icon-wrapper">
-                            <svg width="16" height="8" aria-hidden="true">
-                              <use xlink:href="img/sprite.svg#icon-arrow-left"></use>
-                            </svg></span><span class="text"></span>
-                </a>
-              </li>
-
-              <li class="pagination__item">
-                <a class="btn pagination__link is-active" data-page="1" aria-label="Страница 1" tabindex="-1"><span class="text">1</span>
-                </a>
-              </li>
-
-              <li class="pagination__item">
-                <a class="btn pagination__link" data-page="2" aria-label="Страница 2" tabindex="-1"><span class="text">2</span>
-                </a>
-              </li>
-
-              <li class="pagination__item">
-                <a class="btn pagination__link" data-page="3" aria-label="Страница 3" tabindex="-1"><span class="text">3</span>
-                </a>
-              </li>
-
-              <li class="pagination__item">
-                <a class="btn pagination__link" data-page="4" aria-label="Страница 4" tabindex="-1"><span class="text">4</span>
-                </a>
-              </li>
-
-              <li class="pagination__item pagination__item--arrow">
-                <a class="btn pagination__link pagination__link--next" aria-label="Следующая страница" tabindex="0"><span class="icon-wrapper">
-                            <svg width="16" height="8" aria-hidden="true">
-                              <use xlink:href="img/sprite.svg#icon-arrow-right"></use>
-                            </svg></span><span class="text"></span>
-                </a>
-              </li>
-            </ul>
-          </div>`
-        document.querySelector('.page-section').after(div);
         document.querySelector('.breadcrumbs__item:last-of-type span').innerHTML = text.title;
       document.querySelector('.photos-content .container').innerHTML = `
                 <div class="page-title">
@@ -133,7 +89,7 @@ function loadDataM() {
               document.querySelector('.photos-content .container').innerHTML += `<div class="photos-content__wrapper">
                 <div class="page-title page-title--closer">
                   <h2 class="title title--h3 title--pink">
-                    ${titles[offset]}
+                    ${titles[offset].replaceAll("<iframe", "<br><iframe")}
                   </h2>
                 </div>
           <div class="slider swiper">
@@ -172,7 +128,7 @@ function loadDataM() {
             document.querySelector('.photos-content .container').innerHTML += `<div class="photos-content__wrapper">
                 <div class="page-title page-title--closer">
                   <h2 class="title title--h3 title--pink">
-                    ${titles[offset + 1]}
+                    ${titles[offset + 1].replaceAll("<iframe", "<br><iframe")}
                   </h2>
                 </div>
           <div class="slider swiper">
@@ -210,7 +166,7 @@ function loadDataM() {
             document.querySelector('.photos-content .container').innerHTML += `<div class="photos-content__wrapper">
                 <div class="page-title page-title--closer">
                   <h2 class="title title--h3 title--pink">
-                    ${titles[offset + 2]}
+                    ${titles[offset + 2].replaceAll("<iframe", "<br><iframe")}
                   </h2>
                 </div>
           <div class="slider swiper">
@@ -248,7 +204,7 @@ function loadDataM() {
             document.querySelector('.photos-content .container').innerHTML += `<div class="photos-content__wrapper">
                 <div class="page-title page-title--closer">
                   <h2 class="title title--h3 title--pink">
-                    ${titles[offset + 3]}
+                    ${titles[offset + 3].replaceAll("<iframe", "<br><iframe")}
                   </h2>
                 </div>
           <div class="slider swiper">
@@ -286,7 +242,7 @@ function loadDataM() {
             document.querySelector('.photos-content .container').innerHTML += `<div class="photos-content__wrapper">
                 <div class="page-title page-title--closer">
                   <h2 class="title title--h3 title--pink">
-                    ${titles[offset + 4]}
+                    ${titles[offset + 4].replaceAll("<iframe", "<br><iframe")}
                   </h2>
                 </div>
           <div class="slider swiper">
@@ -384,6 +340,8 @@ function updatePage(param) {
   document.querySelector(`*[data-page="${currentPage}"]`).classList.remove('is-active');
   currentPage = param + currentPage / 1;
   document.querySelector(`*[data-page="${currentPage}"]`).classList.add('is-active');
+  var element = document.getElementsByClassName("breadcrumbs")[0];
+  element.scrollIntoView({behavior: "smooth"});
 }
 
 function setPage(param) {
@@ -391,6 +349,8 @@ function setPage(param) {
   currentPage = param;
   document.querySelector(`*[data-page="${currentPage}"]`).classList.add('is-active');
   offset = (param - 1) * postsPerPage;
+  var element = document.getElementsByClassName("breadcrumbs")[0];
+  element.scrollIntoView({behavior: "smooth"});
   loadDataM();
 }
 

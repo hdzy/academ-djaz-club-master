@@ -124,7 +124,7 @@ function loadData() {
         // document.querySelector('.contacts-block__wrapper .grid').innerHTML = `
         //
         // `
-      if (window.location.href.indexOf('#map-scroll')) {
+      if (window.location.href.indexOf('#map-scroll') !== -1) {
         var element = document.getElementById("ymap-title");
         element.scrollIntoView({behavior: "smooth"});
       }

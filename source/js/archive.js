@@ -54,7 +54,7 @@ function loadDataM() {
                             <use xlink:href="img/sprite.svg#icon-calendar"></use>
                           </svg>
                         </div>
-                        <time class="date__time" datetime="2023-03-23 20:30">${events[i].date.substring(0, events[i].date.length - 3)}</time>
+                        <time class="date__time" datetime="2023-03-23 20:30">${events[i].date.substring(8, 10) + '.' + events[i].date.substring(5, 7) + '.' + events[i].date.substring(0, 4) + ' ' + events[i].date.substring(events[i].date.length - 8, events[i].date.length - 3)}</time>
                       </div>
                       <a href="artist.html?id=${events[i].artist_id}" class="title title--h3 title--no-text-transform show-card__title">${events[i].title}</a>
                       <p class="show-card__description">${events[i].description.substring(0, 50)}...</p>

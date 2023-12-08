@@ -2,7 +2,7 @@ let offset = 0;
 let count = 0;
 const postsPerPage = 5;
 let currentPage = 1;
-let isInit = false;
+let isInitF = false;
 const initSliderPhotos = () => {
   setTimeout(function () {
     document.querySelectorAll('.slider').forEach((slide) => {
@@ -263,17 +263,17 @@ function loadDataM() {
             initSliderPhotos();
           }
         }).catch((err) => {console.log('Ошибка: ' + err)});
-
-        if (!isInit) {
-          pagesInit(count);
-          isInit = true;
+        if (!isInitF) {
+          pagesInitF(count);
+          isInitF = true;
         }
         endLoad();
       }
     );
 }
 
-function pagesInit(count) {
+function pagesInitF(count) {
+  console.log(0)
   const pagesCount = Math.ceil(count / postsPerPage);
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
@@ -343,7 +343,6 @@ function setPage(param) {
 
 
 function getPhotos(id) {
-
   const req_body = {
     id: id,
   };

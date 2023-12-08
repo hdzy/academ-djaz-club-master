@@ -41,7 +41,6 @@ function loadDataM() {
         const path = document.querySelector('.show-cards-section .container .grid');
         path.innerHTML = '';
         for (let i = 0; i < events.length; i++) {
-          console.log(events[i].date)
           const element = `<div class="show-card">
                     <div class="show-card__img">
                       <img src="https://academjazzclub.ru/images/afisha/th/${events[i]['photo_url']}" width="400" height="264" alt="Фотография исполнителя">
@@ -60,7 +59,7 @@ function loadDataM() {
                       <p class="show-card__links">
                         <a class="btn show-card__btn" href="show.html?id=${events[i].id}" aria-label="Перейти на страницу события.">Подробнее
                         </a>
-                        <a class="btn btn--magenta show-card__btn card-id-${events[i]['ep_id']}" aria-label="Перейти к покупке билетов.">Купить билет
+                        <a class="btn btn--magenta show-card__btn js-unifd-trigger-link" data-unifd-performance-id="${events[i].ep_id}" aria-label="Перейти к покупке билетов.">Купить билет
                         </a>
                       </p>
                     </div>

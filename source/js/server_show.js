@@ -71,7 +71,8 @@ function loadData() {
         if (date < now) {
           document.querySelector('.main-information__button').style.display = 'none';
         } else {
-          document.querySelector('.main-information__button a').href = `https://pankova.edinoepole.ru/api/v1/pages/default_landing_page?unifd-performance-id=${data['ep_id']}`;
+          document.querySelector('.main-information__button a').setAttribute('data-unifd-performance-id', `${data['ep_id']}`)
+          document.querySelector('.main-information__button a').classList.add('js-unifd-trigger-link')
           document.querySelector('.main-information__button a').target = '_blank';
         }
         const x = `<a class="btn btn--white-middle" href="#"><span class="icon-wrapper">
@@ -111,7 +112,7 @@ function loadData() {
                                 <svg width="26" height="26" aria-hidden="true">
                                     <use xlink:href="img/sprite.svg#icon-calendar"></use>
                                 </svg></span>
-                            <time class="text" datetime="${e.date}">${date.getDate() + monthConfig[date.getMonth()] + ' ' + ', ' + weekConfig[date.getDay()]}</time>
+                            <time class="text" datetime="${e.date}">${date.getDate() + ' ' + monthConfig[date.getMonth()] + ', ' + weekConfig[date.getDay()]}</time>
                             </a>
                             `
               }).join('')}

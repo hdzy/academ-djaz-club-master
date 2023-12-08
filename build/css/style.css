@@ -5072,6 +5072,8 @@ button,
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 .pagination__item {
   width: -webkit-fit-content;
@@ -5296,7 +5298,7 @@ button,
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: -16px 20px 0 15px;
+  margin: -16px 20px 0 auto;
   padding: 0;
   list-style: none;
 }

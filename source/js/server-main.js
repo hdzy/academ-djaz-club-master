@@ -84,43 +84,14 @@ function loadData() {
   headers.append('Access-Control-Allow-Origin', '*');
   headers.append('Access-Control-Allow-Credentials', 'true');
 
-
   // headers.append('Authorization', 'Basic ' + btoa('admin:FDSart484562'));
-  fetch('https://api.academjazzclub.ru/api/v1/get-setting', {
-    method: 'GET',
-    headers,
-  })
-      .then((res) => res.json())
-      .then((output) => {
-        let data = output;
-        document.addEventListener('DOMContentLoaded', () => {
-          document.title = data.site_title;
-          document.body.innerHTML = document.body.innerHTML.replaceAll('academjazz@gmail.com', data.site_email).replaceAll('+7 (495) 532-47-23', data.site_phone).replaceAll('+74955324723', data.site_phone).replaceAll('74955324723', data.site_phone) + data.metrics_conters;
-          document.head.innerHTML = document.head.innerHTML.replaceAll('academjazz@gmail.com', data.site_email).replaceAll('+7 (495) 532-47-23', data.site_phone).replaceAll('+74955324723', data.site_phone).replaceAll('74955324723', data.site_phone) + data.site_metatags + `<!-- Top.Mail.Ru counter -->
-<script type="text/javascript">
-var _tmr = window._tmr || (window._tmr = []);
-_tmr.push({id: "3416535", type: "pageView", start: (new Date()).getTime()});
-(function (d, w, id) {
-  if (d.getElementById(id)) return;
-  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
-  ts.src = "https://top-fwz1.mail.ru/js/code.js";
-  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
-  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
-})(document, window, "tmr-code");
-</script>
-<noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3416535;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
-<!-- /Top.Mail.Ru counter -->
-`;
-        });
-      }
-      );
 
   fetch('https://api.academjazzclub.ru/api/v1/get-categories', {
     method: 'POST',
     headers,
   })
-      .then((res) => res.json())
-      .then((output) => {
+    .then((res) => res.json())
+    .then((output) => {
         let data = output;
         console.log(data);
         document.querySelector('.nav__list').innerHTML = '';
@@ -140,22 +111,38 @@ _tmr.push({id: "3416535", type: "pageView", start: (new Date()).getTime()});
                           </a>
                         </li>
                         ${e['children'].map((e) => {
-                          if (e.id == 186) return;
-    return `<li class="nav__subitem">
+              if (e.id == 186) return;
+              return `<li class="nav__subitem">
                           <a class="link nav__link nav__link--sublink" href="${pagesInfo.find(el => el.id === e.id)?.link || `template.html?id=${e.id}`}" tabindex="-1">${e.title}
                           </a>
                         </li>`;
-  }).join('')}
+            }).join('')}
                       </ul>
                     </div>
                   </div>
                 </li>`;
           } else {
-            document.querySelector('.nav__list').innerHTML += `<li class="nav__item"><a class="link nav__link" href="${pagesInfo.find(el => el.id === e.id)?.link || `template.html?id=${e.id === 219 ? 218 : e.id}`}">${e.title}</a></li>`;
+            if (e.id == 219) return;
+            document.querySelector('.nav__list').innerHTML += `<li class="nav__item"><a class="link nav__link" href="${pagesInfo.find(el => el.id === e.id)?.link || `template.html?id=${e.id}`}">${e.title}</a></li>`;
           }
         });
       }
-      );
+    );
+
+  fetch('https://api.academjazzclub.ru/api/v1/get-setting', {
+    method: 'GET',
+    headers,
+  })
+    .then((res) => res.json())
+    .then((output) => {
+      window.addEventListener('DOMContentLoaded', () => {
+        let data = output;
+        document.title = data.site_title;
+        document.body.innerHTML = document.body.innerHTML.replaceAll('academjazz@gmail.com', data.site_email).replaceAll('+7 (495) 532-47-23', data.site_phone).replaceAll('+74955324723', data.site_phone).replaceAll('74955324723', data.site_phone) + data.metrics_conters;
+        document.head.innerHTML = document.head.innerHTML.replaceAll('academjazz@gmail.com', data.site_email).replaceAll('+7 (495) 532-47-23', data.site_phone).replaceAll('+74955324723', data.site_phone).replaceAll('74955324723', data.site_phone) + data.site_metatags;
+       })
+       }
+    );
 }
 fetch('https://api.academjazzclub.ru/api/v1/get-events-list', {
   method: 'POST',
@@ -171,15 +158,15 @@ fetch('https://api.academjazzclub.ru/api/v1/get-events-list', {
 })
   .then((res) => res.json())
   .then((output) => {
-    let data = output.events;
+      let data = output.events;
       console.log(output)
       if (data) {
         if (document.querySelector('.soon-on-stage')) {
           document.querySelector('.soon-on-stage .show-cards-section .container .grid').innerHTML =
             `
               ${data.map((e) => {
-                const date = new Date(e.date);
-                return `
+              const date = new Date(e.date);
+              return `
                 <div class="show-card">
                     <div class="show-card__img">
                         <img src="https://academjazzclub.ru/images/afisha/th/${e.photo_url}" width="400" height="264" alt="Фотография исполнителя">
@@ -198,7 +185,7 @@ fetch('https://api.academjazzclub.ru/api/v1/get-events-list', {
                       <p class="show-card__links">
                         <a class="btn show-card__btn" href="show.html?id=${e.id}" aria-label="Перейти на страницу события.">Подробнее
                         </a>
-                        <a class="btn btn--magenta show-card__btn" data-id="${e['ep_id']}" aria-label="Перейти к покупке билетов.">Купить билет
+                        <a class="btn btn--magenta show-card__btn js-unifd-trigger-link" data-unifd-performance-id="${e['ep_id']}" aria-label="Перейти к покупке билетов.">Купить билет
                         </a>
                       </p>
                     </div>
@@ -209,25 +196,23 @@ fetch('https://api.academjazzclub.ru/api/v1/get-events-list', {
       }
     }
   );
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  setInterval(() => {
-    function ticket() {
-      document.querySelectorAll('.show-card__btn.btn--magenta').forEach((e) => e.addEventListener('click', (e) => {
-        const id = e.target.dataset['id'];
-        document.body.innerHTML += `
-        <div class="unifd">
-            <div class="unifd__in">
-                <iframe src="https://pankova.edinoepole.ru/api/v1/pages/default_landing_page?unifd-performance-id=${id}" frameborder="no" scrolling="no" class="unifd__frame" ,="" id="unifd__frame" data-gtm-yt-inspected-8399948_38="true" data-gtm-yt-inspected-14="true" style="height: 700px;">
-                </iframe>
-                <a style="cursor: pointer" onclick="document.body.removeChild(document.querySelector('.unifd'))" class="js-unifd-close unifd__close">X</a>
-            </div>
-        </div>`
-      }));
-    }
-    ticket();
-
-
-  }, 2000)
-})
+// document.addEventListener('DOMContentLoaded', () => {
+//   setInterval(() => {
+//     function ticket() {
+//       document.querySelectorAll('.show-card__btn.btn--magenta').forEach((e) => e.addEventListener('click', (e) => {
+//         const id = e.target.dataset['id'];
+//         document.body.innerHTML += `
+//         <div class="unifd">
+//             <div class="unifd__in">
+//                 <iframe src="https://pankova.edinoepole.ru/api/v1/pages/default_landing_page?unifd-performance-id=${id}" frameborder="no" scrolling="no" class="unifd__frame" ,="" id="unifd__frame" data-gtm-yt-inspected-8399948_38="true" data-gtm-yt-inspected-14="true" style="height: 700px;">
+//                 </iframe>
+//                 <a style="cursor: pointer" onclick="document.body.removeChild(document.querySelector('.unifd'))" class="js-unifd-close unifd__close">X</a>
+//             </div>
+//         </div>`
+//       }));
+//     }
+//     ticket();
+//
+//
+//   }, 2000)
+// })
