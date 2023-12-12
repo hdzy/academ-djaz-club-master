@@ -35,7 +35,6 @@ function loadDataM() {
       .then((res) => res.json())
       .then((output) => {
         let data = output;
-        console.log(data)
         count = data.paging.total_count;
         const events = data.events;
         const path = document.querySelector('.show-cards-section .container .grid');

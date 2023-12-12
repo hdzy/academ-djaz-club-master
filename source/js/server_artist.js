@@ -11,6 +11,7 @@ let offset = 0;
 let count = 0;
 const postsPerPage = 18;
 let currentPage = 1;
+let isInit = false;
 
 loadData();
 function loadData() {
@@ -28,11 +29,11 @@ function loadData() {
   })
     .then((res) => res.json())
     .then((output) => {
+      count = output.paging.total_count;
       let data = output;
       const artists = data.artists;
       const path = document.querySelector('.artist-cards .container .grid');
       path.innerHTML = '';
-      console.log(artists)
       if (artists.length < 18) {
         document.querySelector('.pagination').style.display = 'none';
       }
@@ -54,12 +55,15 @@ function loadData() {
                   </div>`;
         path.innerHTML += element;
       }
+      if (!isInit) {
+        pagesInit(count);
+        isInit = true;
+      }
       endLoad();
     });
 }
 
-
-window.addEventListener('load', () => {
+function pagesInit(count) {
   const pagesCount = Math.ceil(count / postsPerPage);
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
@@ -90,28 +94,40 @@ window.addEventListener('load', () => {
   `;
   document.querySelector(`*[data-page="${currentPage}"]`).classList.add('is-active');
 
-
   document.querySelector('.pagination__link--next').addEventListener('click', (e) => {
     if (offset + postsPerPage < count) {
       offset += postsPerPage;
-      loadData();
       updatePage(1);
+      loadData();
     }
   });
 
   document.querySelector('.pagination__link--prev').addEventListener('click', (e) => {
     if (offset - postsPerPage >= 0) {
       offset -= postsPerPage;
-      loadData();
       updatePage(-1);
+      loadData();
     }
   });
-});
+
+  document.querySelectorAll('.pagination__link[data-page]').forEach((e) => {
+    e.addEventListener('click', (e) => {
+      setPage(e.target.dataset['page'] || e.target.parentNode.dataset['page']);
+    })
+  })
+};
+
 
 function updatePage(param) {
   document.querySelector(`*[data-page="${currentPage}"]`).classList.remove('is-active');
-  currentPage = param + currentPage;
-  console.log(currentPage);
+  currentPage = param + currentPage / 1;
   document.querySelector(`*[data-page="${currentPage}"]`).classList.add('is-active');
 }
 
+function setPage(param) {
+  document.querySelector(`*[data-page="${currentPage}"]`).classList.remove('is-active');
+  currentPage = param;
+  document.querySelector(`*[data-page="${currentPage}"]`).classList.add('is-active');
+  offset = (param - 1) * postsPerPage;
+  loadData();
+}
