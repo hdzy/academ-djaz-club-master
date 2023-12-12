@@ -3,19 +3,20 @@ loadData();
 
 
 const monthConfig = {
-  0: 'Январь',
-  1: 'Февраль',
-  2: 'Март',
-  3: 'Апрель',
-  4: 'Май',
-  5: 'Июнь',
-  6: 'Июль',
-  7: 'Август',
-  8: 'Сентябрь',
-  9: 'Октябрь',
-  10: 'Ноябрь',
-  11: 'Декабрь',
+  0: 'янв',
+  1: 'фев',
+  2: 'мар',
+  3: 'апр',
+  4: 'май',
+  5: 'июн',
+  6: 'июл',
+  7: 'авг',
+  8: 'сен',
+  9: 'окт',
+  10: 'ноя',
+  11: 'дек',
 };
+
 const weekConfig = {
   0: 'пн',
   1: 'вт',
@@ -93,7 +94,6 @@ function loadData() {
     .then((res) => res.json())
     .then((output) => {
         let data = output;
-        console.log(data);
         document.querySelector('.nav__list').innerHTML = '';
         data['category_tree'].forEach((e) => {
           if (e['children'].length > 0) {
@@ -150,7 +150,7 @@ fetch('https://api.academjazzclub.ru/api/v1/get-events-list', {
     "Content-Type": "application/json",
   },
   body: JSON.stringify({
-    "limit":4,
+    "limit":3,
     "offset":0,
     "history":false,
     "sort_order": "1"
@@ -159,17 +159,21 @@ fetch('https://api.academjazzclub.ru/api/v1/get-events-list', {
   .then((res) => res.json())
   .then((output) => {
       let data = output.events;
-      console.log(output)
       if (data) {
         if (document.querySelector('.soon-on-stage')) {
           document.querySelector('.soon-on-stage .show-cards-section .container .grid').innerHTML =
             `
               ${data.map((e) => {
               const date = new Date(e.date);
+              let now = new Date;
+              let time = date.getHours() + ':' + date.getMinutes();
+              if (time.length < 5) {
+                time += '0';
+              }
               return `
                 <div class="show-card">
                     <div class="show-card__img">
-                        <img src="https://academjazzclub.ru/images/afisha/th/${e.photo_url}" width="400" height="264" alt="Фотография исполнителя">
+                        <img src="https://academjazzclub.ru/images/afisha/pic/${e.photo_url}" width="400" height="264" alt="Фотография исполнителя">
                     </div>
                     <div class="show-card__content">
                       <div class="date show-card__date">
@@ -178,9 +182,9 @@ fetch('https://api.academjazzclub.ru/api/v1/get-events-list', {
                             <use xlink:href="img/sprite.svg#icon-calendar"></use>
                           </svg>
                         </div>
-                        <time class="date__time" datetime="${e.date}">${monthConfig[date.getMonth()] + ' ' + date.getDate() + ', ' + weekConfig[date.getDay()]}</time>
+                        <time class="date__time" datetime="${e.date}">${date.getDate() + ' ' + monthConfig[date.getMonth()] + ', ' + weekConfig[date.getDay()] + ' ' + time}</time>
                       </div>
-                      <a href="artist.html" class="title title--h3 title--no-text-transform show-card__title">${e.title}</a>
+                      <a href="${e.artist_id != 0 ? "/artist.html?id=" + e.artist_id : '#'}" class="title title--h3 title--no-text-transform show-card__title">${e.title}</a>
                       <p class="show-card__description">${e.description.replaceAll('<b>', '').replaceAll('</b>', '').substring(0, 50)}...</p>
                       <p class="show-card__links">
                         <a class="btn show-card__btn" href="show.html?id=${e.id}" aria-label="Перейти на страницу события.">Подробнее
@@ -196,23 +200,14 @@ fetch('https://api.academjazzclub.ru/api/v1/get-events-list', {
       }
     }
   );
-// document.addEventListener('DOMContentLoaded', () => {
-//   setInterval(() => {
-//     function ticket() {
-//       document.querySelectorAll('.show-card__btn.btn--magenta').forEach((e) => e.addEventListener('click', (e) => {
-//         const id = e.target.dataset['id'];
-//         document.body.innerHTML += `
-//         <div class="unifd">
-//             <div class="unifd__in">
-//                 <iframe src="https://pankova.edinoepole.ru/api/v1/pages/default_landing_page?unifd-performance-id=${id}" frameborder="no" scrolling="no" class="unifd__frame" ,="" id="unifd__frame" data-gtm-yt-inspected-8399948_38="true" data-gtm-yt-inspected-14="true" style="height: 700px;">
-//                 </iframe>
-//                 <a style="cursor: pointer" onclick="document.body.removeChild(document.querySelector('.unifd'))" class="js-unifd-close unifd__close">X</a>
-//             </div>
-//         </div>`
-//       }));
-//     }
-//     ticket();
-//
-//
-//   }, 2000)
-// })
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.pagination__list').forEach((e) => {
+      e.addEventListener('click', () => window.scrollTo({
+        top: 100,
+        behavior: "smooth",
+      }))
+    })
+})

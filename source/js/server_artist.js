@@ -34,14 +34,11 @@ function loadData() {
       const artists = data.artists;
       const path = document.querySelector('.artist-cards .container .grid');
       path.innerHTML = '';
-      if (artists.length < 18) {
-        document.querySelector('.pagination').style.display = 'none';
-      }
       for (let i = 0; i < artists.length; i++) {
         const element = `<div class="show-actor">
                     <div class="show-actor__img">
                       <picture>
-                        <img src="https://academjazzclub.ru/images/artists/th/${artists[i].photo_url}" width="400" height="264" alt="Фотография исполнителя">
+                        <img src="https://academjazzclub.ru/images/artists/pic/${artists[i].photo_url}" width="400" height="264" alt="Фотография исполнителя">
                       </picture>
                     </div>
                     <div class="show-actor__content">

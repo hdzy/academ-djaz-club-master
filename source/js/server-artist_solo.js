@@ -50,13 +50,7 @@ function loadData() {
     .then((res) => res.json())
     .then((output) => {
       let data = output.artist;
-      console.log(data)
-      // const date = new Date(data.date);
-      // let time = date.getHours() + ':' + date.getMinutes();
-      // if (time.length < 5) {
-      //   time += '0';
-      // }
-
+      document.title = data.title.replaceAll('&quot;', '');
       let div = document.createElement('div');
       div.innerHTML = data.description;
       video = [...div.querySelectorAll('iframe')].map((e) => '<div class="video-card">' + e.outerHTML + '</div>').join('');
@@ -67,12 +61,7 @@ function loadData() {
       document.querySelector('.page-title h1').innerHTML = data.title;
       document.querySelector('.breadcrumbs__item:last-of-type span').innerHTML = data.title;
       document.querySelector('.main-information__image').innerHTML = `<img src="https://academjazzclub.ru/images/artists/pic/${data.photo_url}" width="400" height="264" alt="Фотография исполнителя">`
-      // const x = `<a class="btn btn--white-middle" href="#"><span class="icon-wrapper">
-      //                 <svg width="26" height="26" aria-hidden="true">
-      //                   <use xlink:href="img/sprite.svg#icon-calendar"></use>
-      //                 </svg></span>
-      //               <time class="text" datetime="2023-04-08 20:30">8 апр, сб 20:30</time>
-      //             </a>`;
+
       endLoad();
     });
 

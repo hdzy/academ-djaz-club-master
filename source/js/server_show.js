@@ -50,7 +50,6 @@ function loadData() {
       .then((res) => res.json())
       .then((output) => {
         let data = output.event;
-        console.log(output);
         const artist = data.artist_id;
         const date = new Date(data.date);
         let now = new Date;

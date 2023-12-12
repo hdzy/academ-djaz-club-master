@@ -30,7 +30,7 @@ mixin header(headerMods, currentUrl)
 
   header.header.header--sticky(class=headerMods, data-header="sticky", data-scroll-lock-fill-gap)
     .container
-      .header__button.header__button--search
+      .header__button.header__button--search(style="display: none;")
         button.header__toggle.header__toggle--search(type="button", aria-pressed="false", aria-label="Переключатель отображения поиска", data-open-modal="search")
           +icon("icon-search", "20", "20")
       +logo({name: "logo", width: "161", height: "72", currentUrl}).header__logo

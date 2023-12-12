@@ -6,6 +6,30 @@ function endLoad() {
   document.querySelector('.loader-wrapper').style = 'display: none';
 }
 
+const monthConfig = {
+  0: 'янв',
+  1: 'фев',
+  2: 'мар',
+  3: 'апр',
+  4: 'май',
+  5: 'июн',
+  6: 'июл',
+  7: 'авг',
+  8: 'сен',
+  9: 'окт',
+  10: 'ноя',
+  11: 'дек',
+};
+
+const weekConfig = {
+  0: 'пн',
+  1: 'вт',
+  2: 'ср',
+  3: 'чт',
+  4: 'пт',
+  5: 'сб',
+  6: 'вс',
+}
 
 let offset = 0;
 let count = 0;
@@ -36,13 +60,20 @@ function loadDataM() {
       .then((output) => {
         let data = output;
         count = data.paging.total_count;
+        console.log(data)
         const events = data.events;
         const path = document.querySelector('.show-cards-section .container .grid');
         path.innerHTML = '';
         for (let i = 0; i < events.length; i++) {
+          const date = new Date(events[i].date);
+          let now = new Date;
+          let time = date.getHours() + ':' + date.getMinutes();
+          if (time.length < 5) {
+            time += '0';
+          }
           const element = `<div class="show-card">
                     <div class="show-card__img">
-                      <img src="https://academjazzclub.ru/images/afisha/th/${events[i]['photo_url']}" width="400" height="264" alt="Фотография исполнителя">
+                      <img src="https://academjazzclub.ru/images/afisha/pic/${events[i]['photo_url']}" width="400" height="264" alt="Фотография исполнителя">
                     </div>
                     <div class="show-card__content">
                       <div class="date show-card__date">
@@ -51,10 +82,10 @@ function loadDataM() {
                             <use xlink:href="img/sprite.svg#icon-calendar"></use>
                           </svg>
                         </div>
-                        <time class="date__time" datetime="2023-03-23 20:30">${events[i].date.substring(8, 10) + '.' + events[i].date.substring(5, 7) + '.' + events[i].date.substring(0, 4) + ' ' + events[i].date.substring(events[i].date.length - 8, events[i].date.length - 3)}</time>
+                        <time class="date__time" datetime="2023-03-23 20:30">${date.getDate() + ' ' + monthConfig[date.getMonth()] + ', ' + weekConfig[date.getDay()] + ' ' + time}</time>
                       </div>
-                      <a class="title title--h3 title--no-text-transform show-card__title">${events[i].title}</a>
-                      <p class="show-card__description">${events[i].description.substring(0, 50)}...</p>
+                      <a href="${events[i].artist_id != 0 ? "/artist.html?id=" + events[i].artist_id: '#'}" class="title title--h3 title--no-text-transform show-card__title">${events[i].title}</a>
+                      <a class="show-card__description">${events[i].description.substring(0, 50)}...</a>
                       <p class="show-card__links">
                         <a class="btn show-card__btn" href="show.html?id=${events[i].id}" aria-label="Перейти на страницу события.">Подробнее
                         </a>
