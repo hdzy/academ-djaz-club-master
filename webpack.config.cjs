@@ -22,6 +22,7 @@ module.exports = {
     serverbeverages: './js/server-beverages.js',
     servercontact: './js/server-contacts.js',
     servermain: './js/server-main.js',
+    schema: './js/schema.js',
     serverpartners: './js/server-partners.js',
     serverphotos: './js/server-photos.js',
     serverartist: './js/server_artist.js',

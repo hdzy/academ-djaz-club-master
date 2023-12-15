@@ -75,6 +75,10 @@ const pagesInfo = [
     id: 180,
     link: 'contacts.html',
   },
+  {
+    id: 185,
+    link: 'schema.html',
+  }
 ];
 function loadData() {
   let headers = new Headers();
